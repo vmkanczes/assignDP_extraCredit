@@ -14,13 +14,6 @@ public class TestDesignPatterns {
 
     public static void main(String[] args) {
 
-        // build a hive
-        HiveBuilder germanHive = new GermanHiveBuilder();
-        HiveDirector hiveDirector = new HiveDirector(germanHive);
-        hiveDirector.makeHive();
-        
-        Hive newHive = hiveDirector.getHive();
-        
         // build a spawning room
         RoomBuilder spawningRoom = new SpawnRoomBuilder();
         RoomDirector spawnRoomDirector = new RoomDirector(spawningRoom);
@@ -35,8 +28,6 @@ public class TestDesignPatterns {
         
         Room newRestRoom = restRoomDirector.getRoom();
         
-        System.out.println("Bee Hive built");
-        System.out.println("Hive Type: " + newHive.getType());
         System.out.println("New Spawning Room: " + newSpawnRoom.getType());
         System.out.println("New Resting Room: " + newRestRoom.getType());
 
