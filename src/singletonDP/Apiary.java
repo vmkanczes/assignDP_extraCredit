@@ -1,6 +1,6 @@
 package singletonDP;
 
-import hiveBuilder.Hive;
+import builder.Hive;
 
 class Apiary {
 

@@ -1,4 +1,4 @@
-package hiveBuilder;
+package builder;
 
 public class HiveDirector {
 
@@ -15,7 +15,6 @@ public class HiveDirector {
     public void makeHive() {
         
         // TODO need to create room builder and bee builder
-        //this.hiveBuilder.buildBee(beeBuilder);
         //this.hiveBuilder.buildRoom(roomBuilder);
     }
 }

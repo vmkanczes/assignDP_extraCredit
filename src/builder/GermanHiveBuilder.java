@@ -1,4 +1,4 @@
-package hiveBuilder;
+package builder;
 
 public class GermanHiveBuilder implements HiveBuilder {
 
@@ -14,13 +14,14 @@ public class GermanHiveBuilder implements HiveBuilder {
     }
 
     @Override
-    public void buildBee(Object b) {
-        hive.setBee(b);
+    public void buildHive(Object r) {
+        hive.setType("German");        
     }
-
+    
     @Override
     public Hive getHive() {
         return this.hive;
     }
+
 
 }
