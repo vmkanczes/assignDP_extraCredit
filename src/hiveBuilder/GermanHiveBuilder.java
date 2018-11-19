@@ -18,4 +18,9 @@ public class GermanHiveBuilder implements HiveBuilder {
         hive.setBee(b);
     }
 
+    @Override
+    public Hive getHive() {
+        return this.hive;
+    }
+
 }
