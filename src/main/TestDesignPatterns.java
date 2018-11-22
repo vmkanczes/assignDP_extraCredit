@@ -1,17 +1,16 @@
 package main;
 
-import builder.BroodRoomBuilder;
-import builder.RestRoomBuilder;
-import builder.Room;
-import builder.RoomBuilder;
-import builder.RoomDirector;
+import builder.BroodRoomBuilderImpl;
+import builder.IRoomBuilder;
+import builder.RestRoomBuilderImpl;
+import builder.RoomBuildDirector;
 
 public class TestDesignPatterns {
 
     public static void main(String[] args) {
 
-        // build a spawning room
-        RoomBuilder broodRoom = new BroodRoomBuilder();
+        // build hive
+        /*RoomBuilder broodRoom = new BroodRoomBuilder();
         RoomDirector broodRoomDirector = new RoomDirector(broodRoom);
         broodRoomDirector.makeRoom();
         
@@ -31,9 +30,16 @@ public class TestDesignPatterns {
         System.out.println("New Brood Room: " + broodRoom2.getType());
         System.out.println("New Rest Room: " + restRoom1.getType());
         System.out.println("New Rest Room: " + restRoom2.getType());
-
-
-
+*/
+        // Build a brood room
+        final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
+        final RoomBuildDirector BroodBuildDirector = new RoomBuildDirector(broodBuilder);
+        System.out.println(BroodBuildDirector.construct());
+        
+        // Build a rest room
+        final IRoomBuilder restBuilder = new RestRoomBuilderImpl();
+        final RoomBuildDirector RestBuildDirector = new RoomBuildDirector(restBuilder);
+        System.out.println(RestBuildDirector.construct());
     }
 
 }
