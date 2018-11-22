@@ -3,8 +3,8 @@ package builder;
 public class Hive implements HivePlan {
 
     private Object room;
-    private String type;
-
+    private HiveType type;
+    
     @Override
     public void setRoom(Object r) {
         room = r;
@@ -14,13 +14,11 @@ public class Hive implements HivePlan {
         return room;
     }
 
-    
-    @Override
-    public void setType(String t) {
-        type = t;
+    public void setType(HiveType val) {
+        this.type = val;
     }
     
-    public String getType() {
+    public HiveType getType() {
         return type;
     }
     

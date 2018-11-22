@@ -15,13 +15,11 @@ public class GermanHiveBuilder implements HiveBuilder {
 
     @Override
     public void buildHive(Object r) {
-        hive.setType("German");        
-    }
+        hive.setType(HiveType.GERMAN);    }
     
     @Override
     public Hive getHive() {
         return this.hive;
     }
-
 
 }

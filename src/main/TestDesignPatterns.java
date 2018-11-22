@@ -15,17 +15,23 @@ public class TestDesignPatterns {
         RoomDirector broodRoomDirector = new RoomDirector(broodRoom);
         broodRoomDirector.makeRoom();
         
-        Room newBroodRoom = broodRoomDirector.getRoom();
+        Room broodRoom1 = broodRoomDirector.getRoom();
+        Room broodRoom2 = broodRoomDirector.getRoom();
         
      // build a rest/feed room
         RoomBuilder restRoom = new RestRoomBuilder();
         RoomDirector restRoomDirector = new RoomDirector(restRoom);
         restRoomDirector.makeRoom();
         
-        Room newRestRoom = restRoomDirector.getRoom();
+        Room restRoom1 = restRoomDirector.getRoom();
+        Room restRoom2 = restRoomDirector.getRoom();
+
         
-        System.out.println("New Brood Room: " + newBroodRoom.getType());
-        System.out.println("New Rest Room: " + newRestRoom.getType());
+        System.out.println("New Brood Room: " + broodRoom1.getType());
+        System.out.println("New Brood Room: " + broodRoom2.getType());
+        System.out.println("New Rest Room: " + restRoom1.getType());
+        System.out.println("New Rest Room: " + restRoom2.getType());
+
 
 
     }

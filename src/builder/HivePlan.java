@@ -2,7 +2,7 @@ package builder;
 
 public interface HivePlan {
     
-    public void setType(String hiveType);  
+    public void setType(HiveType val);  
 
     public void setRoom(Object room);
     
