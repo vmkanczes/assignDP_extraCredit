@@ -1,10 +1,6 @@
 package main;
 
 import builder.BroodRoomBuilderImpl;
-import builder.GermanHiveBuilder;
-import builder.Hive;
-import builder.HiveBuilder;
-import builder.HiveDirector;
 import builder.HiveType;
 import builder.IRoomBuilder;
 import builder.RestRoomBuilderImpl;

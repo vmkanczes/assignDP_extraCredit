@@ -3,16 +3,20 @@ package singletonDP;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import builder.BuckfastHiveBuilder;
-import builder.CarniolanHiveBuilder;
-import builder.CaucasianHiveBuilder;
-import builder.GermanHiveBuilder;
+
 import builder.Hive;
-import builder.HiveBuilder;
-import builder.HiveDirector;
+import builder.IHiveBuilder;
+import builder.IRoomBuilder;
+import builder.HiveBuildDirector;
 import builder.HiveType;
-import builder.ItalianHiveBuilder;
-import builder.RussianHiveBuilder;
+import builder.ItalianHiveBuilderImpl;
+import builder.RoomBuildDirector;
+import builder.RussianHiveBuilderImpl;
+import builder.BroodRoomBuilderImpl;
+import builder.BuckfastHiveBuilderImpl;
+import builder.CarniolanHiveBuilderImpl;
+import builder.CaucasianHiveBuilderImpl;
+import builder.GermanHiveBuilderImpl;
 
 public class Apiary {
 
@@ -45,45 +49,42 @@ public class Apiary {
 
         System.out.println("Building a new hive of type: " + hiveType);
 
-        HiveBuilder myHiveBuilder = null;
+        IHiveBuilder myHiveBuilder = null;
         switch (hiveType) {
         case ITALIAN:
-            myHiveBuilder = new ItalianHiveBuilder();
+             myHiveBuilder = new ItalianHiveBuilderImpl();
 
             break;
         case CARNIOLAN:
-            myHiveBuilder = new CarniolanHiveBuilder();
+            myHiveBuilder = new CarniolanHiveBuilderImpl();
             break;
         case BUCKFAST:
-            myHiveBuilder = new BuckfastHiveBuilder();
-            System.out.println("Building BUCKFAST");
+            myHiveBuilder = new BuckfastHiveBuilderImpl();
             break;
         case RUSSIAN:
-            myHiveBuilder = new RussianHiveBuilder();
+            myHiveBuilder = new RussianHiveBuilderImpl();
             break;
         case GERMAN:
-            myHiveBuilder = new GermanHiveBuilder();
+            myHiveBuilder = new GermanHiveBuilderImpl();
             break;
         case CAUCASIAN:
-            myHiveBuilder = new CaucasianHiveBuilder();
+             myHiveBuilder = new CaucasianHiveBuilderImpl();
             break;
         default:
             System.out.println("No such hive...");
         }
-        // build a hive
-        HiveDirector hiveDirector = new HiveDirector(myHiveBuilder);
-        hiveDirector.makeHive();
-        Hive newHive = hiveDirector.getHive();
-        hives.add(newHive);
-        String x = Arrays.toString(hives.toArray());
-        System.out.println("My hives: " + x);
+        
+        //final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
+        final HiveBuildDirector hiveBuildDirector = new HiveBuildDirector(myHiveBuilder);        
+        hives.add(hiveBuildDirector.construct());
+        System.out.println("My hives: " + Arrays.toString(hives.toArray()));
 
     }
 
     public void getHives() {
         // let us print all the elements available in list
         for (Hive hive : hives) {
-            System.out.println("Hive = " + hive.toString());
+            System.out.println("getHives = " + hive.toString());
         }
     }
 

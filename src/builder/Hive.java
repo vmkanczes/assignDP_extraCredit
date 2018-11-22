@@ -1,31 +1,20 @@
 package builder;
 
-public class Hive implements HivePlan {
+public class Hive {
 
-    private Object room;
     private HiveType type;
     
-    @Override
-    public void setRoom(Object r) {
-        room = r;
-    }
-
-    public Object getRoom() {
-        return room;
+    public HiveType getType() {
+        return type;
     }
 
     public void setType(HiveType val) {
         this.type = val;
     }
     
-    public HiveType getType() {
-        return type;
-    }
-    
     @Override
     public String toString() {
         return "Hive  = " + getType();
     }
-
     
 }
