@@ -22,4 +22,10 @@ public class Hive implements HivePlan {
         return type;
     }
     
+    @Override
+    public String toString() {
+        return "Hive  = " + getType();
+    }
+
+    
 }

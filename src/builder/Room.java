@@ -13,7 +13,6 @@ public class Room {
     }
     
     @Override
-    // unnecessary
     public String toString() {
         return "Room  = " + getType();
     }

@@ -5,21 +5,26 @@ import builder.GermanHiveBuilder;
 import builder.Hive;
 import builder.HiveBuilder;
 import builder.HiveDirector;
+import builder.HiveType;
 import builder.IRoomBuilder;
 import builder.RestRoomBuilderImpl;
 import builder.RoomBuildDirector;
+import singletonDP.Apiary;
+
 
 public class TestDesignPatterns {
 
     public static void main(String[] args) {
+        
+        Apiary.getInstance().buildHive(HiveType.BUCKFAST);
+        Apiary.getInstance().getHiveCount(HiveType.BUCKFAST);
+        Apiary.getInstance().getHives();
+        
+        Apiary.getInstance().buildHive(HiveType.GERMAN);
+        Apiary.getInstance().getHiveCount(HiveType.GERMAN);
+        Apiary.getInstance().getHives();
 
-        HiveBuilder germanHive = new GermanHiveBuilder();
-        HiveDirector hiveDirector = new HiveDirector(germanHive);
-        hiveDirector.makeHive();
-
-        Hive newHive = hiveDirector.getHive();
-        System.out.println(newHive.getType());
-       
+                
         // Build a brood room
         final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
         final RoomBuildDirector BroodBuildDirector = new RoomBuildDirector(broodBuilder);
