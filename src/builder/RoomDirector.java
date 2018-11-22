@@ -19,18 +19,18 @@ public class RoomDirector {
         roomCount++;
                 
         if (roomCount == 1) {
-            System.out.println("First Room: " + roomCount);
             buildHive();
         }
     }
         
         public void buildHive() {
          // build a hive
-            System.out.println("Making first hive: " + roomCount);
+            System.out.println("Making hive since this is room: " + roomCount);
             HiveBuilder germanHive = new GermanHiveBuilder();
             HiveDirector hiveDirector = new HiveDirector(germanHive);
             hiveDirector.makeHive();
 
-            Hive newHive = hiveDirector.getHive();
+            Hive newHive = hiveDirector.getHive();            
+
         }
 }
