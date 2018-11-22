@@ -1,21 +1,24 @@
 package singletonDP;
 
+import java.util.ArrayList;
+
+import builder.BroodRoomBuilder;
+import builder.BuckfastHiveBuilder;
+import builder.CarniolanHiveBuilder;
+import builder.CaucasianHiveBuilder;
+import builder.GermanHiveBuilder;
 import builder.Hive;
 import builder.HiveBuilder;
 import builder.HiveDirector;
 import builder.HiveType;
+import builder.ItalianHiveBuilder;
+import builder.Room;
+import builder.RussianHiveBuilder;
 
 class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    
-    // keep track of the number of hives created
-    private int italianHiveCount = 0;
-    private int carniolanHiveCount = 0;
-    private int buckfastHiveCount = 0;
-    private int russianHiveCount = 0;
-    private int germanHiveCount = 0;
-    private int caucasianHiveCount = 0;
+    ArrayList <Hive> hives = new ArrayList();
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
@@ -39,26 +42,41 @@ class Apiary {
      * 
      * Description: Calls the createHive method to create a new bee hive of specified type
      */
-    public static void buildHive(HiveType hiveType) {
+    public void buildHive(HiveType hiveType) {
         
+        System.out.println("Building a new hive of type: " + hiveType);
+
+        HiveBuilder myHiveBuilder = null;
+        switch (hiveType)
+        {
+          case ITALIAN:
+              myHiveBuilder = new ItalianHiveBuilder();
+              
+              break;
+          case CARNIOLAN:
+              myHiveBuilder = new CarniolanHiveBuilder();
+              break;
+          case BUCKFAST:
+              myHiveBuilder = new BuckfastHiveBuilder();
+              break;
+          case RUSSIAN: 
+              myHiveBuilder = new RussianHiveBuilder();
+              break;
+          case GERMAN:
+              myHiveBuilder = new GermanHiveBuilder();
+              break;
+          case CAUCASIAN:
+              myHiveBuilder = new CaucasianHiveBuilder();
+              break;
+          default: 
+              System.out.println("No such hive...");
+        }
            // build a hive
-           System.out.println("Making new hive of type: " + hiveType);
-           HiveDirector hiveDirector = new HiveDirector(hiveType);
+           HiveDirector hiveDirector = new HiveDirector(myHiveBuilder);
            hiveDirector.makeHive();
-
-           Hive newHive = hiveDirector.getHive();            
-
+           Hive newHive = hiveDirector.getHive(); 
+           hives.add(newHive);
        }
-    }
 
-    /**
-     * Method: createHive 
-     * Inputs: 
-     * Returns: @return
-     * 
-     * Description: This will create a new hive based on specified type
-     */
-    public  createHive(HiveType val) {
-        
-    }
+    
 }
