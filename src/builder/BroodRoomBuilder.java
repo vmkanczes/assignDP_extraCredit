@@ -1,10 +1,10 @@
 package builder;
 
-public class RestRoomBuilder implements RoomBuilder {
+public class BroodRoomBuilder implements RoomBuilder {
 
     private Room room;
 
-    public RestRoomBuilder() {
+    public BroodRoomBuilder() {
         this.room = new Room();
     }
 
@@ -15,7 +15,7 @@ public class RestRoomBuilder implements RoomBuilder {
 
     @Override
     public void buildRoom() {
-        room.setType(RoomType.REST);
+        room.setType(RoomType.BROOD);
     }
 
 

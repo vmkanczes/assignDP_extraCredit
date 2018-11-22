@@ -2,15 +2,14 @@ package builder;
 
 public class Room implements RoomPlan {
 
-    private String type;
+    private RoomType type;
     
-    @Override
-    public void setType(String t) {
-        type = t;
-    }
-    
-    public String getType() {
+    public RoomType getType() {
         return type;
+    }
+
+    public void setType(RoomType val) {
+        this.type = val;
     }
     
 }

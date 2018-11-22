@@ -4,7 +4,6 @@ public class RoomDirector {
 
     private RoomBuilder roomBuilder;
     private static int roomCount = 0;
-
     
     public RoomDirector(RoomBuilder roomBuilder) {
         this.roomBuilder = roomBuilder;

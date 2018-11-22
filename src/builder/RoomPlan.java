@@ -2,6 +2,6 @@ package builder;
 
 public interface RoomPlan {
     
-    public void setType(String roomType);  
+    public void setType(RoomType val);  
     
 }

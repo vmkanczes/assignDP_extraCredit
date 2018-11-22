@@ -1,35 +1,31 @@
 package main;
 
-import builder.GermanHiveBuilder;
-import builder.Hive;
-import builder.HiveBuilder;
-import builder.HiveDirector;
+import builder.BroodRoomBuilder;
 import builder.RestRoomBuilder;
 import builder.Room;
 import builder.RoomBuilder;
 import builder.RoomDirector;
-import builder.SpawnRoomBuilder;
 
 public class TestDesignPatterns {
 
     public static void main(String[] args) {
 
         // build a spawning room
-        RoomBuilder spawningRoom = new SpawnRoomBuilder();
-        RoomDirector spawnRoomDirector = new RoomDirector(spawningRoom);
-        spawnRoomDirector.makeRoom();
+        RoomBuilder broodRoom = new BroodRoomBuilder();
+        RoomDirector broodRoomDirector = new RoomDirector(broodRoom);
+        broodRoomDirector.makeRoom();
         
-        Room newSpawnRoom = spawnRoomDirector.getRoom();
+        Room newBroodRoom = broodRoomDirector.getRoom();
         
      // build a rest/feed room
-        RoomBuilder restingRoom = new RestRoomBuilder();
-        RoomDirector restRoomDirector = new RoomDirector(restingRoom);
+        RoomBuilder restRoom = new RestRoomBuilder();
+        RoomDirector restRoomDirector = new RoomDirector(restRoom);
         restRoomDirector.makeRoom();
         
         Room newRestRoom = restRoomDirector.getRoom();
         
-        System.out.println("New Spawning Room: " + newSpawnRoom.getType());
-        System.out.println("New Resting Room: " + newRestRoom.getType());
+        System.out.println("New Brood Room: " + newBroodRoom.getType());
+        System.out.println("New Rest Room: " + newRestRoom.getType());
 
 
     }
