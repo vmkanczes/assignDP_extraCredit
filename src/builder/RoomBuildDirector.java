@@ -1,36 +1,13 @@
 package builder;
 
-public class RoomDirector {
+public class RoomBuildDirector {
+    private IRoomBuilder builder;
 
-    private RoomBuilder roomBuilder;
-    private static int roomCount = 0;
-    
-    public RoomDirector(RoomBuilder roomBuilder) {
-        this.roomBuilder = roomBuilder;
+    public RoomBuildDirector(final IRoomBuilder builder) {
+        this.builder = builder;
     }
-    
-    public Room getRoom() {
-        return this.roomBuilder.getRoom();
-    }
-    
-    public void makeRoom() {
-        
-        this.roomBuilder.buildRoom();
-        roomCount++;
-                
-        if (roomCount == 1) {
-            buildHive();
-        }
-    }
-        
-        public void buildHive() {
-         // build a hive
-            System.out.println("Making hive since this is room: " + roomCount);
-            HiveBuilder germanHive = new GermanHiveBuilder();
-            HiveDirector hiveDirector = new HiveDirector(germanHive);
-            hiveDirector.makeHive();
 
-            Hive newHive = hiveDirector.getHive();            
-
-        }
+    public Room construct() {
+        return builder.setType(RoomType.BROOD).buildRoom();        
+    }
 }

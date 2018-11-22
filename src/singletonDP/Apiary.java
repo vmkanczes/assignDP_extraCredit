@@ -1,15 +1,23 @@
 package singletonDP;
 
 import builder.Hive;
+import builder.HiveBuilder;
+import builder.HiveDirector;
+import builder.HiveType;
 
 class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    private int hiveIndex = 0;
-    // created hive array to create different hive types for the apiary
-    private static String[] hiveArray = {"Italian", "Carniolan", "Buckfast", "Russian", "German", "Caucasion"};
+    
+    // keep track of the number of hives created
+    private int italianHiveCount = 0;
+    private int carniolanHiveCount = 0;
+    private int buckfastHiveCount = 0;
+    private int russianHiveCount = 0;
+    private int germanHiveCount = 0;
+    private int caucasianHiveCount = 0;
 
-    // private constructor
+    // private constructor since there is only ever ONE apiary
     private Apiary() {
     }
 
@@ -18,32 +26,39 @@ class Apiary {
      * object
      * 
      * Description: this will return the single instance of the apiary which
-     * is used by all routes
+     * is used by for all hive creation
      */
     public static Apiary getInstance() {
         return _APIARY_INSTANCE;
     }
 
     /**
-     * Method: Calls the nextHive method to get the next hive in the beehive array
-     * so we are rotating through different hives to create
+     * Method: buildHive
      * 
-     * @return the next color to be used for drawing the route's path
+     * @return the hive that was created
+     * 
+     * Description: Calls the createHive method to create a new bee hive of specified type
      */
-    public static Object getHive() {
-        return getInstance().nextHive();
+    public static void buildHive(HiveType hiveType) {
+        
+           // build a hive
+           System.out.println("Making new hive of type: " + hiveType);
+           HiveDirector hiveDirector = new HiveDirector(hiveType);
+           hiveDirector.makeHive();
+
+           Hive newHive = hiveDirector.getHive();            
+
+       }
     }
 
     /**
-     * Method: nextColor Inputs: Returns: @return
+     * Method: createHive 
+     * Inputs: 
+     * Returns: @return
      * 
-     * Description: This will choose the next color so route paths will not be using
-     * repeating colors to better display routes
+     * Description: This will create a new hive based on specified type
      */
-    private Object nextHive() {
-        // increment so I get the next color
-        hiveIndex++;
-        // make sure I only get a different hive
-        return hiveArray[hiveIndex % hiveArray.length];
+    public  createHive(HiveType val) {
+        
     }
 }

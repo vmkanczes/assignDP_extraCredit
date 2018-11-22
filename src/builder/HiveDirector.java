@@ -3,7 +3,7 @@ package builder;
 public class HiveDirector {
 
     private HiveBuilder hiveBuilder;
-    private RoomBuilder roomBuilder;
+    private IRoomBuilder roomBuilder;
     
     public HiveDirector(HiveBuilder hiveBuilder) {
         this.hiveBuilder = hiveBuilder;
@@ -15,5 +15,5 @@ public class HiveDirector {
     
     public void makeHive() {
         this.hiveBuilder.buildRoom(roomBuilder);
-            }
+    }
 }

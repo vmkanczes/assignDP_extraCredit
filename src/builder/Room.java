@@ -1,6 +1,6 @@
 package builder;
 
-public class Room implements RoomPlan {
+public class Room {
 
     private RoomType type;
     
@@ -10,6 +10,12 @@ public class Room implements RoomPlan {
 
     public void setType(RoomType val) {
         this.type = val;
+    }
+    
+    @Override
+    // unnecessary
+    public String toString() {
+        return "Room  = " + getType();
     }
     
 }

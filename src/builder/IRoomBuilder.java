@@ -1,10 +1,10 @@
 package builder;
 
 
-public interface RoomBuilder {
-        
-    public void buildRoom();
+public interface IRoomBuilder {
+           
+    Room buildRoom();
 
-    public Room getRoom();
-
+    IRoomBuilder setType(final RoomType roomType);
+    
 }
