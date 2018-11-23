@@ -7,4 +7,6 @@ public interface IHiveBuilder  {
         
     IHiveBuilder setType(final HiveType hiveType);
     
+    
+    
 }

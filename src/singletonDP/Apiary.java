@@ -1,18 +1,13 @@
 package singletonDP;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 import builder.Hive;
 import builder.IHiveBuilder;
-import builder.IRoomBuilder;
 import builder.HiveBuildDirector;
 import builder.HiveType;
 import builder.ItalianHiveBuilderImpl;
-import builder.RoomBuildDirector;
 import builder.RussianHiveBuilderImpl;
-import builder.BroodRoomBuilderImpl;
 import builder.BuckfastHiveBuilderImpl;
 import builder.CarniolanHiveBuilderImpl;
 import builder.CaucasianHiveBuilderImpl;
@@ -21,7 +16,7 @@ import builder.GermanHiveBuilderImpl;
 public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    ArrayList <Hive> hives = new ArrayList();
+    ArrayList <Hive> hives = new ArrayList<Hive>();
     private static int hiveCount = 0;
 
     // private constructor since there is only ever ONE apiary
@@ -48,7 +43,7 @@ public class Apiary {
      */
     public Hive buildHive(HiveType hiveType) {
 
-        System.out.println("Apriary Singleton is building a new hive of type: " + hiveType);
+        //System.out.println("Apriary Singleton is building a new hive of type: " + hiveType);
 
         IHiveBuilder myHiveBuilder = null;
         switch (hiveType) {
@@ -78,7 +73,8 @@ public class Apiary {
         //final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
         final HiveBuildDirector hiveBuildDirector = new HiveBuildDirector(myHiveBuilder);        
         Hive newHive = hiveBuildDirector.construct();
-        hives.add(newHive);        
+        hives.add(newHive); 
+        hiveCount++;
         return newHive;
 
     }
@@ -86,14 +82,12 @@ public class Apiary {
     public void getHives() {
         // let us print all the elements available in list
         for (Hive hive : hives) {
-            System.out.println("getHives = " + hive.toString());
-            hiveCount++;
-
+            System.out.println(hive.toString());
         }
     }
 
     public void getTotalHiveCount() {
-        System.out.println("Total Hive Count: " + hiveCount++);
+        System.out.println("Apiary Hive Count: " + hiveCount++);
     }
     
     public void getHiveCount(HiveType hiveType) {
@@ -105,9 +99,7 @@ public class Apiary {
                 count++;
             }  
         }
-        System.out.println("GetHiveCount: " + hiveType.name() + ":  " + count);
-
-
+        System.out.println("\t " + hiveType.name() + ":  " + count);
     }
 
 }

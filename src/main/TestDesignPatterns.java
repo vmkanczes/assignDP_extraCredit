@@ -1,11 +1,7 @@
 package main;
 
-import builder.BroodRoomBuilderImpl;
 import builder.Hive;
 import builder.HiveType;
-import builder.IRoomBuilder;
-import builder.RestRoomBuilderImpl;
-import builder.RoomBuildDirector;
 import builder.RoomType;
 import singletonDP.Apiary;
 
@@ -14,37 +10,48 @@ public class TestDesignPatterns {
 
     public static void main(String[] args) {
         
+        // add hives to the apiary
         Hive buckfastHive1 = Apiary.getInstance().buildHive(HiveType.BUCKFAST);
-        Hive buckfastHive2 = Apiary.getInstance().buildHive(HiveType.BUCKFAST);
+        Hive germanHive1 = Apiary.getInstance().buildHive(HiveType.GERMAN);
+        Hive germanHive2 = Apiary.getInstance().buildHive(HiveType.GERMAN);
 
-        Apiary.getInstance().getHiveCount(HiveType.BUCKFAST);
         
-        Apiary.getInstance().buildHive(HiveType.GERMAN);
-        Apiary.getInstance().getHiveCount(HiveType.GERMAN);
-        Apiary.getInstance().getHives();
+        // get total count of hives
         Apiary.getInstance().getTotalHiveCount();
-
-
-        buckfastHive1.roomBuilder(RoomType.BROOD);
-        buckfastHive1.roomBuilder(RoomType.REST);
         
-        buckfastHive2.roomBuilder(RoomType.BROOD);
-        buckfastHive2.roomBuilder(RoomType.REST);
-        
-        System.out.println("Total Room Count: " + buckfastHive1.getRoomCount());
+        // get total hives per type
+        Apiary.getInstance().getHiveCount(HiveType.BUCKFAST);
+        Apiary.getInstance().getHiveCount(HiveType.GERMAN);
 
-        // Build a brood room
-        /*final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
-        final RoomBuildDirector BroodBuildDirector = new RoomBuildDirector(broodBuilder);
-        System.out.println(BroodBuildDirector.construct());
+        // add rooms to a specific hive
+        buckfastHive1.roomBuilder(RoomType.BROOD, buckfastHive1.getType());
+        buckfastHive1.roomBuilder(RoomType.REST, buckfastHive1.getType());
+        buckfastHive1.roomBuilder(RoomType.BROOD, buckfastHive1.getType());
+        buckfastHive1.roomBuilder(RoomType.REST, buckfastHive1.getType());
+
         
-        // Build a rest room
-        final IRoomBuilder restBuilder = new RestRoomBuilderImpl();
-        final RoomBuildDirector RestBuildDirector = new RoomBuildDirector(restBuilder);
-        System.out.println(RestBuildDirector.construct());
-        */
-    }
-    
-    
+        germanHive1.roomBuilder(RoomType.REST, germanHive1.getType());
+        germanHive1.roomBuilder(RoomType.REST, germanHive1.getType());
+        germanHive1.roomBuilder(RoomType.REST, germanHive1.getType());
+        germanHive1.roomBuilder(RoomType.BROOD, germanHive1.getType());
+        germanHive1.roomBuilder(RoomType.BROOD, germanHive1.getType());
+
+        
+        germanHive2.roomBuilder(RoomType.BROOD, germanHive2.getType());
+        germanHive2.roomBuilder(RoomType.REST, germanHive2.getType());
+        germanHive2.roomBuilder(RoomType.BROOD, germanHive2.getType());
+
+        // get rooms for a specific hive
+        germanHive1.getRooms();
+        
+        System.out.println(buckfastHive1.toString());
+        System.out.println(germanHive1.toString());
+        System.out.println(germanHive2.toString());
+
+        
+        // get room count for each hive
+        System.out.println("Room Totals: " + buckfastHive1.getRoomTotals());
+        
+    }  
 
 }
