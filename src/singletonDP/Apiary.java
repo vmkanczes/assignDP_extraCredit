@@ -1,12 +1,18 @@
 package singletonDP;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import builder.Hive;
 import builder.IHiveBuilder;
 import builder.HiveBuildDirector;
 import builder.HiveType;
 import builder.ItalianHiveBuilderImpl;
+import builder.Room;
+import builder.RoomType;
 import builder.RussianHiveBuilderImpl;
 import builder.BuckfastHiveBuilderImpl;
 import builder.CarniolanHiveBuilderImpl;
@@ -16,8 +22,7 @@ import builder.GermanHiveBuilderImpl;
 public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    ArrayList <Hive> hives = new ArrayList<Hive>();
-    private static int hiveCount = 0;
+    HashMap<HiveType, ArrayList<Hive>> hiveMap = new HashMap<HiveType, ArrayList<Hive>>();
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
@@ -43,12 +48,13 @@ public class Apiary {
      */
     public Hive buildHive(HiveType hiveType) {
 
-        //System.out.println("Apriary Singleton is building a new hive of type: " + hiveType);
+        // System.out.println("Apriary Singleton is building a new hive of type: " +
+        // hiveType);
 
         IHiveBuilder myHiveBuilder = null;
         switch (hiveType) {
         case ITALIAN:
-             myHiveBuilder = new ItalianHiveBuilderImpl();
+            myHiveBuilder = new ItalianHiveBuilderImpl();
 
             break;
         case CARNIOLAN:
@@ -64,42 +70,39 @@ public class Apiary {
             myHiveBuilder = new GermanHiveBuilderImpl();
             break;
         case CAUCASIAN:
-             myHiveBuilder = new CaucasianHiveBuilderImpl();
+            myHiveBuilder = new CaucasianHiveBuilderImpl();
             break;
         default:
             System.out.println("No such hive...");
         }
-        
-        //final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
-        final HiveBuildDirector hiveBuildDirector = new HiveBuildDirector(myHiveBuilder);        
+
+        // final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
+        final HiveBuildDirector hiveBuildDirector = new HiveBuildDirector(myHiveBuilder);
         Hive newHive = hiveBuildDirector.construct();
-        hives.add(newHive); 
-        hiveCount++;
+
+        // check if hive type already exists
+        ArrayList<Hive> myHiveList = hiveMap.get(hiveType);
+        if (myHiveList == null) {
+            // create array list
+            myHiveList = new ArrayList<Hive>();
+            hiveMap.put(hiveType, myHiveList);
+        }
+        myHiveList.add(newHive);
+
         return newHive;
 
     }
 
     public void getHives() {
-        // let us print all the elements available in list
-        for (Hive hive : hives) {
-            System.out.println(hive.toString());
-        }
-    }
 
-    public void getTotalHiveCount() {
-        System.out.println("Apiary Hive Count: " + hiveCount++);
-    }
-    
-    public void getHiveCount(HiveType hiveType) {
-        // let us print all the elements available in list
-        int count = 0;
-
-        for (Hive hive : hives) {
-            if (hive.getType() == hiveType) {
-                count++;
-            }  
+        // let us get all of the mapped objects
+        Set<Map.Entry<HiveType, ArrayList<Hive>>> entries = hiveMap.entrySet();
+        
+        Iterator<HiveType> iterator = hiveMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            System.out.println("Hive: " + hiveMap.get(iterator.next()));
         }
-        System.out.println("\t " + hiveType.name() + ":  " + count);
+
     }
 
 }
