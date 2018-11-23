@@ -22,13 +22,16 @@ public class TestDesignPatterns {
         Apiary.getInstance().buildHive(HiveType.GERMAN);
         Apiary.getInstance().getHiveCount(HiveType.GERMAN);
         Apiary.getInstance().getHives();
+        Apiary.getInstance().getTotalHiveCount();
+
 
         buckfastHive1.roomBuilder(RoomType.BROOD);
         buckfastHive1.roomBuilder(RoomType.REST);
         
         buckfastHive2.roomBuilder(RoomType.BROOD);
         buckfastHive2.roomBuilder(RoomType.REST);
-                
+        
+        System.out.println("Total Room Count: " + buckfastHive1.getRoomCount());
 
         // Build a brood room
         /*final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();

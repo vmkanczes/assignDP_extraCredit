@@ -3,7 +3,7 @@ package builder;
 public class Room {
 
     private RoomType type;
-    
+
     public RoomType getType() {
         return type;
     }

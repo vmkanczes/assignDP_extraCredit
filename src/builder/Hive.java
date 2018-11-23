@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Hive {
 
     private HiveType type;
+    private static int roomCount = 0;
     
     public Room roomBuilder(RoomType roomType) {
         
@@ -30,6 +31,7 @@ public class Hive {
         final RoomBuildDirector roomBuildDirector = new RoomBuildDirector(myRoomBuilder);
         Room newRoom = roomBuildDirector.construct();
         rooms.add(newRoom);
+        roomCount++;
 
         System.out.println("My rooms: " + Arrays.toString(rooms.toArray()));
         
@@ -39,6 +41,10 @@ public class Hive {
     
     public HiveType getType() {
         return type;
+    }
+    
+    public int getRoomCount() {
+        return roomCount;
     }
     
 

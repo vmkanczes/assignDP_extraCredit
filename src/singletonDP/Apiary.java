@@ -22,6 +22,7 @@ public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
     ArrayList <Hive> hives = new ArrayList();
+    private static int hiveCount = 0;
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
@@ -86,9 +87,15 @@ public class Apiary {
         // let us print all the elements available in list
         for (Hive hive : hives) {
             System.out.println("getHives = " + hive.toString());
+            hiveCount++;
+
         }
     }
 
+    public void getTotalHiveCount() {
+        System.out.println("Total Hive Count: " + hiveCount++);
+    }
+    
     public void getHiveCount(HiveType hiveType) {
         // let us print all the elements available in list
         int count = 0;
@@ -97,9 +104,9 @@ public class Apiary {
             if (hive.getType() == hiveType) {
                 count++;
             }  
-            System.out.println("Hive type: " + hiveType.name() + ":  " + count);
-
         }
+        System.out.println("GetHiveCount: " + hiveType.name() + ":  " + count);
+
 
     }
 
