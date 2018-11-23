@@ -45,9 +45,9 @@ public class Apiary {
      *         Description: Calls the createHive method to create a new bee hive of
      *         specified type
      */
-    public void buildHive(HiveType hiveType) {
+    public Hive buildHive(HiveType hiveType) {
 
-        System.out.println("Building a new hive of type: " + hiveType);
+        System.out.println("Apriary Singleton is building a new hive of type: " + hiveType);
 
         IHiveBuilder myHiveBuilder = null;
         switch (hiveType) {
@@ -76,8 +76,9 @@ public class Apiary {
         
         //final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
         final HiveBuildDirector hiveBuildDirector = new HiveBuildDirector(myHiveBuilder);        
-        hives.add(hiveBuildDirector.construct());
-        System.out.println("My hives: " + Arrays.toString(hives.toArray()));
+        Hive newHive = hiveBuildDirector.construct();
+        hives.add(newHive);        
+        return newHive;
 
     }
 
@@ -93,12 +94,12 @@ public class Apiary {
         int count = 0;
 
         for (Hive hive : hives) {
-              HiveType x = hive.getType();
             if (hive.getType() == hiveType) {
                 count++;
             }  
+            System.out.println("Hive type: " + hiveType.name() + ":  " + count);
+
         }
-        System.out.println("Hive type: " + hiveType.name() + ":  " + count);
 
     }
 
