@@ -18,6 +18,7 @@ public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
     HashMap<HiveType, ArrayList<Hive>> hiveMap = new HashMap<HiveType, ArrayList<Hive>>();
+    private static int hiveCount = 0;
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
@@ -80,36 +81,23 @@ public class Apiary {
             hiveMap.put(hiveType, myHiveList);
         }
         myHiveList.add(newHive);
+        hiveCount++;
 
         return newHive;
 
     }
 
-    public void getHives() {
+    public String getHives() {
 
-        int hiveCount = 0;
+        String sAllHives = "";
         
         // let us get all of the hives        
         Iterator<HiveType> iterator = hiveMap.keySet().iterator();
         while (iterator.hasNext()) {
-            System.out.println("Hive: " + hiveMap.get(iterator.next()));
-            hiveCount++;
+            sAllHives += "\n" + hiveMap.get(iterator.next());
         }
+        return sAllHives;
         
-    }
-    
-    public int getHiveCount() {
-
-        int hiveCount = 0;
-        
-        // let us get all of the hives        
-        Iterator<HiveType> iterator = hiveMap.keySet().iterator();
-        while (iterator.hasNext()) {
-            hiveCount++;
-        }
-        
-        return hiveCount;
-
     }
 
     public int getRoomCount() {
@@ -145,12 +133,12 @@ public class Apiary {
         }
     }
     
-    @Override
     public String toString() {
         
-        String myApiary = "Apiary Hives:\n " + "\n\n" + 
-                            "Hive Count: " + getHiveCount() + 
-                            "Room Count: " + getRoomCount();
+        String sAllHives = getHives();
+        String myApiary = "Apiary Hives: " + hiveCount +  
+                            "\n" + sAllHives + 
+                            "\n\nRoom Count: " + getRoomCount();
                 ;
         return myApiary; 
     }

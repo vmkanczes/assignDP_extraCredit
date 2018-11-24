@@ -8,6 +8,6 @@ public class HiveBuildDirector {
     }
 
     public Hive construct() {
-        return builder.setType(HiveType.GERMAN).buildHive();        
+        return builder.buildHive();        
     }
 }

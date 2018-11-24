@@ -68,7 +68,8 @@ public class Hive {
     @Override
     public String toString() {
         
-        return "Hive: " + getType(); 
+        String hiveString = " " + getType();
+        return hiveString; 
     }
 
     public int getRoomCount() {

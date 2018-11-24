@@ -11,11 +11,14 @@ public class TestDesignPatterns {
     public static void main(String[] args) {
         
         Hive hive1 = createHive(HiveType.BUCKFAST);
-        Hive hive2 = createHive(HiveType.GERMAN);
-        Hive hive3 = createHive(HiveType.RUSSIAN);
-        Hive hive4 = createHive(HiveType.CARNIOLAN);
-        Hive hive5 = createHive(HiveType.CAUCASIAN);
-        Hive hive6 = createHive(HiveType.ITALIAN);
+        Hive hive2 = createHive(HiveType.BUCKFAST);
+        Hive hive3 = createHive(HiveType.BUCKFAST);
+        Hive hive4 = createHive(HiveType.GERMAN);
+        Hive hive5 = createHive(HiveType.GERMAN);
+        Hive hive6 = createHive(HiveType.RUSSIAN);
+        Hive hive7 = createHive(HiveType.CARNIOLAN);
+        Hive hive8 = createHive(HiveType.CAUCASIAN);
+        Hive hive9 = createHive(HiveType.ITALIAN);
         
         addBroodRoom(hive1);
         addRestRoom(hive1);
@@ -31,11 +34,8 @@ public class TestDesignPatterns {
         addRestRoom(hive5);        
         addRestRoom(hive6);        
 
-        Apiary.getInstance().getHives();
-        //Apiary.getInstance().toString();
-
-       System.out.println("Room Count: " + Apiary.getInstance().getRoomCount());
-
+        //Apiary.getInstance().getHives();
+        System.out.println(Apiary.getInstance().toString());
 
     }
 
