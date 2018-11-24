@@ -17,7 +17,7 @@ Class:
 Description:
  */
 @RunWith(Suite.class)
-@SuiteClasses({ BeeAttributeTest.class })
+@SuiteClasses({ HiveBuilderTest.class, BeeAttributeTest.class, RoomBuilderTest.class })
 public class AllTests {
 
 }

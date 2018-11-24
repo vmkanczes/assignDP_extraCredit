@@ -20,33 +20,14 @@ public class TestDesignPatterns {
         
         // Build Pattern - create hives
         Hive hive1 = createHive(BeeType.BUCKFAST);
-        Hive hive2 = createHive(BeeType.BUCKFAST);
-        Hive hive3 = createHive(BeeType.GERMAN);
-        Hive hive4 = createHive(BeeType.GERMAN);
-        Hive hive5 = createHive(BeeType.RUSSIAN);
-        Hive hive6 = createHive(BeeType.CARNIOLAN);
-        Hive hive7 = createHive(BeeType.CAUCASIAN);
-        Hive hive8 = createHive(BeeType.ITALIAN);
-        
-        removeBeeHives(BeeType.BUCKFAST);
+        Hive hive2 = createHive(BeeType.GERMAN);
+        Hive hive3 = createHive(BeeType.RUSSIAN);
+
+        removeBeeHives(BeeType.RUSSIAN);
         
         // Builder Pattern - create rooms for hives
         addBroodRoom(hive1);
-        addRestRoom(hive1);
-        addBroodRoom(hive1);
-        addRestRoom(hive1);
-        addBroodRoom(hive2);
-        addRestRoom(hive2);
-        addBroodRoom(hive2);
-        addRestRoom(hive3);
-        addBroodRoom(hive3);
-        addRestRoom(hive3);  
-        addRestRoom(hive4);        
-        addRestRoom(hive5);        
-        addRestRoom(hive6); 
-        addBroodRoom(hive7);        
-        addBroodRoom(hive8);    
-        addRestRoom(hive8);        
+        addRestRoom(hive2);       
 
         // Call singleton apiary to get information on the hives and the hive rooms
         System.out.println(Apiary.getInstance().toString());
@@ -82,6 +63,7 @@ public class TestDesignPatterns {
     private static void addRestRoom(Hive hive) {
         hive.roomBuilder(RoomType.REST, hive.getType());        
     }
+    
 
     private static Hive createHive(BeeType hiveType) {
         // add hives to the apiary
