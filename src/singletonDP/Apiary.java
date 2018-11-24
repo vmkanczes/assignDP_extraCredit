@@ -48,9 +48,6 @@ public class Apiary {
      */
     public Hive buildHive(HiveType hiveType) {
 
-        // System.out.println("Apriary Singleton is building a new hive of type: " +
-        // hiveType);
-
         IHiveBuilder myHiveBuilder = null;
         switch (hiveType) {
         case ITALIAN:

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 public class Hive {
@@ -11,10 +12,12 @@ public class Hive {
     private HiveType type;
 
     private ArrayList <Room> roomList;
-    private Map<RoomType, ArrayList<Room>> roomMap = new HashMap<RoomType, ArrayList<Room>>(10,0.75F);
-
-    //Map<HiveType, Entry<RoomType, Integer>> hiveMap = new HashMap<HiveType, Entry<RoomType, Integer>>();
+    // inner map of rooms for the hives
+    HashMap<RoomType, ArrayList<Room>> roomMap = new HashMap<RoomType, ArrayList<Room>>();
     
+    // nested map of hives and their associated rooms
+    Map<HiveType, Map<RoomType, ArrayList<Room>>> outerMap = new HashMap<HiveType, Map<RoomType, ArrayList<Room>>>();
+            
     public Room roomBuilder(RoomType roomType, HiveType hiveType) {
         
         //System.out.println("Building a new room of type: " + roomType + " for hive: " + hiveType);
@@ -22,10 +25,10 @@ public class Hive {
         IRoomBuilder myRoomBuilder = null;
         switch (roomType) {
         case REST:
-            myRoomBuilder = new BroodRoomBuilderImpl();
+            myRoomBuilder = new RestRoomBuilderImpl();
             break;
         case BROOD:
-            myRoomBuilder = new RestRoomBuilderImpl();
+            myRoomBuilder = new BroodRoomBuilderImpl();
             break;
         default:
             System.out.println("Room type does not exist.");
@@ -35,15 +38,17 @@ public class Hive {
         final RoomBuildDirector roomBuildDirector = new RoomBuildDirector(myRoomBuilder);
         Room newRoom = roomBuildDirector.construct();
         
-     // check if room type already exists
-        Iterator<RoomType> iterator = roomMap.keySet().iterator();
-        if (!iterator.hasNext()) {
-                // create array list
-                ArrayList <Room> roomList = new ArrayList<Room>();
-                roomList.add(newRoom); 
+     // check if room` type already exists
+        ArrayList<Room> myRoomList = roomMap.get(roomType);
+        if (myRoomList == null) {
+            // create array list
+            myRoomList = new ArrayList<Room>();
+            roomMap.put(roomType, myRoomList);
         }
+        myRoomList.add(newRoom);
         
-        roomMap.put(roomType, roomList);
+        outerMap.put(hiveType, roomMap);
+
         return newRoom;
         
     }
@@ -64,6 +69,26 @@ public class Hive {
         Iterator<RoomType> iterator = roomMap.keySet().iterator();
         while (iterator.hasNext()) {
             System.out.println("Room: " + roomMap.get(iterator.next()));
+        }
+    }
+    
+    public void getHives() {
+        for (Entry<HiveType, Map<RoomType, ArrayList<Room>>> vals : outerMap.entrySet()) {
+            System.out.println("\n\nOutermap key: " + vals.getKey());
+            Map<RoomType, ArrayList<Room>> nested_vals = vals.getValue();
+            System.out.println("Map fetched as object: " + nested_vals.toString());
+            for (Entry<RoomType, ArrayList<Room>> nested_entries : nested_vals.entrySet()) {
+               System.out.println("\n" + "Nested key is: " +
+                       nested_entries.getKey());
+               System.out.println("Set as object: " +
+                       nested_entries.getValue().toString());
+               for (Room values : nested_entries.getValue()) {
+                   System.out.println("Nested values are: " + values);
+               }
+            }
+               
+                       
+                       
         }
     }
     
