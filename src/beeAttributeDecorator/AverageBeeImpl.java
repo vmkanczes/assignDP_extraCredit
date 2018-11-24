@@ -25,7 +25,7 @@ public class AverageBeeImpl implements IBee {
      */
     @Override
     public BeeType getType() {
-        return BeeType.UNKNOWN;
+        return BeeType.REGULAR;
     }
     
     /**
@@ -104,7 +104,7 @@ public class AverageBeeImpl implements IBee {
      */
     @Override
     public BeeRole getRole() {
-        return BeeRole.UNKNOWN;
+        return BeeRole.REGULAR;
     } 
     
 public String toString() {

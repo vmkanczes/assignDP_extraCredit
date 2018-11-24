@@ -8,7 +8,7 @@ Date: Nov 23, 2018
 Description: bee roles
  */
 public enum BeeRole {
-    QUEEN, WORKER, DRONE, SPAWNER, UNKNOWN;
+    QUEEN, WORKER, DRONE, SPAWNER, REGULAR;
 
     
 }
