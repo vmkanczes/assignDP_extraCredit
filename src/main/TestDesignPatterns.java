@@ -1,7 +1,7 @@
 package main;
 
 import builder.Hive;
-import builder.HiveType;
+import builder.BeeType;
 import builder.RoomType;
 import singletonDP.Apiary;
 
@@ -10,14 +10,14 @@ public class TestDesignPatterns {
 
     public static void main(String[] args) {
         
-        Hive hive1 = createHive(HiveType.BUCKFAST);
-        Hive hive2 = createHive(HiveType.BUCKFAST);
-        Hive hive3 = createHive(HiveType.GERMAN);
-        Hive hive4 = createHive(HiveType.GERMAN);
-        Hive hive5 = createHive(HiveType.RUSSIAN);
-        Hive hive6 = createHive(HiveType.CARNIOLAN);
-        Hive hive7 = createHive(HiveType.CAUCASIAN);
-        Hive hive8 = createHive(HiveType.ITALIAN);
+        Hive hive1 = createHive(BeeType.BUCKFAST);
+        Hive hive2 = createHive(BeeType.BUCKFAST);
+        Hive hive3 = createHive(BeeType.GERMAN);
+        Hive hive4 = createHive(BeeType.GERMAN);
+        Hive hive5 = createHive(BeeType.RUSSIAN);
+        Hive hive6 = createHive(BeeType.CARNIOLAN);
+        Hive hive7 = createHive(BeeType.CAUCASIAN);
+        Hive hive8 = createHive(BeeType.ITALIAN);
         
         addBroodRoom(hive1);
         addRestRoom(hive1);
@@ -48,7 +48,7 @@ public class TestDesignPatterns {
         hive.roomBuilder(RoomType.REST, hive.getType());        
     }
 
-    private static Hive createHive(HiveType hiveType) {
+    private static Hive createHive(BeeType hiveType) {
         // add hives to the apiary
         Hive myHive = Apiary.getInstance().buildHive(hiveType);
         return myHive;       
