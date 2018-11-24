@@ -32,9 +32,11 @@ public class TestDesignPatterns {
         addRestRoom(hive3);  
         addRestRoom(hive4);        
         addRestRoom(hive5);        
-        addRestRoom(hive6);        
+        addRestRoom(hive6); 
+        addBroodRoom(hive7);        
+        addBroodRoom(hive8);    
+        addRestRoom(hive9);        
 
-        //Apiary.getInstance().getHives();
         System.out.println(Apiary.getInstance().toString());
 
     }
@@ -50,9 +52,7 @@ public class TestDesignPatterns {
     private static Hive createHive(HiveType hiveType) {
         // add hives to the apiary
         Hive myHive = Apiary.getInstance().buildHive(hiveType);
-        return myHive;
-
-        
+        return myHive;       
     }  
 
 }

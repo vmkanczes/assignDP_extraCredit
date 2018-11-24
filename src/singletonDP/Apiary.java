@@ -117,8 +117,9 @@ public class Apiary {
         return roomCount;
     }
     
-    public void getHiveRooms() {
+    public String getHiveRooms() {
      
+        String sAllRooms = "";
      // let us get all of the hives       
         Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
         while (iterator.hasNext()) {
@@ -127,19 +128,21 @@ public class Apiary {
 
             while (myHivesIterator.hasNext()) {
                 Hive myHive = myHivesIterator.next();
-                System.out.println("\n\nMy apiary hive: " + myHive);
-                myHive.getRooms();
+                sAllRooms += "\n" + myHive;
+                sAllRooms += myHive.getRooms();
             }
         }
+        return sAllRooms;
     }
     
     public String toString() {
         
         String sAllHives = getHives();
+
         String myApiary = "Apiary Hives: " + hiveCount +  
                             "\n" + sAllHives + 
-                            "\n\nRoom Count: " + getRoomCount();
-                ;
+                            "\n\nRoom Count: " + getRoomCount() + 
+                            "\nRooms: " + getHiveRooms();
         return myApiary; 
     }
 

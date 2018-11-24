@@ -3,8 +3,6 @@ package builder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
 public class Hive {
 
@@ -53,12 +51,14 @@ public class Hive {
         return type;
     }
     
-    public void getRooms() {
+    public String getRooms() {
         // let us get all of the mapped objects 
+        String sAllRooms = "";
         Iterator<RoomType> iterator = roomMap.keySet().iterator();
         while (iterator.hasNext()) {
-            System.out.println("Room: " + roomMap.get(iterator.next()));
+            sAllRooms += "" + roomMap.get(iterator.next());
         }
+        return sAllRooms;
     }
     
     public void setType(HiveType hiveType) {
