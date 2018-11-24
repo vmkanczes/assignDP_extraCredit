@@ -14,5 +14,5 @@ Class:  BeeType
 Description:  Class to store the types of bees so not using strings 
  */
 public enum BeeType {
-    ITALIAN, CARNIOLAN, BUCKFAST, RUSSIAN, GERMAN, CAUCASIAN, UNKNOWN;
+    ITALIAN, CARNIOLAN, BUCKFAST, RUSSIAN, GERMAN, CAUCASIAN, REGULAR;
 }
