@@ -1,49 +1,149 @@
 package singletonDP;
 
-import hiveBuilder.Hive;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import builder.Hive;
+import builder.IHiveBuilder;
+import builder.HiveBuildDirector;
+import builder.HiveType;
+import builder.ItalianHiveBuilderImpl;
+import builder.RussianHiveBuilderImpl;
+import builder.BuckfastHiveBuilderImpl;
+import builder.CarniolanHiveBuilderImpl;
+import builder.CaucasianHiveBuilderImpl;
+import builder.GermanHiveBuilderImpl;
 
-class Apiary {
+public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    private int hiveIndex = 0;
-    // created hive array to create different hive types for the apiary
-    private static String[] hiveArray = {"Italian", "Carniolan", "Buckfast", "Russian", "German", "Caucasion"};
+    HashMap<HiveType, ArrayList<Hive>> hiveMap = new HashMap<HiveType, ArrayList<Hive>>();
+    private static int hiveCount = 0;
 
-    // private constructor
+    // private constructor since there is only ever ONE apiary
     private Apiary() {
     }
 
     /**
-     * getInstance: Inputs: Returns: returns the only instance of the apiary
-     * object
+     * getInstance: Inputs: Returns: returns the only instance of the apiary object
      * 
-     * Description: this will return the single instance of the apiary which
-     * is used by all routes
+     * Description: this will return the single instance of the apiary which is used
+     * by for all hive creation
      */
     public static Apiary getInstance() {
         return _APIARY_INSTANCE;
     }
 
     /**
-     * Method: Calls the nextHive method to get the next hive in the beehive array
-     * so we are rotating through different hives to create
+     * Method: buildHive
      * 
-     * @return the next color to be used for drawing the route's path
+     * @return the hive that was created
+     * 
+     *         Description: Calls the createHive method to create a new bee hive of
+     *         specified type
      */
-    public static Object getHive() {
-        return getInstance().nextHive();
+    public Hive buildHive(HiveType hiveType) {
+
+        IHiveBuilder myHiveBuilder = null;
+        switch (hiveType) {
+        case ITALIAN:
+            myHiveBuilder = new ItalianHiveBuilderImpl();
+
+            break;
+        case CARNIOLAN:
+            myHiveBuilder = new CarniolanHiveBuilderImpl();
+            break;
+        case BUCKFAST:
+            myHiveBuilder = new BuckfastHiveBuilderImpl();
+            break;
+        case RUSSIAN:
+            myHiveBuilder = new RussianHiveBuilderImpl();
+            break;
+        case GERMAN:
+            myHiveBuilder = new GermanHiveBuilderImpl();
+            break;
+        case CAUCASIAN:
+            myHiveBuilder = new CaucasianHiveBuilderImpl();
+            break;
+        default:
+            System.out.println("No such hive...");
+        }
+
+        // final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
+        final HiveBuildDirector hiveBuildDirector = new HiveBuildDirector(myHiveBuilder);
+        Hive newHive = hiveBuildDirector.construct();
+
+        // check if hive type already exists
+        ArrayList<Hive> myHiveList = hiveMap.get(hiveType);
+        if (myHiveList == null) {
+            // create array list
+            myHiveList = new ArrayList<Hive>();
+            hiveMap.put(hiveType, myHiveList);
+        }
+        myHiveList.add(newHive);
+        hiveCount++;
+
+        return newHive;
+
     }
 
-    /**
-     * Method: nextColor Inputs: Returns: @return
-     * 
-     * Description: This will choose the next color so route paths will not be using
-     * repeating colors to better display routes
-     */
-    private Object nextHive() {
-        // increment so I get the next color
-        hiveIndex++;
-        // make sure I only get a different hive
-        return hiveArray[hiveIndex % hiveArray.length];
+    public String getHives() {
+
+        String sAllHives = "";
+        
+        // let us get all of the hives        
+        Iterator<HiveType> iterator = hiveMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            sAllHives += "\n" + hiveMap.get(iterator.next());
+        }
+        return sAllHives;
+        
     }
+
+    public int getRoomCount() {
+        
+        int roomCount=0;
+     // let us get all of the hives       
+        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
+        while (iterator.hasNext()) {
+            ArrayList<Hive> myHives = iterator.next();
+            Iterator<Hive> myHivesIterator= myHives.iterator();
+
+            while (myHivesIterator.hasNext()) {
+                Hive myHive = myHivesIterator.next();
+                roomCount += myHive.getRoomCount();
+            }
+        }
+        return roomCount;
+    }
+    
+    public String getHiveRooms() {
+     
+        String sAllRooms = "";
+     // let us get all of the hives       
+        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
+        while (iterator.hasNext()) {
+            ArrayList<Hive> myHives = iterator.next();
+            Iterator<Hive> myHivesIterator= myHives.iterator();
+
+            while (myHivesIterator.hasNext()) {
+                Hive myHive = myHivesIterator.next();
+                sAllRooms += "\n" + myHive;
+                sAllRooms += myHive.getRooms();
+            }
+        }
+        return sAllRooms;
+    }
+    
+    public String toString() {
+        
+        String sAllHives = getHives();
+
+        String myApiary = "Apiary Hives: " + hiveCount +  
+                            "\n" + sAllHives + 
+                            "\n\nRoom Count: " + getRoomCount() + 
+                            "\nRooms: " + getHiveRooms();
+        return myApiary; 
+    }
+
 }
