@@ -6,7 +6,7 @@ import java.util.Iterator;
 import builder.Hive;
 import builder.IHiveBuilder;
 import builder.HiveBuildDirector;
-import builder.HiveType;
+import builder.BeeType;
 import builder.ItalianHiveBuilderImpl;
 import builder.RussianHiveBuilderImpl;
 import builder.BuckfastHiveBuilderImpl;
@@ -17,7 +17,7 @@ import builder.GermanHiveBuilderImpl;
 public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    HashMap<HiveType, ArrayList<Hive>> hiveMap = new HashMap<HiveType, ArrayList<Hive>>();
+    HashMap<BeeType, ArrayList<Hive>> hiveMap = new HashMap<BeeType, ArrayList<Hive>>();
     private static int hiveCount = 0;
 
     // private constructor since there is only ever ONE apiary
@@ -42,7 +42,7 @@ public class Apiary {
      *         Description: Calls the createHive method to create a new bee hive of
      *         specified type
      */
-    public Hive buildHive(HiveType hiveType) {
+    public Hive buildHive(BeeType hiveType) {
 
         IHiveBuilder myHiveBuilder = null;
         switch (hiveType) {
@@ -92,7 +92,7 @@ public class Apiary {
         String sAllHives = "";
         
         // let us get all of the hives        
-        Iterator<HiveType> iterator = hiveMap.keySet().iterator();
+        Iterator<BeeType> iterator = hiveMap.keySet().iterator();
         while (iterator.hasNext()) {
             sAllHives += "\n" + hiveMap.get(iterator.next());
         }

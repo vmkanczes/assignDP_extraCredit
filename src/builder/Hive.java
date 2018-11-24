@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class Hive {
 
-    private HiveType type;
+    private BeeType type;
 
     // inner map of rooms for the hives
     HashMap<RoomType, ArrayList<Room>> roomMap = new HashMap<RoomType, ArrayList<Room>>();
@@ -14,7 +14,7 @@ public class Hive {
     // nested map of hives and their associated rooms
     // Map<HiveType, Map<RoomType, ArrayList<Room>>> outerMap = new HashMap<HiveType, Map<RoomType, ArrayList<Room>>>();
             
-    public Room roomBuilder(RoomType roomType, HiveType hiveType) {
+    public Room roomBuilder(RoomType roomType, BeeType hiveType) {
         
         IRoomBuilder myRoomBuilder = null;
         switch (roomType) {
@@ -47,7 +47,7 @@ public class Hive {
         
     }
 
-    public HiveType getType() {
+    public BeeType getType() {
         return type;
     }
     
@@ -61,7 +61,7 @@ public class Hive {
         return sAllRooms;
     }
     
-    public void setType(HiveType hiveType) {
+    public void setType(BeeType hiveType) {
         this.type = hiveType;
     }
     

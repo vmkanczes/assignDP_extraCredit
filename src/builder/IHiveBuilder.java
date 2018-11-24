@@ -5,7 +5,7 @@ public interface IHiveBuilder  {
            
     Hive buildHive();
        
-    IHiveBuilder setType(final HiveType hiveType);
+    IHiveBuilder setType(final BeeType hiveType);
     
     
     
