@@ -14,7 +14,7 @@ public class Hive {
     HashMap<RoomType, ArrayList<Room>> roomMap = new HashMap<RoomType, ArrayList<Room>>();
     
     // nested map of hives and their associated rooms
-    Map<HiveType, Map<RoomType, ArrayList<Room>>> outerMap = new HashMap<HiveType, Map<RoomType, ArrayList<Room>>>();
+    // Map<HiveType, Map<RoomType, ArrayList<Room>>> outerMap = new HashMap<HiveType, Map<RoomType, ArrayList<Room>>>();
             
     public Room roomBuilder(RoomType roomType, HiveType hiveType) {
         
@@ -43,7 +43,7 @@ public class Hive {
         }
         myRoomList.add(newRoom);
         
-        outerMap.put(hiveType, roomMap);
+        //outerMap.put(hiveType, roomMap);
 
         return newRoom;
         
@@ -54,44 +54,13 @@ public class Hive {
     }
     
     public void getRooms() {
-        // let us get all of the mapped objects
-        System.out.println("\n\nRoom HashMap.");        
- 
+        // let us get all of the mapped objects 
         Iterator<RoomType> iterator = roomMap.keySet().iterator();
         while (iterator.hasNext()) {
             System.out.println("Room: " + roomMap.get(iterator.next()));
         }
     }
     
-    /**
-     * Method: getHives
-     * Inputs: none
-     * Outputs: none
-     * 
-     * Description: prints out each hive and its associated rooms.
-     */
-    public void getHives() {
-
-        // get all hives and their associated rooms
-        for (Entry<HiveType, Map<RoomType, ArrayList<Room>>> vals : outerMap.entrySet()) {
-            System.out.println("\n\nOutermap key: " + vals.getKey());
-            Map<RoomType, ArrayList<Room>> nested_vals = vals.getValue();
-            System.out.println("Map fetched as object: " + nested_vals.toString());
-            /*
-             for (Entry<RoomType, ArrayList<Room>> nested_entries : nested_vals.entrySet()) {
-               System.out.println("\n" + "Nested key is: " +
-                       nested_entries.getKey());
-               System.out.println("Set as object: " +
-                       nested_entries.getValue().toString());
-               for (Room values : nested_entries.getValue()) {
-                   System.out.println("Nested values are: " + values);
-               }
-            } 
-            */                                             
-        }
-    }
-    
-
     public void setType(HiveType hiveType) {
         this.type = hiveType;
     }

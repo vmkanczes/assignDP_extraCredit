@@ -111,5 +111,21 @@ public class Apiary {
         }
         return roomCount;
     }
+    
+    public void getHiveRooms() {
+     
+     // let us get all of the hives       
+        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
+        while (iterator.hasNext()) {
+            ArrayList<Hive> myHives = iterator.next();
+            Iterator<Hive> myHivesIterator= myHives.iterator();
+
+            while (myHivesIterator.hasNext()) {
+                Hive myHive = myHivesIterator.next();
+                System.out.println("\n\nMy apiary hive: " + myHive);
+                myHive.getRooms();
+            }
+        }
+    }
 
 }
