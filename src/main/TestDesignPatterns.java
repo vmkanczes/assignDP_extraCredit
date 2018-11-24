@@ -18,6 +18,8 @@ public class TestDesignPatterns {
         
         // get total count of hives
         Apiary.getInstance().getHives();
+        System.out.println("Room Count: " + Apiary.getInstance().getRoomCount());
+
         
         // get hive objects
         //System.out.println(buckfastHive1.toString());
@@ -41,15 +43,15 @@ public class TestDesignPatterns {
         germanHive2.roomBuilder(RoomType.REST, germanHive2.getType());
         germanHive2.roomBuilder(RoomType.BROOD, germanHive2.getType());
 
-        germanHive2.getRooms();
-        germanHive1.getHives();
-        germanHive2.getHives();
+        germanHive1.getRooms();
+        germanHive1.getHives(); 
+        
+        germanHive2.getHives();  
+        buckfastHive1.getHives();
+        
+        System.out.println("Room Count: " + Apiary.getInstance().getRoomCount());
 
 
-
-        
-        
-        
     }  
 
 }

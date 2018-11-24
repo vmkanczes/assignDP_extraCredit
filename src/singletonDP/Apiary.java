@@ -3,16 +3,11 @@ package singletonDP;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 import builder.Hive;
 import builder.IHiveBuilder;
 import builder.HiveBuildDirector;
 import builder.HiveType;
 import builder.ItalianHiveBuilderImpl;
-import builder.Room;
-import builder.RoomType;
 import builder.RussianHiveBuilderImpl;
 import builder.BuckfastHiveBuilderImpl;
 import builder.CarniolanHiveBuilderImpl;
@@ -92,14 +87,29 @@ public class Apiary {
 
     public void getHives() {
 
-        // let us get all of the mapped objects
-        Set<Map.Entry<HiveType, ArrayList<Hive>>> entries = hiveMap.entrySet();
-        
+        // let us get all of the hives        
         Iterator<HiveType> iterator = hiveMap.keySet().iterator();
         while (iterator.hasNext()) {
             System.out.println("Hive: " + hiveMap.get(iterator.next()));
         }
 
+    }
+
+    public int getRoomCount() {
+        
+        int roomCount=0;
+     // let us get all of the hives       
+        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
+        while (iterator.hasNext()) {
+            ArrayList<Hive> myHives = iterator.next();
+            Iterator<Hive> myHivesIterator= myHives.iterator();
+
+            while (myHivesIterator.hasNext()) {
+                Hive myHive = myHivesIterator.next();
+                roomCount += myHive.getRoomCount();
+            }
+        }
+        return roomCount;
     }
 
 }
