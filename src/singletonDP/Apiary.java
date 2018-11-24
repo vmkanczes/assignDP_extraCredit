@@ -87,11 +87,28 @@ public class Apiary {
 
     public void getHives() {
 
+        int hiveCount = 0;
+        
         // let us get all of the hives        
         Iterator<HiveType> iterator = hiveMap.keySet().iterator();
         while (iterator.hasNext()) {
             System.out.println("Hive: " + hiveMap.get(iterator.next()));
+            hiveCount++;
         }
+        
+    }
+    
+    public int getHiveCount() {
+
+        int hiveCount = 0;
+        
+        // let us get all of the hives        
+        Iterator<HiveType> iterator = hiveMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            hiveCount++;
+        }
+        
+        return hiveCount;
 
     }
 
@@ -126,6 +143,16 @@ public class Apiary {
                 myHive.getRooms();
             }
         }
+    }
+    
+    @Override
+    public String toString() {
+        
+        String myApiary = "Apiary Hives:\n " + "\n\n" + 
+                            "Hive Count: " + getHiveCount() + 
+                            "Room Count: " + getRoomCount();
+                ;
+        return myApiary; 
     }
 
 }

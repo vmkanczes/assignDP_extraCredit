@@ -10,44 +10,49 @@ public class TestDesignPatterns {
 
     public static void main(String[] args) {
         
-        // add hives to the apiary
-        Hive buckfastHive1 = Apiary.getInstance().buildHive(HiveType.BUCKFAST);
-        Hive germanHive1 = Apiary.getInstance().buildHive(HiveType.GERMAN);
-        Hive germanHive2 = Apiary.getInstance().buildHive(HiveType.GERMAN);
-
+        Hive hive1 = createHive(HiveType.BUCKFAST);
+        Hive hive2 = createHive(HiveType.GERMAN);
+        Hive hive3 = createHive(HiveType.RUSSIAN);
+        Hive hive4 = createHive(HiveType.CARNIOLAN);
+        Hive hive5 = createHive(HiveType.CAUCASIAN);
+        Hive hive6 = createHive(HiveType.ITALIAN);
         
-        // get total count of hives
+        addBroodRoom(hive1);
+        addRestRoom(hive1);
+        addBroodRoom(hive1);
+        addRestRoom(hive1);
+        addBroodRoom(hive2);
+        addRestRoom(hive2);
+        addBroodRoom(hive2);
+        addRestRoom(hive3);
+        addBroodRoom(hive3);
+        addRestRoom(hive3);  
+        addRestRoom(hive4);        
+        addRestRoom(hive5);        
+        addRestRoom(hive6);        
+
         Apiary.getInstance().getHives();
-        System.out.println("Room Count: " + Apiary.getInstance().getRoomCount());
+        //Apiary.getInstance().toString();
 
-        
-        // get hive objects
-        //System.out.println(buckfastHive1.toString());
-        //System.out.println(germanHive1.toString());
-        //System.out.println(germanHive2.toString());
-        
-        // add rooms to a specific hive
-        buckfastHive1.roomBuilder(RoomType.BROOD, buckfastHive1.getType());
-        buckfastHive1.roomBuilder(RoomType.REST, buckfastHive1.getType());
-        buckfastHive1.roomBuilder(RoomType.BROOD, buckfastHive1.getType());
-        buckfastHive1.roomBuilder(RoomType.REST, buckfastHive1.getType());
-        
-        germanHive1.roomBuilder(RoomType.REST, germanHive1.getType());
-        germanHive1.roomBuilder(RoomType.REST, germanHive1.getType());
-        germanHive1.roomBuilder(RoomType.REST, germanHive1.getType());
-        germanHive1.roomBuilder(RoomType.BROOD, germanHive1.getType());
-        germanHive1.roomBuilder(RoomType.BROOD, germanHive1.getType());
-
-        
-        germanHive2.roomBuilder(RoomType.BROOD, germanHive2.getType());
-        germanHive2.roomBuilder(RoomType.REST, germanHive2.getType());
-        germanHive2.roomBuilder(RoomType.BROOD, germanHive2.getType());
-        
-        Apiary.getInstance().getHiveRooms();
-
-        System.out.println("Room Count: " + Apiary.getInstance().getRoomCount());
+       System.out.println("Room Count: " + Apiary.getInstance().getRoomCount());
 
 
+    }
+
+    private static void addBroodRoom(Hive hive) {
+        hive.roomBuilder(RoomType.BROOD, hive.getType());        
+    }
+    
+    private static void addRestRoom(Hive hive) {
+        hive.roomBuilder(RoomType.REST, hive.getType());        
+    }
+
+    private static Hive createHive(HiveType hiveType) {
+        // add hives to the apiary
+        Hive myHive = Apiary.getInstance().buildHive(hiveType);
+        return myHive;
+
+        
     }  
 
 }
