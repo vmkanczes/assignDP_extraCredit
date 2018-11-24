@@ -18,7 +18,6 @@ public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
     HashMap<BeeType, ArrayList<Hive>> hiveMap = new HashMap<BeeType, ArrayList<Hive>>();
-    private static int hiveCount = 0;
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
@@ -81,12 +80,30 @@ public class Apiary {
             hiveMap.put(hiveType, myHiveList);
         }
         myHiveList.add(newHive);
-        hiveCount++;
 
         return newHive;
 
     }
+    
+    public void removeHives(BeeType beeType) {
+        //System.out.println("Current map is: "+ hiveMap);
+        //System.out.println("Removing bee hives for: " + beeType);
+        hiveMap.remove(beeType);              
+    }
 
+    public int getHiveCount() {
+
+        int hiveCount = 0;
+        
+        // let us get all of the hives        
+        Iterator<BeeType> iterator = hiveMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            hiveMap.get(iterator.next());
+            hiveCount++;
+        }
+        return hiveCount;
+        
+    }
     public String getHives() {
 
         String sAllHives = "";
@@ -139,7 +156,7 @@ public class Apiary {
         
         String sAllHives = getHives();
 
-        String myApiary = "Apiary Hives: " + hiveCount +  
+        String myApiary = "Apiary Hives: " + getHiveCount() +  
                             "\n" + sAllHives + 
                             "\n\nRoom Count: " + getRoomCount() + 
                             "\nRooms: " + getHiveRooms();

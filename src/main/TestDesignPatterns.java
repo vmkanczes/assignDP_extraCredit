@@ -28,6 +28,8 @@ public class TestDesignPatterns {
         Hive hive7 = createHive(BeeType.CAUCASIAN);
         Hive hive8 = createHive(BeeType.ITALIAN);
         
+        removeBeeHives(BeeType.BUCKFAST);
+        
         // Builder Pattern - create rooms for hives
         addBroodRoom(hive1);
         addRestRoom(hive1);
@@ -85,6 +87,11 @@ public class TestDesignPatterns {
         // add hives to the apiary
         Hive myHive = Apiary.getInstance().buildHive(hiveType);
         return myHive;       
+    }  
+    
+    private static void removeBeeHives(BeeType beeType) {
+        // remove hives from the apiary
+        Apiary.getInstance().removeHives(beeType);
     }  
     
     

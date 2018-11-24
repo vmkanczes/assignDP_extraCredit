@@ -68,7 +68,7 @@ public class Hive {
     @Override
     public String toString() {
         
-        String hiveString = " " + getType();
+        String hiveString = "" + getType();
         return hiveString; 
     }
 
