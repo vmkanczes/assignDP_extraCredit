@@ -16,12 +16,11 @@ Description: This class is to create an average ordinary bee with average attrib
 public class AverageBeeImpl implements IBee {
     
     /**
-     * 
      Method: getType
      Inputs: 
-     Returns: @return enum BeeType
+     Returns: enum BeeType
      
-     Description:  Gets the type of bee
+     Description:  Gets the type of bee.
      */
     @Override
     public BeeType getType() {
@@ -29,12 +28,11 @@ public class AverageBeeImpl implements IBee {
     }
     
     /**
-     * 
      Method:  getGentleness
      Inputs: 
-     Returns: @return  int bee's level of gentleness
+     Returns: int bee's level of gentleness
      
-     Description: Get the bee's friendliness
+     Description: Get the bee's friendliness.
      */
     @Override
     public int getGentleness() {
@@ -42,10 +40,9 @@ public class AverageBeeImpl implements IBee {
     }
     
     /**
-     * 
      Method:  getHoneyProduction
      Inputs: 
-     Returns: @return int bee's level of honey production
+     Returns: int bee's level of honey production
      
      Description:  Get the bee's ability to produce honey.
      */
@@ -55,12 +52,11 @@ public class AverageBeeImpl implements IBee {
     }
     
     /**
-     * 
      Method: getPollination
      Inputs: 
-     Returns: @return 
+     Returns: int bee's level of honey pollination
      
-     Description:  Get the bee's ability to pollinate flowers
+     Description:  Get the bee's ability to pollinate flowers.
      */
     @Override
     public int getPollination() {
@@ -69,12 +65,11 @@ public class AverageBeeImpl implements IBee {
     }
     
     /**
-     * 
      Method:  getReproduction
      Inputs: 
-     Returns: @return int 
+     Returns: int bee's level of ability to production
      
-     Description:  Get the bee's ability to help make baby bees
+     Description:  Get the bee's ability to help make baby bees.
      */
     @Override
     public int getReproduction() {
@@ -82,12 +77,11 @@ public class AverageBeeImpl implements IBee {
     }
     
     /**
-     * 
      Method:  getWaxProduction
      Inputs: 
-     Returns: @return
+     Returns: int bee's level of wax production
      
-     Description: Get the bee's ability to make wax to build the hive
+     Description: Get the bee's ability to make wax to build the hive.
      */
     @Override
     public int getWaxProduction() {
@@ -95,12 +89,11 @@ public class AverageBeeImpl implements IBee {
     }
     
     /**
-     * 
      Method: getRole
      Inputs: 
-     Returns: @return
+     Returns: BeeRole bee's role
      
-     Description: Get the bee's role such as queen, worker, drone or spawner
+     Description: Get the bee's role such as queen, worker, drone or spawner.
      */
     @Override
     public BeeRole getRole() {
