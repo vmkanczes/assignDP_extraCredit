@@ -1,0 +1,65 @@
+// The part below needs to be included for Spotbugs
+plugins {
+   id "com.github.spotbugs" version "1.6.5"
+}
+
+apply plugin: 'application'
+apply plugin: 'java' 
+apply plugin: 'jacoco' 
+apply plugin: 'checkstyle'
+
+// Definine Main class
+mainClassName = 'main.TestDesignPatterns'
+
+// Repositories and dependencies for code go here
+repositories {
+  mavenCentral()
+}
+
+test {
+        println 'UnitTesting with AllTests'
+        //filter to only run the testSuite
+        filter{
+                includeTestsMatching '*.AllTests'
+        }
+        //runs jacoco coverage report
+        println 'Running jacocoTestReport'
+        finalizedBy jacocoTestReport
+}
+
+dependencies {
+  compile 'junit:junit:4.12' 
+}
+
+// Configure Checkstyle
+apply plugin: 'checkstyle'
+checkstyle {
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+  reports {
+    html.enabled = true
+    xml.enabled = false
+  }
+}
+
+checkstyle {
+    toolVersion = "8.8"
+}
+
+// Configure SpotBugs
+spotbugs {
+   toolVersion = '3.1.1'
+   spotbugsMain.ignoreFailures = true
+}
+
+// // To generate an HTML report instead of XML
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+   reports {
+     xml.enabled = false
+     html.enabled = true
+   }
+}

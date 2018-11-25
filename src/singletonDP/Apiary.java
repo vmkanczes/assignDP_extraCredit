@@ -83,10 +83,9 @@ public class Apiary {
         return newHive;
     }
     
-    public void removeHives(BeeType beeType) {
-        //System.out.println("Current map is: "+ hiveMap);
-        //System.out.println("Removing bee hives for: " + beeType);
-        hiveMap.remove(beeType);              
+    public void removeHives(Hive hive) {
+        
+        hiveMap.remove(hive.getType());              
     }
 
     public int getHiveCount() {
