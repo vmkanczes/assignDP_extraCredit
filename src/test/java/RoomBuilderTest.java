@@ -10,13 +10,12 @@ package test.java;
 
 import static org.junit.Assert.assertTrue;
 
-import builder.BeeType;
-import builder.Hive;
-import builder.RoomType;
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.builder.Hive;
+import main.java.apiary.builder.RoomType;
+import main.java.apiary.singleton.Apiary;
 
 import org.junit.Test;
-
-import singletonDP.Apiary;
 
 /**
  * Class: RoomBuilderTest

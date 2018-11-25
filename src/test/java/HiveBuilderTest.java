@@ -10,13 +10,13 @@ package test.java;
 
 import static org.junit.Assert.assertTrue;
 
-import builder.BeeType;
-import builder.Hive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import singletonDP.Apiary;
 
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.builder.Hive;
+import main.java.apiary.singleton.Apiary;
 
 /**
  * Class: HiveBuilderTest
