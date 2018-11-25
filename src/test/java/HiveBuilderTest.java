@@ -187,6 +187,8 @@ public class HiveBuilderTest {
      */
     @Test public void hiveCountTest() {
 
+        System.out.println(Apiary.getInstance().toString());
+
             int testHiveCount = 6;
             assertTrue("Hive count is incorrect", testHiveCount == Apiary.getInstance().getHiveCount());
     }

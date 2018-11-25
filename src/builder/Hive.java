@@ -46,6 +46,14 @@ public class Hive {
         return newRoom;
         
     }
+    
+    public void removeBroodRoom() {
+        roomMap.remove(RoomType.BROOD); 
+    }
+    
+    public void removeRestRoom() {
+        roomMap.remove(RoomType.REST); 
+    }
 
     public BeeType getType() {
         return type;
@@ -61,6 +69,67 @@ public class Hive {
         return sAllRooms;
     }
     
+    public int getBroodRoomCount() {
+        // let us get all of the mapped objects 
+        String sAllRooms = "";
+        int broodCount = 0;
+
+        
+        // get each room type
+        Iterator<RoomType> iterator = roomMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            sAllRooms += "" + roomMap.get(iterator.next());
+        }
+        
+        // split the string to only get the necessary bits
+        String fixedString = fixString(sAllRooms);
+        String[] tokens = fixedString.split(" ");
+
+        // loop through and get count of brood rooms only
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].equals("BROOD")) {
+                broodCount++;
+            }
+        }
+        
+        return broodCount;
+    }
+    
+    private String fixString(String s) {
+                
+        String s1 = s.replace("[", "");
+        String s2 = s1.replace("]", " ");
+        String s3 = s2.replace(',', ' ');
+        return s3;
+    
+}
+    
+    public int getRestRoomCount() {
+        // let us get all of the mapped objects 
+        String sAllRooms = "";
+        int restCount = 0;
+
+        
+        // get each room type
+        Iterator<RoomType> iterator = roomMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            sAllRooms += "" + roomMap.get(iterator.next());
+        }
+        
+     // split the string to only get the necessary bits
+        String fixedString = fixString(sAllRooms);
+        String[] tokens = fixedString.split(" ");
+
+        // loop through and get count of brood rooms only
+        for (int i = 0; i < tokens.length; i++) {
+            if (tokens[i].equals("REST")) {
+                restCount++;
+            }
+        }
+        
+        return restCount;
+    }
+    
     public void setType(BeeType hiveType) {
         this.type = hiveType;
     }
@@ -74,7 +143,7 @@ public class Hive {
 
     public int getRoomCount() {
         int roomCount=0;
-     // let us get all of the hives       
+     // let us get all of the rooms       
         Iterator<ArrayList<Room>> iterator = roomMap.values().iterator();
         while (iterator.hasNext()) {
             ArrayList<Room> myRooms = iterator.next();

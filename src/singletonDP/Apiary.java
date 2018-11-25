@@ -17,7 +17,7 @@ import builder.GermanHiveBuilderImpl;
 public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    HashMap<BeeType, ArrayList<Hive>> hiveMap = new HashMap<BeeType, ArrayList<Hive>>();
+    private static HashMap<BeeType, ArrayList<Hive>> hiveMap = new HashMap<BeeType, ArrayList<Hive>>();
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
@@ -41,13 +41,12 @@ public class Apiary {
      *         Description: Calls the createHive method to create a new bee hive of
      *         specified type
      */
-    public Hive buildHive(BeeType hiveType) {
+    public Hive buildHive(BeeType beeType) {
 
         IHiveBuilder myHiveBuilder = null;
-        switch (hiveType) {
+        switch (beeType) {
         case ITALIAN:
             myHiveBuilder = new ItalianHiveBuilderImpl();
-
             break;
         case CARNIOLAN:
             myHiveBuilder = new CarniolanHiveBuilderImpl();
@@ -66,6 +65,7 @@ public class Apiary {
             break;
         default:
             System.out.println("No such hive...");
+            break;
         }
 
         // final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
@@ -73,16 +73,14 @@ public class Apiary {
         Hive newHive = hiveBuildDirector.construct();
 
         // check if hive type already exists
-        ArrayList<Hive> myHiveList = hiveMap.get(hiveType);
+        ArrayList<Hive> myHiveList = hiveMap.get(beeType);
         if (myHiveList == null) {
             // create array list
             myHiveList = new ArrayList<Hive>();
-            hiveMap.put(hiveType, myHiveList);
+            hiveMap.put(beeType, myHiveList);
         }
         myHiveList.add(newHive);
-
         return newHive;
-
     }
     
     public void removeHives(BeeType beeType) {
@@ -116,10 +114,9 @@ public class Apiary {
         return sAllHives;
         
     }
-
-    public int getRoomCount() {
+    
+public void removeBroodRoom(BeeType beeType) {
         
-        int roomCount=0;
      // let us get all of the hives       
         Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
         while (iterator.hasNext()) {
@@ -128,11 +125,29 @@ public class Apiary {
 
             while (myHivesIterator.hasNext()) {
                 Hive myHive = myHivesIterator.next();
-                roomCount += myHive.getRoomCount();
+                if (myHive.getType() == beeType) {
+                    myHive.removeBroodRoom();
+                }
             }
         }
-        return roomCount;
     }
+
+public void removeRestRoom(BeeType beeType) {
+    
+    // let us get all of the hives       
+       Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
+       while (iterator.hasNext()) {
+           ArrayList<Hive> myHives = iterator.next();
+           Iterator<Hive> myHivesIterator= myHives.iterator();
+
+           while (myHivesIterator.hasNext()) {
+               Hive myHive = myHivesIterator.next();
+               if (myHive.getType() == beeType) {
+                   myHive.removeBroodRoom();
+               }
+           }
+       }
+   }
     
     public String getHiveRooms() {
      
@@ -145,21 +160,39 @@ public class Apiary {
 
             while (myHivesIterator.hasNext()) {
                 Hive myHive = myHivesIterator.next();
-                sAllRooms += "\n" + myHive;
                 sAllRooms += myHive.getRooms();
             }
         }
         return sAllRooms;
     }
     
+    public int getRoomCount() {
+        
+        int totalRoomCount = 0;
+     // let us get all of the hives       
+        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
+        while (iterator.hasNext()) {
+            ArrayList<Hive> myHives = iterator.next();
+            Iterator<Hive> myHivesIterator= myHives.iterator();
+
+            while (myHivesIterator.hasNext()) {
+                Hive myHive = myHivesIterator.next();
+                totalRoomCount += myHive.getRoomCount();
+            }
+        }
+        return totalRoomCount;
+    }
+    
     public String toString() {
         
         String sAllHives = getHives();
+        
 
         String myApiary = "Apiary Hives: " + getHiveCount() +  
                             "\n" + sAllHives + 
-                            "\n\nRoom Count: " + getRoomCount() + 
-                            "\nRooms: " + getHiveRooms();
+                            "\n\nApiary Rooms: " + getRoomCount() + 
+                            "\nHive map: " + hiveMap.toString() +
+                            "\nRooms: " + getHiveRooms(); 
         return myApiary; 
     }
 
