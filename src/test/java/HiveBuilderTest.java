@@ -174,7 +174,6 @@ public class HiveBuilderTest {
      * <p>Description: Verifies that the hive was not created for a bee type that does
      * not exist.
      */
-    
     @Test public void removeHiveTest() { 
         int testHiveCount = 5;
         Apiary.getInstance().removeHives(buckfastHive);
