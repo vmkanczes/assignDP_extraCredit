@@ -1,5 +1,5 @@
 /**
-File: IMediator.java
+File: INature.java
 Author: @author
 Date: Nov 24, 2018
 
@@ -10,11 +10,11 @@ package beeMediator;
 import builder.BeeType;
 
 /**
-Class: IMediator
+Class: INature
 
-Description:  Mediator interface
+Description:  Mediator interface manages the bee egg fertilization.
  */
-public interface IQueen {
+public interface INature {
 
     public void layEggs(BeeType type, int numberOfEggs,  int code);
     public void fertilizeEggs(BeeType type, int eggs, int beeCode);

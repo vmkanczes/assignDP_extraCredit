@@ -16,7 +16,7 @@ Class:
 
 Description:
  */
-public class QueenMediatorImpl implements IQueen {
+public class NatureMediatorImpl implements INature {
     
     private ArrayList<Bee> bees;
     private ArrayList<EggCare> eggsLaid;
@@ -24,7 +24,7 @@ public class QueenMediatorImpl implements IQueen {
     
     private int beeCodes = 0;
     
-    public QueenMediatorImpl() {
+    public NatureMediatorImpl() {
         
         bees = new ArrayList<Bee>();
         eggsLaid = new ArrayList<EggCare>();
@@ -43,7 +43,16 @@ public class QueenMediatorImpl implements IQueen {
         
         boolean giveEgg = false;
         
+        System.out.println( "\nMEDIATOR: ");
+        
+        System.out.println("Laid eggs call: " + eggs + " of type " + type +
+                " by bee code " + eggs);
+        
         for (EggCare egg : eggsFertilized) {
+            
+            System.out.println("Laid eggs call: " + eggs + " of type " + type +
+                    " by bee code " + egg.getCode());
+            
             
             if((egg.getType() == type) && (egg.getEggs() == eggs)) {
                 
@@ -81,6 +90,9 @@ public void fertilizeEggs(BeeType type, int eggs,  int code) {
         boolean eggFertilized = false;
         
         for (EggCare egg : eggsLaid) {
+            
+            System.out.println("fertilizeEggs Call: " + eggs + " of type " + type +
+                    " by bee code " + egg.getCode());
             
             if((egg.getType() == type) && (egg.getEggs() == eggs)) {
                 

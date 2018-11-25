@@ -10,7 +10,9 @@ import beeAttributeDecorator.IBee;
 import beeAttributeDecorator.ItalianWorkerBee;
 import beeAttributeDecorator.RussianWorkerBee;
 import beeMediator.Drone;
-import beeMediator.QueenMediatorImpl;
+import beeMediator.Honey;
+import beeMediator.NatureMediatorImpl;
+import beeMediator.Queen;
 import beeMediator.Worker;
 import builder.BeeType;
 import builder.RoomType;
@@ -22,6 +24,9 @@ public class TestDesignPatterns {
     public static void main(String[] args) {
         
         // Builder Pattern: to create hives in apiary
+        System.out.println("\nSingeton Apiary: Hive Rooms");
+        System.out.println("\nBuilder Pattern: Hives");
+
         Hive hive1 = createHive(BeeType.BUCKFAST);
         Hive hive2 = createHive(BeeType.GERMAN);
         Hive hive3 = createHive(BeeType.RUSSIAN);
@@ -30,6 +35,7 @@ public class TestDesignPatterns {
         removeHive(BeeType.RUSSIAN);
         
         // Builder Pattern: create rooms for hives
+        System.out.println("\nBuilder Pattern: Hive Rooms");
         addBroodRoom(hive1);
         addRestRoom(hive2);       
 
@@ -37,6 +43,7 @@ public class TestDesignPatterns {
         System.out.println(Apiary.getInstance().toString());
         
         // Decorator Pattern: to create some worker bees of each type
+        System.out.println("\nDecorator Pattern");
         System.out.println("\nBees: Species and Attributes!");
         IBee regularBee = new AverageBeeImpl();
         System.out.println(regularBee.toString());
@@ -60,21 +67,27 @@ public class TestDesignPatterns {
         System.out.println(caucasianWorkerBee.toString());
         
         // Mediator Pattern:  Fertilize eggs
-         QueenMediatorImpl  nature = new QueenMediatorImpl();
+        System.out.println("\nMediator Pattern");
+         NatureMediatorImpl  nature = new NatureMediatorImpl();
          
          // create egg laying
          Worker workerBee = new Worker(nature);
-         Drone droneBee = new Drone(nature);
+         Queen queenBee = new Queen(nature);
+         
+         // create fertilizers
+         Drone drone = new Drone(nature);
+         Honey honeyBee = new Honey(nature);
          
          // Decorator Pattern and Mediator: 
          // bee attributes used to determine how many eggs they lay
-         drone.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 100);
-         queenBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 100);
+         queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 50);
+         queenBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 60);
          workerBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 10);
 
-         workerBee.fertilizeEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 100, 0);
-         queenBee.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 100, 0);
-         
+         honeyBee.fertilizeEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 30, 1);
+         honeyBee.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 35, 1);
+         drone.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 40, 2);
+
          nature.getEggStatus();
          
     }

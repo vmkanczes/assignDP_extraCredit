@@ -23,9 +23,9 @@ public class EggCare {
     /* Constructor
      * 
      */
-    public EggCare(BeeType type, int numberOfEggs, int code) {
+    public EggCare(BeeType beeType, int numberOfEggs, int code) {
         eggs = numberOfEggs;
-        type = type;
+        type = beeType;
         beeCode = code;
     }
     
@@ -48,8 +48,5 @@ public class EggCare {
     public int getCode() {
         return beeCode;
     }
-    
-    
-    
     
 }

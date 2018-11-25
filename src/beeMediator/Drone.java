@@ -10,14 +10,14 @@ package beeMediator;
 /**
 Class:
 
-Description:  Drone
+Description:  Drone is a male bee is from an unfertilized egg but can fertilize eggs
  */
 public class Drone extends Bee {
     
-    public Drone(IQueen newMediator) {
+    public Drone(INature newMediator) {
         super(newMediator);
         
-        System.out.println("German Drone signed up to fertilize the eggs");
+        System.out.println("Drone signed up to fertilize the eggs");
     }
 
 }
