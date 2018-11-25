@@ -50,6 +50,15 @@ checkstyle {
     toolVersion = "8.8"
 }
 
+task fatJar(type: Jar){
+        manifest{
+                attributes  'Main-Class': 'main.java.apiary.RunTestDesignPatterns', 'Implementation-Title': 'Apiary'
+        }
+        baseName = 'APIARY'
+        from{ configurations.compile.collect{it.isDirectory() ? it : zipTree(it) } }
+        with jar
+}
+
 // Configure SpotBugs
 spotbugs {
    toolVersion = '3.1.1'
