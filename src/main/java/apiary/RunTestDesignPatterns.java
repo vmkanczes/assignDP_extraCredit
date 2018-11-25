@@ -18,125 +18,129 @@ import main.java.apiary.mediator.Queen;
 import main.java.apiary.mediator.Worker;
 import main.java.apiary.singleton.Apiary;
 
-
 public class RunTestDesignPatterns {
 
+    /**
+     * Method: main Inputs: Returns:
+     * 
+     * <p>
+     * Description: This will run each of the different design patterns and
+     * demonstrate that each of them work and work together.
+     */
     public static void main(String[] args) {
-        
+
         // Builder Pattern: to create hives in apiary
         System.out.println("\nSingeton Apiary: Hive Rooms");
         System.out.println("\nBuilder Pattern: Hives");
 
         Hive hive1 = createHive(BeeType.BUCKFAST);
         Hive hive2 = createHive(BeeType.GERMAN);
-        Hive hive3 = createHive(BeeType.RUSSIAN);
 
-        // remove a hive
-        removeHive(BeeType.RUSSIAN);
-        
         // Builder Pattern: create rooms for hives
         System.out.println("\nBuilder Pattern: Hive Rooms");
         addBroodRoom(hive1);
-        addRestRoom(hive2);       
+        addRestRoom(hive2);
+
+        // build and then remove a hive
+        Hive hive3 = createHive(BeeType.RUSSIAN);
+        removeHive(hive3);
 
         // Singleton Pattern: apiary to get information on the hives and the hive rooms
         System.out.println(Apiary.getInstance().toString());
-        
+
         // Decorator Pattern: to create some worker bees of each type
         System.out.println("\nDecorator Pattern");
         System.out.println("\nBees: Species and Attributes!");
         IBee regularBee = new AverageBeeImpl();
         System.out.println(regularBee.toString());
-        
+
         IBee germanWorkerBee = new GermanWorkerBee(new AverageBeeImpl());
         System.out.println(germanWorkerBee.toString());
-        
+
         IBee italianWorkerBee = new ItalianWorkerBee(new AverageBeeImpl());
         System.out.println(italianWorkerBee.toString());
-        
+
         IBee buckfastWorkerBee = new BuckfastWorkerBee(new AverageBeeImpl());
         System.out.println(buckfastWorkerBee.toString());
-        
+
         IBee carniolanWorkerBee = new CarniolanWorkerBee(new AverageBeeImpl());
         System.out.println(carniolanWorkerBee.toString());
-        
+
         IBee russianWorkerBee = new RussianWorkerBee(new AverageBeeImpl());
         System.out.println(russianWorkerBee.toString());
-        
+
         IBee caucasianWorkerBee = new CaucasianWorkerBee(new AverageBeeImpl());
         System.out.println(caucasianWorkerBee.toString());
-        
-        // Mediator Pattern:  Fertilize eggs
+
+        // Mediator Pattern: Fertilize eggs
         System.out.println("\nMediator Pattern");
-         NatureMediatorImpl  nature = new NatureMediatorImpl();
-         
-         // create egg laying
-         Worker workerBee = new Worker(nature);
-         Queen queenBee = new Queen(nature);
-         
-         // create fertilizers
-         Drone drone = new Drone(nature);
-         Honey honeyBee = new Honey(nature);
-         
-         // Decorator Pattern and Mediator: 
-         // bee attributes used to determine how many eggs they lay
-         queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 50);
-         queenBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 60);
-         workerBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 10);
+        NatureMediatorImpl nature = new NatureMediatorImpl();
 
-         honeyBee.fertilizeEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 30, 1);
-         honeyBee.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 35, 1);
-         drone.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 40, 2);
+        // Decorator Pattern and Mediator:
+        // bee attributes used to determine how many eggs they lay
+        Queen queenBee = new Queen(nature);
+        queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 50);
+        queenBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 60);
 
-         nature.getEggStatus();
-         
+        Worker workerBee = new Worker(nature);
+        workerBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 10);
+
+        // create the honey bee and have do an action
+        Honey honeyBee = new Honey(nature);
+        honeyBee.fertilizeEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 30, 1);
+        honeyBee.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 35, 1);
+
+        Drone drone = new Drone(nature);
+        drone.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 40, 2);
+
+        nature.getEggStatus();
+
     }
 
-    /** 
-     Method:  addBroodRoom
-     Inputs:  hive 
-     Returns: 
-     
-     Description: Adds a brood room for that specific hive
+    /**
+     * Method: addBroodRoom. 
+     * Inputs: hive 
+     * Returns:
+     *
+     * <p>Description: Adds a brood room for that specific hive.
      */
     private static void addBroodRoom(Hive hive) {
-        hive.roomBuilder(RoomType.BROOD, hive.getType());        
+        hive.roomBuilder(RoomType.BROOD, hive.getType());
     }
-    
-    /** 
-    Method:  addRestRoom
-    Inputs:  hive 
-    Returns: 
-    
-    Description: Adds a rest room for that specific hive
-    */
+
+    /**
+     * Method: addRestRoom Inputs: hive Returns:
+     * 
+     * <p>
+     * Description: Adds a rest room for that specific hive.
+     */
     private static void addRestRoom(Hive hive) {
-        hive.roomBuilder(RoomType.REST, hive.getType());        
+        hive.roomBuilder(RoomType.REST, hive.getType());
     }
-    
-    /** 
-    Method:  createHive
-    Inputs:  hive 
-    Returns: 
-    
-    Description: Makes the call to create the hive
-    */
+
+    /**
+     * Method: createHive Inputs: hiveType Returns: returns the Hive created
+     * 
+     * <p>
+     * Description: Makes the call to create the specific type of hive in the
+     * apiary.
+     */
     private static Hive createHive(BeeType hiveType) {
         // add hives to the apiary
         Hive myHive = Apiary.getInstance().buildHive(hiveType);
-        return myHive;       
-    }  
-    
-    /** 
-    Method:  removeHive
-    Inputs:  hive 
-    Returns: 
-    
-    Description: Removes the hive from the apiary
-    */
-    private static void removeHive(BeeType beeType) {
+        return myHive;
+    }
+
+    /**
+     * Method: removeHive Inputs: Hive hive - the hive to be removed Returns:
+     * Returns: void
+     * 
+     * <p>
+     * Description: Removes the hive from the apiary.
+     */
+    private static void removeHive(Hive hive) {
         // remove hives from the apiary
-        Apiary.getInstance().removeHives(beeType);
-    }    
+        Apiary.getInstance().removeHives(hive);
+    }
 
 }
