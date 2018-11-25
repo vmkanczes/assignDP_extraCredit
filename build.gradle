@@ -9,7 +9,7 @@ apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 
 // Definine Main class
-mainClassName = 'main.TestDesignPatterns'
+mainClassName = 'main.java.apiary.RunTestDesignPatterns'
 
 // Repositories and dependencies for code go here
 repositories {

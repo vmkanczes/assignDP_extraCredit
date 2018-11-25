@@ -1,17 +1,23 @@
-package main.java.apiary.attributeDecorator;
+package main.java.apiary.decorator;
+
+/**
+File: RussianWorkerBee.java
+Author: vkanczes
+Date: Nov 24, 2018
+
+Description: creates the bee attributes for species RussianWorkerBee.
+ */
+
 import main.java.apiary.builder.BeeType;
 
 /**
-Class: BuckfastWorkerBee
+Class: RussianWorkerBee
 
-Description: This class is to create an Buckfast bee with specific attributes.
+Description: This class is to create an Russian bee with specific attributes.
  */
-public class BuckfastWorkerBee extends AttributeDecoratorImpl {
+public class RussianWorkerBee extends AttributeDecoratorImpl {
     
-    /**
-     * @param newBee
-     */
-    public BuckfastWorkerBee(IBee newBee) {
+    public RussianWorkerBee(IBee newBee) {
         super(newBee);
         
     }
@@ -23,9 +29,8 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description:  Gets the type of bee.
      */
-    @Override
-    public BeeType getType() {
-        return BeeType.BUCKFAST;
+    @Override public BeeType getType() {
+        return BeeType.RUSSIAN;
     }
     
     /**
@@ -35,8 +40,7 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description: Get the bee's friendliness.
      */
-    @Override
-    public int getGentleness() {
+    @Override public int getGentleness() {
         return tempBee.getGentleness() - 1;
     }
     
@@ -47,8 +51,7 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description:  Get the bee's ability to produce honey.
      */
-    @Override
-    public int getHoneyProduction() {
+    @Override public int getHoneyProduction() {
         return tempBee.getHoneyProduction();
     }
     
@@ -59,8 +62,7 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description:  Get the bee's ability to pollinate flowers.
      */
-    @Override
-    public int getPollination() {
+    @Override public int getPollination() {
         return tempBee.getPollination();
 
     }
@@ -72,9 +74,8 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description:  Get the bee's ability to help make baby bees.
      */
-    @Override
-    public int getReproduction() {
-        return tempBee.getReproduction() - 1;
+    @Override public int getReproduction() {
+        return tempBee.getReproduction();
     }
     
     /**
@@ -84,9 +85,8 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description: Get the bee's ability to make wax to build the hive.
      */
-    @Override
-    public int getWaxProduction() {
-        return tempBee.getWaxProduction() -2;
+    @Override public int getWaxProduction() {
+        return tempBee.getWaxProduction();
     }
     
     /**
@@ -96,20 +96,26 @@ public class BuckfastWorkerBee extends AttributeDecoratorImpl {
      
      Description: Get the bee's role such as queen, worker, drone or spawner.
      */
-    @Override
-    public BeeRole getRole() {
+    @Override public BeeRole getRole() {
         return BeeRole.WORKER;
     } 
     
+    /**
+     * Method: toString
+     * Inputs:
+     * Outputs: String of bee attribute information
+     * 
+     * <p>Description:  Creates string containing details about the bee.
+     */
     public String toString() {
         
-        String beeAttributes = (getType() + " " + 
-                getRole() + " " +
-                "Gentleness: " + getGentleness() + " " +
-                "Honey Production: " + getHoneyProduction() + " " + 
-                "Pollination: " + getPollination() + " " +
-                "Reproduction: " + getReproduction() + " " +
-                "Wax Production: " + getWaxProduction() + " "
+        String beeAttributes = (getType() + " "
+                + getRole() + " " 
+                + "Gentleness: " + getGentleness() + " "
+                + "Honey Production: " + getHoneyProduction() + " "
+                + "Pollination: " + getPollination() + " "
+                + "Reproduction: " + getReproduction() + " "
+                + "Wax Production: " + getWaxProduction() + " "
                 );
         
         return beeAttributes;

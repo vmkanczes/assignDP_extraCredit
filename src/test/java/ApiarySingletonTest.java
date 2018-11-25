@@ -8,26 +8,28 @@ Description:
 
 package test.java;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 import main.java.apiary.singleton.Apiary;
 
-/**
-Class:
+import org.junit.Test;
 
-Description:
+/**
+ * Class: ApiarySingletonTest
+ * 
+ * <p>Description: This is a singleton class that creates the apiary to hold all of
+ * the hives.
  */
 public class ApiarySingletonTest {
 
     @Test public void singletonTest() {
-        
-         Apiary myApiary = Apiary.getInstance();
-         Apiary testApiary = Apiary.getInstance();
-         
-         assertEquals(testApiary, myApiary);
-         assertSame(testApiary, myApiary);
+
+        Apiary myApiary = Apiary.getInstance();
+        Apiary testApiary = Apiary.getInstance();
+
+        assertEquals(testApiary, myApiary);
+        assertSame(testApiary, myApiary);
 
     }
 

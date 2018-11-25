@@ -8,14 +8,12 @@ public class RussianHiveBuilderImpl implements IHiveBuilder {
         this.hive = new Hive();
     }
 
-    @Override
-    public Hive buildHive() {
+    @Override public Hive buildHive() {
         hive.setType(BeeType.RUSSIAN);
         return hive;
     }
 
-    @Override
-    public IHiveBuilder setType(final BeeType hiveType) {
+    @Override public IHiveBuilder setType(final BeeType hiveType) {
         hive.setType(hiveType);
         return this;
     }

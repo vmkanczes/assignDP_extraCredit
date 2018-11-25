@@ -10,13 +10,15 @@ package test.java;
 
 import static org.junit.Assert.assertTrue;
 
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.builder.Hive;
+import main.java.apiary.singleton.Apiary;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.apiary.builder.BeeType;
-import main.java.apiary.builder.Hive;
-import main.java.apiary.singleton.Apiary;
+
 
 /**
  * Class: HiveBuilderTest
@@ -54,8 +56,7 @@ public class HiveBuilderTest {
      * 
      * <p>Description:
      */
-    @After
-    public void tearDown() throws Exception {
+    @After public void tearDown() throws Exception {
         // remove hive mappings
         Apiary.getInstance().removeHives(buckfastHive);
         Apiary.getInstance().removeHives(italianHive);

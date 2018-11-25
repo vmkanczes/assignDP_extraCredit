@@ -1,11 +1,12 @@
+package main.java.apiary.mediator;
+
 /**
 File: IMediator.java
 Author: @author
 Date: Nov 24, 2018
 
-Description: 
+Description:  Mediator interface.
  */
-package main.java.apiary.mediator;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import main.java.apiary.builder.BeeType;
 /**
 Class:
 
-Description:
+Description: Mediator interface.
  */
 public class NatureMediatorImpl implements INature {
     
@@ -24,6 +25,9 @@ public class NatureMediatorImpl implements INature {
     
     private int beeCodes = 0;
     
+    /**
+     * Constructor.
+     */
     public NatureMediatorImpl() {
         
         bees = new ArrayList<Bee>();
@@ -32,6 +36,13 @@ public class NatureMediatorImpl implements INature {
         
     }
     
+    /**
+     * Method: addBee
+     * Inputs: Bee
+     * Returns:  
+     * 
+     * <p>Description: updates the new bee.
+     */
     public void addBee(Bee newBee) {
         bees.add(newBee);
         beeCodes++;
@@ -39,25 +50,32 @@ public class NatureMediatorImpl implements INature {
         
     }
     
+    /**
+     * Method: layEggs
+     * Inputs: Bee type, eggs laid, code
+     * Returns:  
+     * 
+     * <p>Description: Updates the new bee.
+     */
     public void layEggs(BeeType type, int eggs,  int code) {
         
         boolean giveEgg = false;
         
-        System.out.println( "\nMEDIATOR: ");
+        System.out.println("\nMEDIATOR: ");
         
-        System.out.println("Laid eggs call: " + eggs + " of type " + type +
-                " by bee code " + eggs);
+        System.out.println("Laid eggs call: " + eggs + " of type " + type
+                + " by bee code " + eggs);
         
         for (EggCare egg : eggsFertilized) {
             
-            System.out.println("Laid eggs call: " + eggs + " of type " + type +
-                    " by bee code " + egg.getCode());
+            System.out.println("Laid eggs call: " + eggs + " of type " + type
+                    + " by bee code " + egg.getCode());
             
             
-            if((egg.getType() == type) && (egg.getEggs() == eggs)) {
+            if ((egg.getType() == type) && (egg.getEggs() == eggs)) {
                 
-                System.out.println(eggs + "of type" + type +
-                        " fertilized by bee code " + egg.getCode());
+                System.out.println(eggs + "of type" + type
+                        + " fertilized by bee code " + egg.getCode());
                 
                 eggsFertilized.remove(egg);
                 
@@ -69,8 +87,8 @@ public class NatureMediatorImpl implements INature {
             
             if (!giveEgg) {
                 
-                System.out.println(eggs + " eggs of type " + type + 
-                        " still unfertilized...");
+                System.out.println(eggs + " eggs of type " + type
+                        + " still unfertilized...");
                 
                 EggCare newRequest = new EggCare(type, eggs, code);
                 
@@ -82,22 +100,23 @@ public class NatureMediatorImpl implements INature {
 
     /**
      * Method: fertilizeEggs
+     * Inputs: bee type, eggs fertilized, code
      * 
-     * Description:  queen will request to have the eggs fertilized
+     * <p>Description:  queen will request to have the eggs fertilized.
      */
-public void fertilizeEggs(BeeType type, int eggs,  int code) {
+    public void fertilizeEggs(BeeType type, int eggs,  int code) {
         
         boolean eggFertilized = false;
         
         for (EggCare egg : eggsLaid) {
             
-            System.out.println("fertilizeEggs Call: " + eggs + " of type " + type +
-                    " by bee code " + egg.getCode());
+            System.out.println("fertilizeEggs Call: " + eggs + " of type " + type
+                    + " by bee code " + egg.getCode());
             
-            if((egg.getType() == type) && (egg.getEggs() == eggs)) {
+            if ((egg.getType() == type) && (egg.getEggs() == eggs)) {
                 
-                System.out.println(eggs + "of type" + type +
-                        " fertilized by bee code " + egg.getCode());
+                System.out.println(eggs + "of type" + type
+                        + " fertilized by bee code " + egg.getCode());
                 
                 eggsLaid.remove(egg);
                 
@@ -109,8 +128,8 @@ public void fertilizeEggs(BeeType type, int eggs,  int code) {
             
             if (!eggFertilized) {
                 
-                System.out.println(eggs + " eggs of type " + type + 
-                        " still unfertilized...");
+                System.out.println(eggs + " eggs of type " + type
+                       + " still unfertilized...");
                 
                 EggCare newRequest = new EggCare(type, eggs, code);
                 
@@ -120,6 +139,13 @@ public void fertilizeEggs(BeeType type, int eggs,  int code) {
         }
     }  
 
+    /**
+     * Method: getEggStatus
+     * Inputs: 
+     * Returns:  
+     * 
+     * <p>Description: Gets the status of how many eggs were laid and fertilized.
+     */
     public void getEggStatus() {
         System.out.println("Unfertilized Eggs");
         
@@ -134,9 +160,6 @@ public void fertilizeEggs(BeeType type, int eggs,  int code) {
             
             System.out.println(egg.getEggs() + " of type " + egg.getType());
         }
-    }
-
-
-      
+    }   
 
 }

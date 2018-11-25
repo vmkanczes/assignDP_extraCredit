@@ -1,19 +1,27 @@
+package main.java.apiary.mediator;
+
 /**
 File: Honey.java
 Author: @author
 Date: Nov 24, 2018
 
-Description: 
+Description: Create a honey bee mediator that can fertilize the eggs.
  */
-package main.java.apiary.mediator;
 
 /**
 Class:
 
-Description:  Male bees are created from unfertilized eggs but can fertilize eggs
+Description:  Male bees are created from unfertilized eggs but can fertilize eggs.
  */
 public class Honey extends Bee {
     
+    /**
+     * Method: Constructor
+     * Inputs: mediator
+     * Returns:
+     * 
+     *  <p>Description: will fertilize eggs.
+     */
     public Honey(INature newMediator) {
         super(newMediator);
         

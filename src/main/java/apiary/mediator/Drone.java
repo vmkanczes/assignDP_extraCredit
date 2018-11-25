@@ -1,19 +1,27 @@
+package main.java.apiary.mediator;
+
 /**
 File: Drone.java
 Author: @author
 Date: Nov 24, 2018
 
-Description: 
+Description: Creates the bee as a mediator.
  */
-package main.java.apiary.mediator;
 
 /**
 Class:
 
-Description:  Drone is a male bee is from an unfertilized egg but can fertilize eggs
+Description:  Drone is a male bee is from an unfertilized egg but can fertilize eggs.
  */
 public class Drone extends Bee {
     
+    /**
+     * Method: Constructor
+     * Inputs: mediator
+     * Returns:
+     * 
+     *  <p>Description: will fertilize eggs.
+     */
     public Drone(INature newMediator) {
         super(newMediator);
         

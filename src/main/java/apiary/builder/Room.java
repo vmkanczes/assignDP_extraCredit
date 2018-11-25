@@ -12,8 +12,7 @@ public class Room {
         this.type = val;
     }
     
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return getType() + "";
     }
     

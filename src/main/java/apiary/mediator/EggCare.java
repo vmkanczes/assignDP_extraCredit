@@ -1,18 +1,19 @@
+package main.java.apiary.mediator;
+
 /**
 File: EggCare.java
 Author: @author
 Date: Nov 24, 2018
 
-Description: 
+Description: Stores the concrete class used in mediator.
  */
-package main.java.apiary.mediator;
 
 import main.java.apiary.builder.BeeType;
 
 /**
 Class:
 
-Description:
+Description: Creates the methods used for the egg laying and fertilizing.
  */
 public class EggCare {
 
@@ -20,8 +21,12 @@ public class EggCare {
     private BeeType type;
     private int beeCode = 0;
     
-    /* Constructor
+    /**
+     * Method: Constructor
+     * Inputs: mediator
+     * Returns:
      * 
+     *  <p>Description: creates new object for eggs by beetype.
      */
     public EggCare(BeeType beeType, int numberOfEggs, int code) {
         eggs = numberOfEggs;
@@ -30,12 +35,11 @@ public class EggCare {
     }
     
     /**
-     * 
      Method: getEggs
      Inputs: 
      Returns: eggs - number of eggs the queen will lay 
      
-     Description:
+     Description: Get the number of eggs laid.
      */
     public int getEggs() {
         return eggs;

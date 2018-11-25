@@ -10,18 +10,18 @@ package test.java;
 
 import static org.junit.Assert.assertTrue;
 
-import main.java.apiary.attributeDecorator.AverageBeeImpl;
-import main.java.apiary.attributeDecorator.BeeRole;
-import main.java.apiary.attributeDecorator.BuckfastWorkerBee;
-import main.java.apiary.attributeDecorator.CarniolanWorkerBee;
-import main.java.apiary.attributeDecorator.CaucasianWorkerBee;
-import main.java.apiary.attributeDecorator.GermanWorkerBee;
-import main.java.apiary.attributeDecorator.IBee;
-import main.java.apiary.attributeDecorator.ItalianWorkerBee;
-import main.java.apiary.attributeDecorator.RussianWorkerBee;
-import main.java.apiary.builder.BeeType;
-
 import java.util.Objects;
+
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.decorator.AverageBeeImpl;
+import main.java.apiary.decorator.BeeRole;
+import main.java.apiary.decorator.BuckfastWorkerBee;
+import main.java.apiary.decorator.CarniolanWorkerBee;
+import main.java.apiary.decorator.CaucasianWorkerBee;
+import main.java.apiary.decorator.GermanWorkerBee;
+import main.java.apiary.decorator.IBee;
+import main.java.apiary.decorator.ItalianWorkerBee;
+import main.java.apiary.decorator.RussianWorkerBee;
 
 import org.junit.After;
 import org.junit.Before;

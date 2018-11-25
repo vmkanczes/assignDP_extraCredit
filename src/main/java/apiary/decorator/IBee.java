@@ -1,10 +1,19 @@
-package main.java.apiary.attributeDecorator;
+package main.java.apiary.decorator;
+
+/**
+File: IBee.java
+Author: @author
+Date: Nov 24, 2018
+
+Description: Bee interface for bee attributes.  
+*/
+
 import main.java.apiary.builder.BeeType;
 
 /**
 Class: IBee
 
-Description: Bee interface with all the necessary attributes, role, and type
+Description: Bee interface with all the necessary attributes, role, and type.
  */
 public interface IBee  {
     
@@ -31,7 +40,7 @@ public interface IBee  {
      Inputs: 
      Returns: int bee's level of honey production
      
-     <p>Description:  Get the bee's ability to produce honey.
+     Description:  Get the bee's ability to produce honey.
      */
     public int getHoneyProduction();
     
@@ -40,7 +49,7 @@ public interface IBee  {
      Inputs: 
      Returns: int 
      
-     Description:  Get the bee's ability to pollinate flowers
+     Description:  Get the bee's ability to pollinate flowers.
      */
     public int getPollination();
     
@@ -54,22 +63,20 @@ public interface IBee  {
     public int getReproduction();
     
     /**
-     * 
      Method:  getWaxProduction
      Inputs: 
      Returns: 
      
-     Description: Get the bee's ability to make wax to build the hive
+     Description: Get the bee's ability to make wax to build the hive.
      */
     public int getWaxProduction();
     
     /**
-     * 
      Method: getRole
      Inputs: 
      Returns: 
      
-     Description: Get the bee's role such as queen, worker, drone or spawner
+     Description: Get the bee's role such as queen, worker, drone or spawner.
      */
     public BeeRole getRole();
     
