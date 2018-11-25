@@ -52,7 +52,7 @@ checkstyle {
 
 task fatJar(type: Jar){
         manifest{
-                attributes  'Main-Class': 'main.java.Main'
+                attributes  'Main-Class': 'main.java.apiary.RunTestDesignPatterns', 'Implementation-Title': 'Apiary'
         }
         baseName = 'APIARY'
         from{ configurations.compile.collect{it.isDirectory() ? it : zipTree(it) } }
