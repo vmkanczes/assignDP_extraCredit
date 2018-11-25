@@ -67,6 +67,7 @@ public class Hive {
     public BeeType getType() {
         return type;
     }
+    
     /**
      Method: getRooms
      Inputs: 
