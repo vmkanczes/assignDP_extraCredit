@@ -9,14 +9,14 @@ apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 
 // Definine Main class
-mainClassName = 'main.TestDesignPatterns''
+mainClassName = 'main.TestDesignPatterns'
 
 // Repositories and dependencies for code go here
 repositories {
   mavenCentral()
 }
 
-test{
+test {
         println 'UnitTesting with AllTests'
         //filter to only run the testSuite
         filter{
@@ -29,7 +29,7 @@ test{
 
 dependencies {
   compile 'junit:junit:4.12' 
-
+}
 
 // Configure Checkstyle
 apply plugin: 'checkstyle'
@@ -45,14 +45,12 @@ tasks.withType(Checkstyle) {
     xml.enabled = false
   }
 }
+
 checkstyle {
     toolVersion = "8.8"
 }
 
-
 // Configure SpotBugs
-
-// The part below needs to be included for Spotbugs
 spotbugs {
    toolVersion = '3.1.1'
    spotbugsMain.ignoreFailures = true
