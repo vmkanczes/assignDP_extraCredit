@@ -56,8 +56,7 @@ public class HiveBuilderTest {
      * 
      * <p>Description:
      */
-    @After
-    public void tearDown() throws Exception {
+    @After public void tearDown() throws Exception {
         // remove hive mappings
         Apiary.getInstance().removeHives(buckfastHive);
         Apiary.getInstance().removeHives(italianHive);

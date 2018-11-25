@@ -1,4 +1,12 @@
-package main.java.apiary.attributeDecorator;
+/**
+File: AttributeDecoratorImpl.java
+Author: vkanczes
+Date: Nov 24, 2018
+
+Description: Implements the bee to create species attributes. 
+ */
+
+package main.java.apiary.decorator;
 
 import main.java.apiary.builder.BeeType;
 

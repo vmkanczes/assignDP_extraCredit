@@ -1,12 +1,12 @@
+package main.java.apiary.decorator;
+
 /**
-File: RoomBuilderTest.java
+File: IBee.java
 Author: @author
 Date: Nov 24, 2018
 
-Description: 
+Description: Bee interface for bee attributes.  
 */
-
-package main.java.apiary.attributeDecorator;
 
 import main.java.apiary.builder.BeeType;
 

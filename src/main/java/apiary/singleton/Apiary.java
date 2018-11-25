@@ -18,55 +18,59 @@ import main.java.apiary.builder.RussianHiveBuilderImpl;
 public class Apiary {
 
     private static final Apiary _APIARY_INSTANCE = new Apiary();
-    private static HashMap<BeeType, ArrayList<Hive>> hiveMap = new HashMap<BeeType, ArrayList<Hive>>();
+    private static HashMap<BeeType, ArrayList<Hive>> hiveMap 
+        = new HashMap<BeeType, ArrayList<Hive>>();
 
     // private constructor since there is only ever ONE apiary
     private Apiary() {
     }
 
     /**
-     * getInstance: Inputs: Returns: returns the only instance of the apiary object
+     * Method: getInstance: 
+     * Inputs: 
+     * Returns: returns the only instance of the apiary object
      * 
-     * Description: this will return the single instance of the apiary which is used
-     * by for all hive creation
+     * <p>Description: this will return the single instance of the apiary which is used
+     * by for all hive creation.
      */
     public static Apiary getInstance() {
         return _APIARY_INSTANCE;
     }
 
     /**
-     * Method: buildHive
+     * Method: buildHive 
+     * Inputs: BeeType (bee species) 
+     * Returns: Hive return the hive
+     * that was created
      * 
-     * @return the hive that was created
-     * 
-     *         Description: Calls the createHive method to create a new bee hive of
-     *         specified type
+     * <p>Description: Calls the createHive method to create a new bee hive of
+     * specified type.
      */
     public Hive buildHive(BeeType beeType) {
 
         IHiveBuilder myHiveBuilder = null;
         switch (beeType) {
-        case ITALIAN:
-            myHiveBuilder = new ItalianHiveBuilderImpl();
-            break;
-        case CARNIOLAN:
-            myHiveBuilder = new CarniolanHiveBuilderImpl();
-            break;
-        case BUCKFAST:
-            myHiveBuilder = new BuckfastHiveBuilderImpl();
-            break;
-        case RUSSIAN:
-            myHiveBuilder = new RussianHiveBuilderImpl();
-            break;
-        case GERMAN:
-            myHiveBuilder = new GermanHiveBuilderImpl();
-            break;
-        case CAUCASIAN:
-            myHiveBuilder = new CaucasianHiveBuilderImpl();
-            break;
-        default:
-            System.out.println("No such hive...");
-            break;
+            case ITALIAN:
+                myHiveBuilder = new ItalianHiveBuilderImpl();
+                break;
+            case CARNIOLAN:
+                myHiveBuilder = new CarniolanHiveBuilderImpl();
+                break;
+            case BUCKFAST:
+                myHiveBuilder = new BuckfastHiveBuilderImpl();
+                break;
+            case RUSSIAN:
+                myHiveBuilder = new RussianHiveBuilderImpl();
+                break;
+            case GERMAN:
+                myHiveBuilder = new GermanHiveBuilderImpl();
+                break;
+            case CAUCASIAN:
+                myHiveBuilder = new CaucasianHiveBuilderImpl();
+                break;
+            default:
+                System.out.println("No such hive...");
+                break;
         }
 
         // final IRoomBuilder broodBuilder = new BroodRoomBuilderImpl();
@@ -89,6 +93,13 @@ public class Apiary {
         hiveMap.remove(hive.getType());
     }
 
+    /**
+     * Method: getHiveCount 
+     * Inputs: 
+     * Returns: int that contains total number of hives.
+     * 
+     * <p>Description: Lists out each hive by species.
+     */
     public int getHiveCount() {
 
         int hiveCount = 0;
@@ -102,14 +113,14 @@ public class Apiary {
         return hiveCount;
 
     }
-    
+
     /**
-    Method: getHives
-    Inputs: 
-    Returns: String that contains all of the hive names
-    
-    Description:  Lists out each hive by species.
-    */
+     * Method: getHives 
+     * Inputs: 
+     * Returns: String that contains all of the hive names
+     * 
+     * <p>Description: Lists out each hive by species.
+     */
     public String getHives() {
 
         String allHives = "";
@@ -124,12 +135,12 @@ public class Apiary {
     }
 
     /**
-    Method: removeBroodRoom
-    Inputs: BeeType - bee species
-    Returns: 
-    
-    Description:  Removes the brood room for this hive.
-    */
+     * Method: removeBroodRoom 
+     * Inputs: BeeType - bee species 
+     * Returns:
+     * 
+     * <p>Description: Removes the brood room for this hive.
+     */
     public void removeBroodRoom(BeeType beeType) {
 
         // let us get all of the hives
@@ -146,13 +157,13 @@ public class Apiary {
             }
         }
     }
-    
+
     /**
-     Method: removeRestRoom
-     Inputs: BeeType - bee species
-     Returns: 
-     
-     Description:  Removes the room for this hive.
+     * Method: removeRestRoom 
+     * Inputs: BeeType - bee species 
+     * Returns:
+     * 
+     * <p>Description: Removes the room for this hive.
      */
     public void removeRestRoom(BeeType beeType) {
 
@@ -172,10 +183,12 @@ public class Apiary {
     }
 
     /**
-     * Method: getRooms Inputs: Returns: String that contains all room in specific
+     * Method: getRooms 
+     * Inputs: 
+     * Returns: String that contains all room in specific
      * hive
      * 
-     * Description: Gets all the rooms for a specific hive.
+     * <p>Description: Gets all the rooms for a specific hive.
      */
     public String getHiveRooms() {
 
@@ -193,7 +206,14 @@ public class Apiary {
         }
         return allRooms;
     }
-
+    
+    /**
+     * Method: getRoomCount 
+     * Inputs: 
+     * Returns: int that contains total number of rooms.
+     * 
+     * <p>Description: Give total number of rooms in the apiary
+     */
     public int getRoomCount() {
 
         int totalRoomCount = 0;
@@ -212,17 +232,22 @@ public class Apiary {
     }
 
     /**
-     * Method: toString Inputs: Outputs: String of apiary information
+     * Method: toString 
+     * Inputs: 
+     * Outputs: String of apiary information
      * 
-     * <p>
-     * Description: Creates string containing details about the apiary.
+     * <p>Description: Creates string containing details about the apiary.
      */
     public String toString() {
 
         String allHives = getHives();
 
-        String myApiary = "Apiary Hives: " + getHiveCount() + "\n" + allHives + "\n\nApiary Rooms: " + getRoomCount()
-                + "\nHive map: " + hiveMap.toString() + "\nRooms: " + getHiveRooms();
+        String myApiary = "Apiary Hives: "
+                + getHiveCount() + "\n" 
+                + allHives + "\n\nApiary Rooms: "
+                + getRoomCount()
+                + "\nHive map: " + hiveMap.toString() 
+                + "\nRooms: " + getHiveRooms();
         return myApiary;
     }
 

@@ -1,16 +1,16 @@
 package main.java.apiary;
 
-import main.java.apiary.attributeDecorator.AverageBeeImpl;
-import main.java.apiary.attributeDecorator.BuckfastWorkerBee;
-import main.java.apiary.attributeDecorator.CarniolanWorkerBee;
-import main.java.apiary.attributeDecorator.CaucasianWorkerBee;
-import main.java.apiary.attributeDecorator.GermanWorkerBee;
-import main.java.apiary.attributeDecorator.IBee;
-import main.java.apiary.attributeDecorator.ItalianWorkerBee;
-import main.java.apiary.attributeDecorator.RussianWorkerBee;
 import main.java.apiary.builder.BeeType;
 import main.java.apiary.builder.Hive;
 import main.java.apiary.builder.RoomType;
+import main.java.apiary.decorator.AverageBeeImpl;
+import main.java.apiary.decorator.BuckfastWorkerBee;
+import main.java.apiary.decorator.CarniolanWorkerBee;
+import main.java.apiary.decorator.CaucasianWorkerBee;
+import main.java.apiary.decorator.GermanWorkerBee;
+import main.java.apiary.decorator.IBee;
+import main.java.apiary.decorator.ItalianWorkerBee;
+import main.java.apiary.decorator.RussianWorkerBee;
 import main.java.apiary.mediator.Drone;
 import main.java.apiary.mediator.Honey;
 import main.java.apiary.mediator.NatureMediatorImpl;
@@ -23,8 +23,7 @@ public class RunTestDesignPatterns {
     /**
      * Method: main Inputs: Returns:
      * 
-     * <p>
-     * Description: This will run each of the different design patterns and
+     * <p>Description: This will run each of the different design patterns and
      * demonstrate that each of them work and work together.
      */
     public static void main(String[] args) {
@@ -109,20 +108,22 @@ public class RunTestDesignPatterns {
     }
 
     /**
-     * Method: addRestRoom Inputs: hive Returns:
+     * Method: addRestRoom 
+     * Inputs: hive 
+     * Returns:
      * 
-     * <p>
-     * Description: Adds a rest room for that specific hive.
+     * <p>Description: Adds a rest room for that specific hive.
      */
     private static void addRestRoom(Hive hive) {
         hive.roomBuilder(RoomType.REST, hive.getType());
     }
 
     /**
-     * Method: createHive Inputs: hiveType Returns: returns the Hive created
+     * Method: createHive 
+     * Inputs: hiveType 
+     * Returns: returns the Hive created
      * 
-     * <p>
-     * Description: Makes the call to create the specific type of hive in the
+     * <p>Description: Makes the call to create the specific type of hive in the
      * apiary.
      */
     private static Hive createHive(BeeType hiveType) {
@@ -132,15 +133,14 @@ public class RunTestDesignPatterns {
     }
 
     /**
-     * Method: removeHive Inputs: Hive hive - the hive to be removed Returns:
+     * Method: removeHive 
+     * Inputs: Hive hive - the hive to be removed Returns:
      * Returns: void
      * 
-     * <p>
-     * Description: Removes the hive from the apiary.
+     * <p>Description: Removes the hive from the apiary.
      */
     private static void removeHive(Hive hive) {
         // remove hives from the apiary
         Apiary.getInstance().removeHives(hive);
     }
-
 }
