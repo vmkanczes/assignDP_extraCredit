@@ -1,13 +1,13 @@
 package main.java.apiary.attributeDecorator;
 
 import main.java.apiary.builder.BeeType;
+
 /**
- * 
 Class:  AttributeDecoratorImpl
 
-Description: This class allows creation of different bees with different attributes
+Description: This class allows creation of different bees with different attributes.
  */
-abstract class AttributeDecoratorImpl implements IBee{
+abstract class AttributeDecoratorImpl implements IBee {
     
     protected IBee tempBee;
    
@@ -18,7 +18,6 @@ abstract class AttributeDecoratorImpl implements IBee{
         tempBee = newBee;
     }
     
-    @Override
     /**
      Method:  getGentleness
      Inputs: 
@@ -26,11 +25,10 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description: Get the bee's friendliness.
      */
-    public int getGentleness() {
+    @Override public int getGentleness() {
         return tempBee.getGentleness();
     }
 
-    @Override
     /**
      Method:  getHoneyProduction
      Inputs: 
@@ -38,11 +36,10 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description:  Get the bee's ability to produce honey.
      */
-    public int getHoneyProduction() {
+    @Override public int getHoneyProduction() {
         return tempBee.getHoneyProduction();
     }
 
-    @Override
     /**
      Method: getPollination
      Inputs: 
@@ -50,12 +47,11 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description:  Get the bee's ability to pollinate flowers.
      */
-    public int getPollination() {
+    @Override public int getPollination() {
         return tempBee.getPollination();
 
     }
 
-    @Override
     /**
      Method:  getReproduction
      Inputs: 
@@ -63,11 +59,10 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description:  Get the bee's ability to help make baby bees.
      */
-    public int getReproduction() {
+    @Override public int getReproduction() {
         return tempBee.getReproduction();
     }
 
-    @Override
     /**
      Method:  getWaxProduction
      Inputs: 
@@ -75,11 +70,10 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description: Get the bee's ability to make wax to build the hive.
      */
-    public int getWaxProduction() {
+    @Override public int getWaxProduction() {
         return tempBee.getWaxProduction();
     }
 
-    @Override
     /**
      Method: getRole
      Inputs: 
@@ -87,11 +81,10 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description: Get the bee's role such as queen, worker, drone or spawner.
      */
-    public BeeRole getRole() {
+    @Override public BeeRole getRole() {
         return tempBee.getRole();
     }
 
-    @Override
     /**
      Method: getType
      Inputs: 
@@ -99,7 +92,7 @@ abstract class AttributeDecoratorImpl implements IBee{
      
      Description:  Gets the type of bee.
      */
-    public BeeType getType() {
+    @Override public BeeType getType() {
         return tempBee.getType();
     }
 
