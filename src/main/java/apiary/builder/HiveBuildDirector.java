@@ -1,4 +1,4 @@
-package builder;
+package main.java.apiary.builder;
 
 public class HiveBuildDirector {
     private IHiveBuilder builder;

@@ -1,25 +1,25 @@
-package main;
+package main.java.apiary;
 
-import builder.Hive;
-import beeAttributeDecorator.AverageBeeImpl;
-import beeAttributeDecorator.BuckfastWorkerBee;
-import beeAttributeDecorator.CarniolanWorkerBee;
-import beeAttributeDecorator.CaucasianWorkerBee;
-import beeAttributeDecorator.GermanWorkerBee;
-import beeAttributeDecorator.IBee;
-import beeAttributeDecorator.ItalianWorkerBee;
-import beeAttributeDecorator.RussianWorkerBee;
-import beeMediator.Drone;
-import beeMediator.Honey;
-import beeMediator.NatureMediatorImpl;
-import beeMediator.Queen;
-import beeMediator.Worker;
-import builder.BeeType;
-import builder.RoomType;
-import singletonDP.Apiary;
+import main.java.apiary.attributeDecorator.AverageBeeImpl;
+import main.java.apiary.attributeDecorator.BuckfastWorkerBee;
+import main.java.apiary.attributeDecorator.CarniolanWorkerBee;
+import main.java.apiary.attributeDecorator.CaucasianWorkerBee;
+import main.java.apiary.attributeDecorator.GermanWorkerBee;
+import main.java.apiary.attributeDecorator.IBee;
+import main.java.apiary.attributeDecorator.ItalianWorkerBee;
+import main.java.apiary.attributeDecorator.RussianWorkerBee;
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.builder.Hive;
+import main.java.apiary.builder.RoomType;
+import main.java.apiary.mediator.Drone;
+import main.java.apiary.mediator.Honey;
+import main.java.apiary.mediator.NatureMediatorImpl;
+import main.java.apiary.mediator.Queen;
+import main.java.apiary.mediator.Worker;
+import main.java.apiary.singleton.Apiary;
 
 
-public class TestDesignPatterns {
+public class RunTestDesignPatterns {
 
     public static void main(String[] args) {
         

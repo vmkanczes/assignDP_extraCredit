@@ -5,9 +5,9 @@ Date: Nov 24, 2018
 
 Description: Abstract class to be able to build different types of bees 
  */
-package beeMediator;
+package main.java.apiary.mediator;
 
-import builder.BeeType;
+import main.java.apiary.builder.BeeType;
 
 /**
 Class: Used to determine the bee gender

@@ -1,12 +1,5 @@
-package beeAttributeDecorator;
-/**
-File: IBee.java
-Author: vkanczes
-Date: Nov 23, 2018
-
-Description: Interface for the bee attributes, type, and role
- */
-import builder.BeeType;
+package main.java.apiary.attributeDecorator;
+import main.java.apiary.builder.BeeType;
 
 /**
 Class: IBee

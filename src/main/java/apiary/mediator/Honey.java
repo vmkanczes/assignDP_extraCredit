@@ -5,7 +5,7 @@ Date: Nov 24, 2018
 
 Description: 
  */
-package beeMediator;
+package main.java.apiary.mediator;
 
 /**
 Class:

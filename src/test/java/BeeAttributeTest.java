@@ -16,16 +16,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import beeAttributeDecorator.AverageBeeImpl;
-import beeAttributeDecorator.BeeRole;
-import beeAttributeDecorator.BuckfastWorkerBee;
-import beeAttributeDecorator.CarniolanWorkerBee;
-import beeAttributeDecorator.CaucasianWorkerBee;
-import beeAttributeDecorator.GermanWorkerBee;
-import beeAttributeDecorator.IBee;
-import beeAttributeDecorator.ItalianWorkerBee;
-import beeAttributeDecorator.RussianWorkerBee;
-import builder.BeeType;
+import main.java.apiary.attributeDecorator.AverageBeeImpl;
+import main.java.apiary.attributeDecorator.BeeRole;
+import main.java.apiary.attributeDecorator.BuckfastWorkerBee;
+import main.java.apiary.attributeDecorator.CarniolanWorkerBee;
+import main.java.apiary.attributeDecorator.CaucasianWorkerBee;
+import main.java.apiary.attributeDecorator.GermanWorkerBee;
+import main.java.apiary.attributeDecorator.IBee;
+import main.java.apiary.attributeDecorator.ItalianWorkerBee;
+import main.java.apiary.attributeDecorator.RussianWorkerBee;
+import main.java.apiary.builder.BeeType;
 
 /**
 Class: BeeAttributeTest

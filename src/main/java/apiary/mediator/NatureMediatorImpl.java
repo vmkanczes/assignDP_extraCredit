@@ -5,11 +5,11 @@ Date: Nov 24, 2018
 
 Description: 
  */
-package beeMediator;
+package main.java.apiary.mediator;
 
 import java.util.ArrayList;
 
-import builder.BeeType;
+import main.java.apiary.builder.BeeType;
 
 /**
 Class:

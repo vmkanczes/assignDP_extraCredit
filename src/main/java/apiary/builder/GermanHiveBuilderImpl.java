@@ -1,4 +1,4 @@
-package builder;
+package main.java.apiary.builder;
 
 public class GermanHiveBuilderImpl implements IHiveBuilder {
 

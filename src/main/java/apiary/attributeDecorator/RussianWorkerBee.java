@@ -1,12 +1,5 @@
-package beeAttributeDecorator;
-/**
-File: RussianWorkerBee.java
-Author: vkanczes
-Date: Nov 23, 2018
-
-Description: The average bee so other bee attributes can be increased or decreased.
- */
-import builder.BeeType;
+package main.java.apiary.attributeDecorator;
+import main.java.apiary.builder.BeeType;
 
 /**
 Class: RussianWorkerBee

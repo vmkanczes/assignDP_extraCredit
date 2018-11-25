@@ -1,4 +1,4 @@
-package beeAttributeDecorator;
+package main.java.apiary.attributeDecorator;
 
 /**
 File: BeeRole.java

@@ -1,18 +1,19 @@
-package singletonDP;
+package main.java.apiary.singleton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import builder.Hive;
-import builder.IHiveBuilder;
-import builder.HiveBuildDirector;
-import builder.BeeType;
-import builder.ItalianHiveBuilderImpl;
-import builder.RussianHiveBuilderImpl;
-import builder.BuckfastHiveBuilderImpl;
-import builder.CarniolanHiveBuilderImpl;
-import builder.CaucasianHiveBuilderImpl;
-import builder.GermanHiveBuilderImpl;
+
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.builder.BuckfastHiveBuilderImpl;
+import main.java.apiary.builder.CarniolanHiveBuilderImpl;
+import main.java.apiary.builder.CaucasianHiveBuilderImpl;
+import main.java.apiary.builder.GermanHiveBuilderImpl;
+import main.java.apiary.builder.Hive;
+import main.java.apiary.builder.HiveBuildDirector;
+import main.java.apiary.builder.IHiveBuilder;
+import main.java.apiary.builder.ItalianHiveBuilderImpl;
+import main.java.apiary.builder.RussianHiveBuilderImpl;
 
 public class Apiary {
 

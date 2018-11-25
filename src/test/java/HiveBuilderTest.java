@@ -13,9 +13,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import builder.BeeType;
-import builder.Hive;
-import singletonDP.Apiary;
+import main.java.apiary.builder.BeeType;
+import main.java.apiary.builder.Hive;
+import main.java.apiary.singleton.Apiary;
 
 /**
 Class:  HiveBuilderTest

@@ -1,14 +1,6 @@
-package beeAttributeDecorator;
+package main.java.apiary.attributeDecorator;
 
-/**
-File: AttributeDecoratorImpl.java
-Author: vkanczes
-Date: Nov 23, 2018
-
-Description: This call implements the bee so that you can easily change a bee's attributes
- */
-
-import builder.BeeType;
+import main.java.apiary.builder.BeeType;
 /**
  * 
 Class:  AttributeDecoratorImpl

@@ -1,4 +1,4 @@
-package builder;
+package main.java.apiary.builder;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import singletonDP.Apiary;
+import main.java.apiary.singleton.Apiary;
 
 /**
 Class:
