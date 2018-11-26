@@ -82,7 +82,7 @@ public class CarniolanWorkerBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction() + 2;
+        return tempBee.getReproduction();
     }
 
     /**

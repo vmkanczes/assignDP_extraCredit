@@ -105,19 +105,18 @@ public class RunTestDesignPatterns {
         Worker workerBee = new Worker(nature);
 
         // lay eggs
-        nature.getEggStatus();
         queenBee.laidEggs(BeeType.GERMAN, germanQueenBee.getReproduction());
         queenBee.laidEggs(BeeType.ITALIAN, italianQueenBee.getReproduction());
         workerBee.laidEggs(BeeType.GERMAN, italianWorkerBee.getReproduction());
         nature.getEggStatus();
 
         // feed eggs
-        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getPollination());
-        workerBee.feedEggs(BeeType.GERMAN, italianWorkerBee.getPollination());
+        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getHoneyProduction());
+        workerBee.feedEggs(BeeType.GERMAN, italianWorkerBee.getHoneyProduction());
+        nature.getEggStatus();
 
         // kills egg
         queenBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
-        queenBee.laidEggs(BeeType.ITALIAN, italianQueenBee.getReproduction());
         nature.getEggStatus();
 
     }
