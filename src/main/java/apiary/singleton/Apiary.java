@@ -141,54 +141,6 @@ public class Apiary {
     }
 
     /**
-     * Method: removeBroodRoom 
-     * Inputs: BeeType - bee species 
-     * Returns:
-     * 
-     * <p>Description: Removes the brood room for this hive.
-     */
-    public void removeBroodRoom(BeeType beeType) {
-
-        // let us get all of the hives
-        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
-        while (iterator.hasNext()) {
-            ArrayList<Hive> myHives = iterator.next();
-            Iterator<Hive> myHivesIterator = myHives.iterator();
-
-            while (myHivesIterator.hasNext()) {
-                Hive myHive = myHivesIterator.next();
-                if (myHive.getType() == beeType) {
-                    myHive.removeBroodRoom();
-                }
-            }
-        }
-    }
-
-    /**
-     * Method: removeRestRoom 
-     * Inputs: BeeType - bee species 
-     * Returns:
-     * 
-     * <p>Description: Removes the room for this hive.
-     */
-    public void removeRestRoom(BeeType beeType) {
-
-        // let us get all of the hives
-        Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
-        while (iterator.hasNext()) {
-            ArrayList<Hive> myHives = iterator.next();
-            Iterator<Hive> myHivesIterator = myHives.iterator();
-
-            while (myHivesIterator.hasNext()) {
-                Hive myHive = myHivesIterator.next();
-                if (myHive.getType() == beeType) {
-                    myHive.removeBroodRoom();
-                }
-            }
-        }
-    }
-
-    /**
      * Method: getRooms 
      * Inputs: 
      * Returns: String that contains all room in specific

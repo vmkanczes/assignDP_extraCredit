@@ -38,8 +38,10 @@ public class RunTestDesignPatterns {
         addBroodRoom(hive1);
         addRestRoom(hive2);
 
+
         // build and then remove a hive
         Hive hive3 = createHive(BeeType.RUSSIAN);
+        addRestRoom(hive3);
         removeHive(hive3);
 
         // Singleton Pattern: apiary to get information on the hives and the hive rooms

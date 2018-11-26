@@ -56,14 +56,6 @@ public class Hive {
         
     }
     
-    public void removeBroodRoom() {
-        roomMap.remove(RoomType.BROOD); 
-    }
-    
-    public void removeRestRoom() {
-        roomMap.remove(RoomType.REST); 
-    }
-
     public BeeType getType() {
         return type;
     }
