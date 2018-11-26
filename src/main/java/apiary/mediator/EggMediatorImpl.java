@@ -200,9 +200,7 @@ public class EggMediatorImpl implements IEggMediator {
         System.out.println("");
         
         String eggStatus = buf.toString(); 
-        
-        System.out.println("XX: " + eggStatus);
-        
+                
         return eggStatus;
         
     }

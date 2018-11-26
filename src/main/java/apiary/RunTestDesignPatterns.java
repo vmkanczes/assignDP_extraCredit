@@ -33,8 +33,7 @@ public class RunTestDesignPatterns {
     public static void main(String[] args) {
 
         // Builder Pattern: to create hives in apiary
-        System.out.println("\nSingeton Apiary: Hive Rooms");
-        System.out.println("\nBuilder Pattern: Hives");
+        System.out.println("\nSingeton Apiary:");
 
         Hive hive1 = createHive(BeeType.BUCKFAST);
         Hive hive2 = createHive(BeeType.GERMAN);
@@ -54,11 +53,9 @@ public class RunTestDesignPatterns {
         System.out.println(Apiary.getInstance().toString());
 
         // Decorator Pattern: to create some worker bees of each type
-        System.out.println("\nDecorator Pattern");
-        System.out.println("\nBees: Species and Attributes!");
+        System.out.println("\nDecorator Pattern: Bee species, roles and attributes");
         IBee regularBee = new AverageBeeImpl();
         System.out.println(regularBee.toString());
-
         IBee germanWorkerBee = new GermanWorkerBee(new AverageBeeImpl());
         System.out.println(germanWorkerBee.toString());
         
@@ -95,8 +92,8 @@ public class RunTestDesignPatterns {
         IBee caucasianQueenBee = new CaucasianQueenBee(new AverageBeeImpl());
         System.out.println(caucasianQueenBee.toString());
         
-        // Mediator Pattern: Fertilize eggs
-        System.out.println("\nMediator Pattern");
+        // Mediator Pattern: eggs management
+        System.out.println("\nMediator Pattern: egg care");
         EggMediatorImpl nature = new EggMediatorImpl();
 
         // Decorator Pattern and Mediator:
