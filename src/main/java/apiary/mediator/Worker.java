@@ -25,9 +25,7 @@ public class Worker extends Bee {
     public Worker(IEggMediator newMediator) {
         super(newMediator);
         
-        System.out.println("Worker signed up to lay the eggs");
-        System.out.println("Worker signed up to feed the eggs");
-
+        System.out.println("Worker signed up to lay, feed, or eat the eggs");
     }
 
 }

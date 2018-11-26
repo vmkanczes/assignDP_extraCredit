@@ -17,11 +17,11 @@ Description:  Mediator interface manages the bee egg fertilization.
  */
 public interface IEggMediator {
 
-    public void layEggs(BeeType type, int numberOfEggs);
+    public void laidEggs(BeeType type, int eggsLaid);
     
-    public void feedEggs(BeeType type, int eggs);
+    public void feedEggs(BeeType type, int eggsFed);
     
-    public void eatEggs(BeeType type, int eggs);
+    public void eatEggs(BeeType type, int eggsEaten);
 
     
     public void addBee(Bee bee);

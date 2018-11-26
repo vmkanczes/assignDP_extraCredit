@@ -25,8 +25,7 @@ public class Queen extends Bee {
     public Queen(IEggMediator newMediator) {
         super(newMediator);
         
-        System.out.println("Queen signed up to lay the eggs");
-        System.out.println("Queen may also eat the eggs");
+        System.out.println("Queen signed up to lay the eggs but may also eat the eggs");
 
     }
 

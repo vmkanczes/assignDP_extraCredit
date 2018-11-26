@@ -102,14 +102,21 @@ public class RunTestDesignPatterns {
         // Decorator Pattern and Mediator:
         // bee attributes used to determine how many eggs they lay
         Queen queenBee = new Queen(nature);
-        queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction());
-
         Worker workerBee = new Worker(nature);
-        workerBee.layEggs(BeeType.GERMAN, italianWorkerBee.getReproduction());
-        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction());
-        queenBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
-        workerBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
 
+        // lay eggs
+        queenBee.laidEggs(BeeType.GERMAN, germanQueenBee.getReproduction());
+        queenBee.laidEggs(BeeType.ITALIAN, italianQueenBee.getReproduction());
+        workerBee.laidEggs(BeeType.GERMAN, italianWorkerBee.getReproduction());
+        nature.getEggStatus();
+
+        // feed eggs
+        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getHoneyProduction());
+        workerBee.feedEggs(BeeType.GERMAN, italianWorkerBee.getHoneyProduction());
+        nature.getEggStatus();
+
+        // kills egg
+        queenBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
         nature.getEggStatus();
 
     }

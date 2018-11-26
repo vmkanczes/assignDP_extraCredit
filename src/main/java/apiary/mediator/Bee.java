@@ -31,24 +31,21 @@ public abstract class Bee {
     
     Description: Notifies how many eggs have been laid.
     */
-    public void layEggs(BeeType type, int eggs) {
+    public void laidEggs(BeeType type, int eggsLaid) {
 
-        System.out.println("Type: " + type + " eggs laid: " + eggs);
-        mediator.layEggs(type, eggs);
+        mediator.laidEggs(type, eggsLaid);
     }
     
     /**
      Method: feedEggs
-     Inputs: BeeType, eggs to be fed
+     Inputs: BeeType, eggs that can be fed
      Returns: 
      
-     Description: Notifies how many eggs have been fed.
+     <p>Description: Notifies how many eggs can be fed
      */
-    public void feedEggs(BeeType type, int eggs) {
+    public void feedEggs(BeeType type, int eggsThatCanBeFed) {
 
-        System.out.println("Type: " + type + " eggs fed: " + eggs);
-
-        mediator.feedEggs(type, eggs);
+        mediator.feedEggs(type, eggsThatCanBeFed);
     }
     
     /**
@@ -58,11 +55,9 @@ public abstract class Bee {
     
     Description: Notifies how many eggs have been eaten.
     */
-    public void eatEggs(BeeType type, int eggs) {
+    public void eatEggs(BeeType type, int eggsEaten) {
 
-        System.out.println("Type: " + type + " eggs eaten: " + eggs);
-
-        mediator.eatEggs(type, eggs);
+        mediator.eatEggs(type, eggsEaten);
     }
 
     public void setType(BeeType beeType) {

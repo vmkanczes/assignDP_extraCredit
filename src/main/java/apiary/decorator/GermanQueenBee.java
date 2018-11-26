@@ -53,7 +53,7 @@ public class GermanQueenBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's ability to produce honey.
      */
     @Override public int getHoneyProduction() {
-        return tempBee.getHoneyProduction();
+        return tempBee.getHoneyProduction() - 3;
     }
 
     /**
@@ -76,7 +76,7 @@ public class GermanQueenBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction();
+        return tempBee.getReproduction() + 2;
     }
 
     /**
