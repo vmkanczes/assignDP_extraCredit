@@ -4,12 +4,18 @@ import main.java.apiary.builder.BeeType;
 import main.java.apiary.builder.Hive;
 import main.java.apiary.builder.RoomType;
 import main.java.apiary.decorator.AverageBeeImpl;
+import main.java.apiary.decorator.BuckfastQueenBee;
 import main.java.apiary.decorator.BuckfastWorkerBee;
+import main.java.apiary.decorator.CarniolanQueenBee;
 import main.java.apiary.decorator.CarniolanWorkerBee;
+import main.java.apiary.decorator.CaucasianQueenBee;
 import main.java.apiary.decorator.CaucasianWorkerBee;
+import main.java.apiary.decorator.GermanQueenBee;
 import main.java.apiary.decorator.GermanWorkerBee;
 import main.java.apiary.decorator.IBee;
+import main.java.apiary.decorator.ItalianQueenBee;
 import main.java.apiary.decorator.ItalianWorkerBee;
+import main.java.apiary.decorator.RussianQueenBee;
 import main.java.apiary.decorator.RussianWorkerBee;
 import main.java.apiary.mediator.EggMediatorImpl;
 import main.java.apiary.mediator.Queen;
@@ -55,22 +61,40 @@ public class RunTestDesignPatterns {
 
         IBee germanWorkerBee = new GermanWorkerBee(new AverageBeeImpl());
         System.out.println(germanWorkerBee.toString());
+        
+        IBee germanQueenBee = new GermanQueenBee(new AverageBeeImpl());
+        System.out.println(germanQueenBee.toString());
 
         IBee italianWorkerBee = new ItalianWorkerBee(new AverageBeeImpl());
         System.out.println(italianWorkerBee.toString());
+        
+        IBee italianQueenBee = new ItalianQueenBee(new AverageBeeImpl());
+        System.out.println(italianQueenBee.toString());
 
         IBee buckfastWorkerBee = new BuckfastWorkerBee(new AverageBeeImpl());
         System.out.println(buckfastWorkerBee.toString());
+        
+        IBee buckfastQueenBee = new BuckfastQueenBee(new AverageBeeImpl());
+        System.out.println(buckfastQueenBee.toString());
 
         IBee carniolanWorkerBee = new CarniolanWorkerBee(new AverageBeeImpl());
         System.out.println(carniolanWorkerBee.toString());
+        
+        IBee carniolanQueenBee = new CarniolanQueenBee(new AverageBeeImpl());
+        System.out.println(carniolanQueenBee.toString());
 
         IBee russianWorkerBee = new RussianWorkerBee(new AverageBeeImpl());
         System.out.println(russianWorkerBee.toString());
+        
+        IBee russianQueenBee = new RussianQueenBee(new AverageBeeImpl());
+        System.out.println(russianQueenBee.toString());
 
         IBee caucasianWorkerBee = new CaucasianWorkerBee(new AverageBeeImpl());
         System.out.println(caucasianWorkerBee.toString());
-
+        
+        IBee caucasianQueenBee = new CaucasianQueenBee(new AverageBeeImpl());
+        System.out.println(caucasianQueenBee.toString());
+        
         // Mediator Pattern: Fertilize eggs
         System.out.println("\nMediator Pattern");
         EggMediatorImpl nature = new EggMediatorImpl();
