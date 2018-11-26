@@ -107,9 +107,10 @@ public class Apiary {
         // let us get all of the hives
         Iterator<BeeType> iterator = hiveMap.keySet().iterator();
         while (iterator.hasNext()) {
-            hiveMap.get(iterator.next());
+            iterator.next();
             hiveCount++;
         }
+       
         return hiveCount;
 
     }
@@ -124,12 +125,17 @@ public class Apiary {
     public String getHives() {
 
         String allHives = "";
+        StringBuffer buf = new StringBuffer();
 
         // let us get all of the hives
         Iterator<BeeType> iterator = hiveMap.keySet().iterator();
         while (iterator.hasNext()) {
-            allHives += "\n" + hiveMap.get(iterator.next());
+            buf.append(hiveMap.get(iterator.next()));
+
         }
+        
+        allHives = buf.toString();
+
         return allHives;
 
     }
@@ -193,7 +199,9 @@ public class Apiary {
     public String getHiveRooms() {
 
         String allRooms = "";
-        // let us get all of the hives
+        StringBuffer buf = new StringBuffer();
+
+        // let us get all of the hive rooms
         Iterator<ArrayList<Hive>> iterator = hiveMap.values().iterator();
         while (iterator.hasNext()) {
             ArrayList<Hive> myHives = iterator.next();
@@ -201,9 +209,11 @@ public class Apiary {
 
             while (myHivesIterator.hasNext()) {
                 Hive myHive = myHivesIterator.next();
-                allRooms += myHive.getRooms();
+                buf.append(myHive.getRooms());
             }
         }
+        allRooms = buf.toString();
+
         return allRooms;
     }
     
