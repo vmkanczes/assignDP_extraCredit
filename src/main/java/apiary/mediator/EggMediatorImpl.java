@@ -43,6 +43,7 @@ public class EggMediatorImpl implements IEggMediator {
      * Returns:
      * 
      * <p>Description: updates the new bee.
+     * @return 
      */
     public void addBee(Bee newBee) {
 
@@ -57,7 +58,7 @@ public class EggMediatorImpl implements IEggMediator {
      * 
      * <p>Description: Updates the eggs to know there more to be fed.
      */
-    public void laidEggs(BeeType type, int eggs) {
+    public boolean laidEggs(BeeType type, int eggs) {
 
         boolean eggFed = false;
 
@@ -87,6 +88,7 @@ public class EggMediatorImpl implements IEggMediator {
             hungryEggs.add(newRequest);
 
         }
+        return eggFed;
     }
 
     /**
@@ -95,7 +97,7 @@ public class EggMediatorImpl implements IEggMediator {
      * 
      * <p>Description: queen will request to have the eggs fed.
      */
-    public void feedEggs(BeeType type, int eggs) {
+    public boolean feedEggs(BeeType type, int eggs) {
 
         boolean eggFed = false;
 
@@ -118,6 +120,7 @@ public class EggMediatorImpl implements IEggMediator {
             EggCare newRequest = new EggCare(type, eggs);
             pollinatedBees.add(newRequest);
         }
+        return eggFed;
     }
 
     /**
@@ -126,7 +129,7 @@ public class EggMediatorImpl implements IEggMediator {
      * 
      * <p>Description: queen may eat the eggs of worker bee.
      */
-    public void eatEggs(BeeType type, int eggs) {
+    public boolean eatEggs(BeeType type, int eggs) {
 
         boolean eggEaten = false;
 
@@ -146,6 +149,8 @@ public class EggMediatorImpl implements IEggMediator {
         if (!eggEaten) {
             System.out.println("Queen didn't eat the egg");
         }
+        
+        return eggEaten;
 
     }
 
@@ -156,30 +161,49 @@ public class EggMediatorImpl implements IEggMediator {
      * 
      * <p>Description: Gets the status of how many eggs are hungry, full, or killed.
      */
-    public void getEggStatus() {
+    public String getEggStatus() {
+        
+        StringBuffer buf = new StringBuffer();
+        
         System.out.println("\nEGG STATUS:  ");
+        
+        
 
         for (EggCare egg : hungryEggs) {
 
+            
             System.out.println("Hungry eggs " + egg.getEggs() + " of type " + egg.getType());
+            buf.append(" Hungry eggs " + egg.getEggs() + " of type " + egg.getType());
+            
         }
 
         for (EggCare egg : fullEggs) {
 
             System.out.println("Full eggs " + egg.getEggs() + " of type " + egg.getType());
+            buf.append(" Full eggs " + egg.getEggs() + " of type " + egg.getType());
+
         }
         
         for (EggCare egg : pollinatedBees) {
 
             System.out.println("Pollinated bees " + egg.getEggs() + " of type " + egg.getType());
+            buf.append(" Pollinated bees " + egg.getEggs() + " of type " + egg.getType());
+
         }
 
         for (EggCare egg : deadEggs) {
 
             System.out.println("Eggs killed " + egg.getEggs() + " of type " + egg.getType());
+            buf.append(" Eggs killed " + egg.getEggs() + " of type " + egg.getType());
+
         }
         System.out.println("");
-
+        
+        String eggStatus = buf.toString(); 
+        
+        System.out.println("XX: " + eggStatus);
+        
+        return eggStatus;
         
     }
 
