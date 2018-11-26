@@ -183,8 +183,13 @@ public class Hive {
      */
     @Override public String toString() {
         
-        String hiveString = "" + getType();
-        return hiveString; 
+        // let us get all of the mapped objects 
+        String hives = "";
+        StringBuffer buf = new StringBuffer();
+        buf.append(getType());
+        hives = buf.toString();
+        return hives;
+        
     }
 
     /**
