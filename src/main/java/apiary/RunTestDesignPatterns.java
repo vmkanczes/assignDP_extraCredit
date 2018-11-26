@@ -159,6 +159,12 @@ public class RunTestDesignPatterns {
         queenBee.laidEggs(BeeType.ITALIAN, 1);
         nature.getEggStatus();
         
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
     }
 
     /**
