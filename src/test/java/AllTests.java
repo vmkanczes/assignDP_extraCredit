@@ -21,7 +21,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class) 
 @SuiteClasses({
     HiveBuilderTest.class, BeeAttributeTest.class, 
-    RoomBuilderTest.class, ApiarySingletonTest.class 
+    RoomBuilderTest.class, ApiarySingletonTest.class,
+    EggMediatorTest.class
     }) public class AllTests {
 
 }

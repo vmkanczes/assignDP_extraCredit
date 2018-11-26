@@ -112,7 +112,7 @@ public class RunTestDesignPatterns {
 
         // feed eggs
         workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getHoneyProduction());
-        workerBee.feedEggs(BeeType.GERMAN, italianWorkerBee.getHoneyProduction());
+        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getHoneyProduction());
         nature.getEggStatus();
 
         // kills egg

@@ -42,7 +42,7 @@ public class GermanQueenBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's friendliness.
      */
     @Override public int getGentleness() {
-        return tempBee.getGentleness() - 2;
+        return tempBee.getGentleness() - 1;
     }
 
     /**

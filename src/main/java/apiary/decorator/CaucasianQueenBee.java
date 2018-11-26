@@ -41,7 +41,7 @@ public class CaucasianQueenBee extends AttributeDecoratorImpl {
      Description: Get the bee's friendliness.
      */
     @Override public int getGentleness() {
-        return tempBee.getGentleness() + 1;
+        return tempBee.getGentleness() + 2;
     }
     
     /**
