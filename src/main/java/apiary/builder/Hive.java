@@ -78,10 +78,14 @@ public class Hive {
     public String getRooms() {
         // let us get all of the mapped objects 
         String rooms = "";
+        StringBuffer buf = new StringBuffer();
+                
         Iterator<RoomType> iterator = roomMap.keySet().iterator();
         while (iterator.hasNext()) {
-            rooms += "" + roomMap.get(iterator.next());
+            buf.append(roomMap.get(iterator.next()));
+            
         }
+        rooms = buf.toString();
         return rooms;
     }
     
@@ -95,14 +99,17 @@ public class Hive {
     public int getBroodRoomCount() {
         // let us get all of the mapped objects 
         String rooms = "";
+        StringBuffer buf = new StringBuffer();
         int broodCount = 0;
 
         
         // get each room type
         Iterator<RoomType> iterator = roomMap.keySet().iterator();
         while (iterator.hasNext()) {
-            rooms += "" + roomMap.get(iterator.next());
+            buf.append(roomMap.get(iterator.next()));
         }
+        
+        rooms = buf.toString();
         
         // split the string to only get the necessary bits
         String fixedString = fixString(rooms);
@@ -137,14 +144,17 @@ public class Hive {
     public int getRestRoomCount() {
         // let us get all of the mapped objects 
         String rooms = "";
+        StringBuffer buf = new StringBuffer();
         int restCount = 0;
 
         
         // get each room type
         Iterator<RoomType> iterator = roomMap.keySet().iterator();
         while (iterator.hasNext()) {
-            rooms += "" + roomMap.get(iterator.next());
+            buf.append(roomMap.get(iterator.next()));
         }
+        
+        rooms = buf.toString();
         
         // split the string to only get the necessary bits
         String fixedString = fixString(rooms);
@@ -173,8 +183,13 @@ public class Hive {
      */
     @Override public String toString() {
         
-        String hiveString = "" + getType();
-        return hiveString; 
+        // let us get all of the mapped objects 
+        String hives = "";
+        StringBuffer buf = new StringBuffer();
+        buf.append(getType());
+        hives = buf.toString();
+        return hives;
+        
     }
 
     /**

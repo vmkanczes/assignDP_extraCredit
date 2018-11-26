@@ -13,7 +13,12 @@ public class Room {
     }
     
     @Override public String toString() {
-        return getType() + "";
+        
+        String rooms = "";
+        StringBuffer buf = new StringBuffer();
+        buf.append(getType());
+        rooms = buf.toString();
+        return rooms;
     }
     
 }
