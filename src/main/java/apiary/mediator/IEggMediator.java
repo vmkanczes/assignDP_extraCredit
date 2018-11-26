@@ -15,11 +15,14 @@ Class: INature
 
 Description:  Mediator interface manages the bee egg fertilization.
  */
-public interface INature {
+public interface IEggMediator {
 
-    public void layEggs(BeeType type, int numberOfEggs,  int code);
+    public void layEggs(BeeType type, int numberOfEggs);
     
-    public void fertilizeEggs(BeeType type, int eggs, int beeCode);
+    public void feedEggs(BeeType type, int eggs);
+    
+    public void eatEggs(BeeType type, int eggs);
+
     
     public void addBee(Bee bee);
 }
