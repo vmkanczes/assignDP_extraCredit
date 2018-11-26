@@ -19,25 +19,23 @@ public class EggCare {
 
     private int eggs = 0;
     private BeeType type;
-    private int beeCode = 0;
     
     /**
      * Method: Constructor
      * Inputs: mediator
      * Returns:
      * 
-     *  <p>Description: creates new object for eggs by beetype.
+     *  <p>Description: keeps track of the eggs.
      */
-    public EggCare(BeeType beeType, int numberOfEggs, int code) {
+    public EggCare(BeeType beeType, int numberOfEggs) {
         eggs = numberOfEggs;
         type = beeType;
-        beeCode = code;
     }
     
     /**
      Method: getEggs
      Inputs: 
-     Returns: eggs - number of eggs the queen will lay 
+     Returns: eggs - number of eggs laid 
      
      Description: Get the number of eggs laid.
      */
@@ -47,10 +45,6 @@ public class EggCare {
     
     public BeeType getType() {
         return type;
-    }
-    
-    public int getCode() {
-        return beeCode;
     }
     
 }

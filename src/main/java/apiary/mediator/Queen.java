@@ -22,10 +22,12 @@ public class Queen extends Bee {
      * 
      *  <p>Description: will lay eggs.
      */
-    public Queen(INature newMediator) {
+    public Queen(IEggMediator newMediator) {
         super(newMediator);
         
         System.out.println("Queen signed up to lay the eggs");
+        System.out.println("Queen may also eat the eggs");
+
     }
 
 }

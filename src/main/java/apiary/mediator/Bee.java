@@ -17,17 +17,16 @@ import main.java.apiary.builder.BeeType;
  */
 public abstract class Bee {
 
-    private INature mediator;
-    private int beeCode = 0;
+    private IEggMediator mediator;
     private BeeType type;
 
-    public Bee(INature newMediator) {
+    public Bee(IEggMediator newMediator) {
         mediator = newMediator;
     }
 
     /**
     Method: layEggs
-    Inputs: BeeType, eggs laid, code
+    Inputs: BeeType, eggs laid
     Returns: 
     
     Description: Notifies how many eggs have been laid.
@@ -35,25 +34,35 @@ public abstract class Bee {
     public void layEggs(BeeType type, int eggs) {
 
         System.out.println("Type: " + type + " eggs laid: " + eggs);
-        mediator.layEggs(type, eggs, this.beeCode);
+        mediator.layEggs(type, eggs);
     }
     
     /**
-     Method: fertilizeEggs
-     Inputs: BeeType, eggs to be fertilized, code
+     Method: feedEggs
+     Inputs: BeeType, eggs to be fed
      Returns: 
      
-     Description: Notifies how many eggs have been fertilized.
+     Description: Notifies how many eggs have been fed.
      */
-    public void fertilizeEggs(BeeType type, int eggs, int code) {
+    public void feedEggs(BeeType type, int eggs) {
 
-        System.out.println("Type: " + type + " eggs fertilized: " + eggs + " code: " + code);
+        System.out.println("Type: " + type + " eggs fed: " + eggs);
 
-        mediator.fertilizeEggs(type, eggs, beeCode);
+        mediator.feedEggs(type, eggs);
     }
+    
+    /**
+    Method: eatEggs
+    Inputs: BeeType, eggs to be fertilized, code
+    Returns: 
+    
+    Description: Notifies how many eggs have been eaten.
+    */
+    public void eatEggs(BeeType type, int eggs) {
 
-    public void setCode(int code) {
-        beeCode = code;
+        System.out.println("Type: " + type + " eggs eaten: " + eggs);
+
+        mediator.eatEggs(type, eggs);
     }
 
     public void setType(BeeType beeType) {

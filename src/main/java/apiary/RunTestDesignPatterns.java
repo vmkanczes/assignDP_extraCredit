@@ -11,9 +11,7 @@ import main.java.apiary.decorator.GermanWorkerBee;
 import main.java.apiary.decorator.IBee;
 import main.java.apiary.decorator.ItalianWorkerBee;
 import main.java.apiary.decorator.RussianWorkerBee;
-import main.java.apiary.mediator.Drone;
-import main.java.apiary.mediator.Honey;
-import main.java.apiary.mediator.NatureMediatorImpl;
+import main.java.apiary.mediator.EggMediatorImpl;
 import main.java.apiary.mediator.Queen;
 import main.java.apiary.mediator.Worker;
 import main.java.apiary.singleton.Apiary;
@@ -73,24 +71,18 @@ public class RunTestDesignPatterns {
 
         // Mediator Pattern: Fertilize eggs
         System.out.println("\nMediator Pattern");
-        NatureMediatorImpl nature = new NatureMediatorImpl();
+        EggMediatorImpl nature = new EggMediatorImpl();
 
         // Decorator Pattern and Mediator:
         // bee attributes used to determine how many eggs they lay
         Queen queenBee = new Queen(nature);
-        queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 50);
-        queenBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 60);
+        queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction());
 
         Worker workerBee = new Worker(nature);
-        workerBee.layEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 10);
-
-        // create the honey bee and have do an action
-        Honey honeyBee = new Honey(nature);
-        honeyBee.fertilizeEggs(BeeType.GERMAN, germanWorkerBee.getReproduction() * 30, 1);
-        honeyBee.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 35, 1);
-
-        Drone drone = new Drone(nature);
-        drone.fertilizeEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction() * 40, 2);
+        workerBee.layEggs(BeeType.GERMAN, italianWorkerBee.getReproduction());
+        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction());
+        queenBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
+        workerBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
 
         nature.getEggStatus();
 

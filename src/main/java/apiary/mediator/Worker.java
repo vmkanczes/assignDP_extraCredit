@@ -22,10 +22,12 @@ public class Worker extends Bee {
      * 
      *  <p>Description: will lay eggs.
      */
-    public Worker(INature newMediator) {
+    public Worker(IEggMediator newMediator) {
         super(newMediator);
         
         System.out.println("Worker signed up to lay the eggs");
+        System.out.println("Worker signed up to feed the eggs");
+
     }
 
 }
