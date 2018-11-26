@@ -13,7 +13,7 @@ import main.java.apiary.builder.BeeType;
 /**
 Class:
 
-Description: Creates the methods used for the egg laying and fertilizing.
+Description: Creates the methods used for the egg laying and feeding and eating.
  */
 public class EggCare {
 

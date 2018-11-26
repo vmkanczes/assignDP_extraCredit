@@ -102,16 +102,63 @@ public class RunTestDesignPatterns {
         // Decorator Pattern and Mediator:
         // bee attributes used to determine how many eggs they lay
         Queen queenBee = new Queen(nature);
-        queenBee.layEggs(BeeType.GERMAN, germanWorkerBee.getReproduction());
+
+        //queenBee.laidEggs(BeeType.GERMAN, germanQueenBee.getReproduction());
+        //queenBee.laidEggs(BeeType.ITALIAN, italianQueenBee.getReproduction());
 
         Worker workerBee = new Worker(nature);
-        workerBee.layEggs(BeeType.GERMAN, italianWorkerBee.getReproduction());
-        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getReproduction());
-        queenBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
-        workerBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
-
+        //workerBee.laidEggs(BeeType.GERMAN, italianWorkerBee.getReproduction());
+        //workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getPollination());
+        //queenBee.eatEggs(BeeType.GERMAN, germanWorkerBee.getGentleness());
+        
+        queenBee.laidEggs(BeeType.GERMAN, 1);
         nature.getEggStatus();
 
+        workerBee.feedEggs(BeeType.GERMAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+
+        workerBee.feedEggs(BeeType.GERMAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.GERMAN, 1);
+        nature.getEggStatus();
+
+        workerBee.feedEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        workerBee.feedEggs(BeeType.GERMAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.GERMAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.eatEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.eatEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.eatEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.eatEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
+        queenBee.laidEggs(BeeType.ITALIAN, 1);
+        nature.getEggStatus();
+        
     }
 
     /**
