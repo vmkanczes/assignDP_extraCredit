@@ -8,6 +8,7 @@ Description: Test the bee attributes created using decorator design pattern
 
 package test.java;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Objects;
@@ -15,12 +16,18 @@ import java.util.Objects;
 import main.java.apiary.builder.BeeType;
 import main.java.apiary.decorator.AverageBeeImpl;
 import main.java.apiary.decorator.BeeRole;
+import main.java.apiary.decorator.BuckfastQueenBee;
 import main.java.apiary.decorator.BuckfastWorkerBee;
+import main.java.apiary.decorator.CarniolanQueenBee;
 import main.java.apiary.decorator.CarniolanWorkerBee;
+import main.java.apiary.decorator.CaucasianQueenBee;
 import main.java.apiary.decorator.CaucasianWorkerBee;
+import main.java.apiary.decorator.GermanQueenBee;
 import main.java.apiary.decorator.GermanWorkerBee;
 import main.java.apiary.decorator.IBee;
+import main.java.apiary.decorator.ItalianQueenBee;
 import main.java.apiary.decorator.ItalianWorkerBee;
+import main.java.apiary.decorator.RussianQueenBee;
 import main.java.apiary.decorator.RussianWorkerBee;
 
 import org.junit.After;
@@ -43,6 +50,14 @@ public class BeeAttributeTest {
     private IBee carniolanWorkerBee;
     private IBee russianWorkerBee;
     private IBee caucasianWorkerBee;
+    private IBee germanQueenBee;
+    private IBee italianQueenBee;
+    private IBee buckfastQueenBee;
+    private IBee carniolanQueenBee;
+    private IBee russianQueenBee;
+    private IBee caucasianQueenBee;
+    
+    
 
     /**
      * Method: setUp.
@@ -61,6 +76,14 @@ public class BeeAttributeTest {
         carniolanWorkerBee = new CarniolanWorkerBee(new AverageBeeImpl());
         russianWorkerBee = new RussianWorkerBee(new AverageBeeImpl());
         caucasianWorkerBee = new CaucasianWorkerBee(new AverageBeeImpl());
+        germanQueenBee = new GermanQueenBee(new AverageBeeImpl());
+        italianQueenBee = new ItalianQueenBee(new AverageBeeImpl());
+        buckfastQueenBee = new BuckfastQueenBee(new AverageBeeImpl());
+        carniolanQueenBee = new CarniolanQueenBee(new AverageBeeImpl());
+        russianQueenBee = new RussianQueenBee(new AverageBeeImpl());
+        caucasianQueenBee = new CaucasianQueenBee(new AverageBeeImpl());
+        
+        
     }
 
     /**
@@ -197,5 +220,171 @@ public class BeeAttributeTest {
         assertTrue(Objects.equals(BeeRole.REGULAR, averageBee.getRole()));
 
     }
+    
+    /**
+     * Method: germanQueenBeeTest Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void germanQueenBeeTest() {
+
+        assertTrue("Gentleness is incorrect", 2 == germanQueenBee.getGentleness());
+        assertTrue("Honey production is incorrect", 0 == germanQueenBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 0 == germanQueenBee.getPollination());
+        assertTrue("Reproduction is incorrect", 5 == germanQueenBee.getReproduction());
+        assertTrue("Wax production is incorrect", 0 == germanQueenBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.GERMAN, germanQueenBee.getType()));
+        assertTrue(Objects.equals(BeeRole.QUEEN, germanQueenBee.getRole()));
+
+    }
+
+    /**
+     * Method: italianQueenBeeTest Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void italianQueenBeeTest() {
+
+        assertTrue("Gentleness is incorrect", 2 == italianQueenBee.getGentleness());
+        assertTrue("Honey production is incorrect", 0 == italianQueenBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 0 == italianQueenBee.getPollination());
+        assertTrue("Reproduction is incorrect", 5 == italianQueenBee.getReproduction());
+        assertTrue("Wax production is incorrect", 0 == italianQueenBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.ITALIAN, italianQueenBee.getType()));
+        assertTrue(Objects.equals(BeeRole.QUEEN, italianQueenBee.getRole()));
+
+    }
+    
+    /**
+     * Method: carniolanQueenBeeTest Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void carniolanQueenBeeTest() {
+
+        assertTrue("Gentleness is incorrect", 3 == carniolanQueenBee.getGentleness());
+        assertTrue("Honey production is incorrect", 0 == carniolanQueenBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 0 == carniolanQueenBee.getPollination());
+        assertTrue("Reproduction is incorrect", 5 == carniolanQueenBee.getReproduction());
+        assertTrue("Wax production is incorrect", 0 == carniolanQueenBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.CARNIOLAN, carniolanQueenBee.getType()));
+        assertTrue(Objects.equals(BeeRole.QUEEN, carniolanQueenBee.getRole()));
+
+    }
+
+    /**
+     * Method: buckfastQueenBeeTest Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void buckfastQueenBeeTest() {
+
+        assertTrue("Gentleness is incorrect", 1 == buckfastQueenBee.getGentleness());
+        assertTrue("Honey production is incorrect", 0 == buckfastQueenBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 0 == buckfastQueenBee.getPollination());
+        assertTrue("Reproduction is incorrect", 3 == buckfastQueenBee.getReproduction());
+        assertTrue("Wax production is incorrect", 0 == buckfastQueenBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.BUCKFAST, buckfastQueenBee.getType()));
+        assertTrue(Objects.equals(BeeRole.QUEEN, buckfastQueenBee.getRole()));
+
+    }
+    
+    /**
+     * Method: russianQueenBeeTest Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void russianQueenBeeTest() {
+
+        assertTrue("Gentleness is incorrect", 1 == russianQueenBee.getGentleness());
+        assertTrue("Honey production is incorrect", 0 == russianQueenBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 0 == russianQueenBee.getPollination());
+        assertTrue("Reproduction is incorrect", 1 == russianQueenBee.getReproduction());
+        assertTrue("Wax production is incorrect", 0 == russianQueenBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.RUSSIAN, russianQueenBee.getType()));
+        assertTrue(Objects.equals(BeeRole.QUEEN, russianQueenBee.getRole()));
+
+    }
+
+    /**
+     * Method: caucasianQueenBeeTest Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void caucasianQueenBeeTest() {
+
+        assertTrue("Gentleness is incorrect", 5 == caucasianQueenBee.getGentleness());
+        assertTrue("Honey production is incorrect", 0 == caucasianQueenBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 0 == caucasianQueenBee.getPollination());
+        assertTrue("Reproduction is incorrect", 2 == caucasianQueenBee.getReproduction());
+        assertTrue("Wax production is incorrect", 0 == caucasianQueenBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.CAUCASIAN, caucasianQueenBee.getType()));
+        assertTrue(Objects.equals(BeeRole.QUEEN, caucasianQueenBee.getRole()));
+
+    }
+    
+    /**
+     * Method: toStringTest
+     * Inputs: Returns:
+     *
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void toStringTest() {
+
+        String testString = "REGULAR REGULAR Gentleness: 3 Honey Production: 3 "
+                + "Pollination: 3 Reproduction: 3 Wax Production: 3 ";
+
+        assertEquals(testString, averageBee.toString());
+
+        testString = "GERMAN WORKER Gentleness: 2 Honey Production: 5 "
+                + "Pollination: 2 Reproduction: 1 Wax Production: 3 ";
+        assertEquals(testString, germanWorkerBee.toString());
+
+        testString = "GERMAN QUEEN Gentleness: 2 Honey Production: 0 "
+                + "Pollination: 0 Reproduction: 5 Wax Production: 0 ";
+        assertEquals(testString, germanQueenBee.toString());
+
+        testString = "ITALIAN WORKER Gentleness: 3 Honey Production: 5 "
+                + "Pollination: 3 Reproduction: 2 Wax Production: 1 ";
+        assertEquals(testString, italianWorkerBee.toString());
+
+        testString = "ITALIAN QUEEN Gentleness: 2 Honey Production: 0 "
+                + "Pollination: 0 Reproduction: 5 Wax Production: 0 ";
+        assertEquals(testString, italianQueenBee.toString());
+
+        testString = "BUCKFAST WORKER Gentleness: 2 Honey Production: 3 "
+                + "Pollination: 3 Reproduction: 1 Wax Production: 1 ";
+        assertEquals(testString, buckfastWorkerBee.toString());
+
+        testString = "BUCKFAST QUEEN Gentleness: 1 Honey Production: 0 "
+                + "Pollination: 0 Reproduction: 3 Wax Production: 0 ";
+        assertEquals(testString, buckfastQueenBee.toString());
+
+        testString = "CARNIOLAN WORKER Gentleness: 4 Honey Production: 5 "
+                + "Pollination: 4 Reproduction: 3 Wax Production: 1 ";
+        assertEquals(testString, carniolanWorkerBee.toString());
+
+        testString = "CARNIOLAN QUEEN Gentleness: 3 Honey Production: 0 "
+                + "Pollination: 0 Reproduction: 5 Wax Production: 0 ";
+        assertEquals(testString, carniolanQueenBee.toString());
+
+        testString = "RUSSIAN WORKER Gentleness: 2 Honey Production: 1 "
+                + "Pollination: 3 Reproduction: 1 Wax Production: 3 ";
+        assertEquals(testString, russianWorkerBee.toString());
+
+        testString = "RUSSIAN QUEEN Gentleness: 1 Honey Production: 0 "
+                + "Pollination: 0 Reproduction: 1 Wax Production: 0 ";
+        assertEquals(testString, russianQueenBee.toString());
+
+        testString = "CAUCASIAN WORKER Gentleness: 5 Honey Production: 2 "
+                + "Pollination: 4 Reproduction: 4 Wax Production: 4 ";
+        assertEquals(testString, caucasianWorkerBee.toString());
+
+        testString = "CAUCASIAN QUEEN Gentleness: 5 Honey Production: 0 "
+                + "Pollination: 0 Reproduction: 2 Wax Production: 0 ";
+        assertEquals(testString, caucasianQueenBee.toString());
+       
+    }
+    
 
 }
