@@ -15,7 +15,7 @@ import main.java.apiary.builder.BeeType;
 /**
  * Class: EggMediatorImpl
  * 
- * Description: Keeps track of the eggs and know what is happening.
+ * <p>Description: Keeps track of the eggs and know what is happening.
  */
 public class EggMediatorImpl implements IEggMediator {
 

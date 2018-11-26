@@ -59,7 +59,7 @@ public class CarniolanWorkerBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's ability to produce honey.
      */
     @Override public int getHoneyProduction() {
-        return tempBee.getHoneyProduction();
+        return tempBee.getHoneyProduction() + 2;
     }
 
     /**

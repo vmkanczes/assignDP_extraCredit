@@ -75,7 +75,7 @@ public class ItalianWorkerBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction() + 1;
+        return tempBee.getReproduction() + 2;
     }
     
     /**

@@ -52,7 +52,7 @@ public class RussianWorkerBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to produce honey.
      */
     @Override public int getHoneyProduction() {
-        return tempBee.getHoneyProduction();
+        return tempBee.getHoneyProduction() - 2;
     }
     
     /**
@@ -75,7 +75,7 @@ public class RussianWorkerBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction();
+        return tempBee.getReproduction() - 2;
     }
     
     /**
