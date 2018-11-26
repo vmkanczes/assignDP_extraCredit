@@ -87,9 +87,9 @@ public class BeeAttributeTest {
     @Test public void germanWorkerBeeTest() {
 
         assertTrue("Gentleness is incorrect", 2 == germanWorkerBee.getGentleness());
-        assertTrue("Honey production is incorrect", 3 == germanWorkerBee.getHoneyProduction());
+        assertTrue("Honey production is incorrect", 5 == germanWorkerBee.getHoneyProduction());
         assertTrue("Pollination is incorrect", 2 == germanWorkerBee.getPollination());
-        assertTrue("Reproduction is incorrect", 2 == germanWorkerBee.getReproduction());
+        assertTrue("Reproduction is incorrect", 1 == germanWorkerBee.getReproduction());
         assertTrue("Wax production is incorrect", 3 == germanWorkerBee.getWaxProduction());
         assertTrue(Objects.equals(BeeType.GERMAN, germanWorkerBee.getType()));
         assertTrue(Objects.equals(BeeRole.WORKER, germanWorkerBee.getRole()));
@@ -106,7 +106,7 @@ public class BeeAttributeTest {
         assertTrue("Gentleness is incorrect", 3 == italianWorkerBee.getGentleness());
         assertTrue("Honey production is incorrect", 5 == italianWorkerBee.getHoneyProduction());
         assertTrue("Pollination is incorrect", 3 == italianWorkerBee.getPollination());
-        assertTrue("Reproduction is incorrect", 4 == italianWorkerBee.getReproduction());
+        assertTrue("Reproduction is incorrect", 2 == italianWorkerBee.getReproduction());
         assertTrue("Wax production is incorrect", 1 == italianWorkerBee.getWaxProduction());
         assertTrue(Objects.equals(BeeType.ITALIAN, italianWorkerBee.getType()));
         assertTrue(Objects.equals(BeeRole.WORKER, italianWorkerBee.getRole()));
@@ -121,9 +121,9 @@ public class BeeAttributeTest {
     @Test public void carniolanWorkerBeeTest() {
 
         assertTrue("Gentleness is incorrect", 4 == carniolanWorkerBee.getGentleness());
-        assertTrue("Honey production is incorrect", 3 == carniolanWorkerBee.getHoneyProduction());
+        assertTrue("Honey production is incorrect", 5 == carniolanWorkerBee.getHoneyProduction());
         assertTrue("Pollination is incorrect", 4 == carniolanWorkerBee.getPollination());
-        assertTrue("Reproduction is incorrect", 5 == carniolanWorkerBee.getReproduction());
+        assertTrue("Reproduction is incorrect", 3 == carniolanWorkerBee.getReproduction());
         assertTrue("Wax production is incorrect", 1 == carniolanWorkerBee.getWaxProduction());
         assertTrue(Objects.equals(BeeType.CARNIOLAN, carniolanWorkerBee.getType()));
         assertTrue(Objects.equals(BeeRole.WORKER, carniolanWorkerBee.getRole()));
@@ -140,7 +140,7 @@ public class BeeAttributeTest {
         assertTrue("Gentleness is incorrect", 2 == buckfastWorkerBee.getGentleness());
         assertTrue("Honey production is incorrect", 3 == buckfastWorkerBee.getHoneyProduction());
         assertTrue("Pollination is incorrect", 3 == buckfastWorkerBee.getPollination());
-        assertTrue("Reproduction is incorrect", 2 == buckfastWorkerBee.getReproduction());
+        assertTrue("Reproduction is incorrect", 1 == buckfastWorkerBee.getReproduction());
         assertTrue("Wax production is incorrect", 1 == buckfastWorkerBee.getWaxProduction());
         assertTrue(Objects.equals(BeeType.BUCKFAST, buckfastWorkerBee.getType()));
         assertTrue(Objects.equals(BeeRole.WORKER, buckfastWorkerBee.getRole()));
@@ -155,9 +155,9 @@ public class BeeAttributeTest {
     @Test public void russianWorkerBeeTest() {
 
         assertTrue("Gentleness is incorrect", 2 == russianWorkerBee.getGentleness());
-        assertTrue("Honey production is incorrect", 3 == russianWorkerBee.getHoneyProduction());
+        assertTrue("Honey production is incorrect", 1 == russianWorkerBee.getHoneyProduction());
         assertTrue("Pollination is incorrect", 3 == russianWorkerBee.getPollination());
-        assertTrue("Reproduction is incorrect", 3 == russianWorkerBee.getReproduction());
+        assertTrue("Reproduction is incorrect", 1 == russianWorkerBee.getReproduction());
         assertTrue("Wax production is incorrect", 3 == russianWorkerBee.getWaxProduction());
         assertTrue(Objects.equals(BeeType.RUSSIAN, russianWorkerBee.getType()));
         assertTrue(Objects.equals(BeeRole.WORKER, russianWorkerBee.getRole()));
@@ -174,7 +174,7 @@ public class BeeAttributeTest {
         assertTrue("Gentleness is incorrect", 5 == caucasianWorkerBee.getGentleness());
         assertTrue("Honey production is incorrect", 2 == caucasianWorkerBee.getHoneyProduction());
         assertTrue("Pollination is incorrect", 4 == caucasianWorkerBee.getPollination());
-        assertTrue("Reproduction is incorrect", 1 == caucasianWorkerBee.getReproduction());
+        assertTrue("Reproduction is incorrect", 4 == caucasianWorkerBee.getReproduction());
         assertTrue("Wax production is incorrect", 4 == caucasianWorkerBee.getWaxProduction());
         assertTrue(Objects.equals(BeeType.CAUCASIAN, caucasianWorkerBee.getType()));
         assertTrue(Objects.equals(BeeRole.WORKER, caucasianWorkerBee.getRole()));

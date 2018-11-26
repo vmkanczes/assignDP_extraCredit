@@ -18,7 +18,6 @@ import main.java.apiary.builder.BeeType;
 public abstract class Bee {
 
     private IEggMediator mediator;
-    private BeeType type;
 
     public Bee(IEggMediator newMediator) {
         mediator = newMediator;
@@ -41,7 +40,7 @@ public abstract class Bee {
      Inputs: BeeType, eggs that can be fed
      Returns: 
      
-     <p>Description: Notifies how many eggs can be fed
+     Description: Notifies how many eggs can be fed.
      */
     public void feedEggs(BeeType type, int eggsThatCanBeFed) {
 
@@ -58,10 +57,6 @@ public abstract class Bee {
     public void eatEggs(BeeType type, int eggsEaten) {
 
         mediator.eatEggs(type, eggsEaten);
-    }
-
-    public void setType(BeeType beeType) {
-        type = beeType;
     }
 
 }
