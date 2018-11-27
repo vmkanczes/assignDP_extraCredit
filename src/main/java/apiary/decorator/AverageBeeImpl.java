@@ -17,6 +17,30 @@ import main.java.apiary.builder.BeeType;
  * attributes.
  */
 public class AverageBeeImpl implements IBee {
+    
+    private BeeType type;
+    
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    public AverageBeeImpl(BeeType beeType) {
+        this.type = beeType;
+    }
+
+    /**
+     * Method: setType 
+     * Inputs: 
+     * Returns: enum BeeType
+     * 
+     * <p>Description: Sets the type of bee.
+     */
+    @Override public void setType(BeeType beeType) {
+        this.type = beeType;
+    }
 
     /**
      * Method: getType 
@@ -26,7 +50,7 @@ public class AverageBeeImpl implements IBee {
      * <p>Description: Gets the type of bee.
      */
     @Override public BeeType getType() {
-        return BeeType.REGULAR;
+        return this.type;
     }
 
     /**
@@ -113,6 +137,19 @@ public class AverageBeeImpl implements IBee {
 
         return beeAttributes;
 
+    }
+
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    @Override
+    public void laidEggs(IBee bee, int reproduction) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

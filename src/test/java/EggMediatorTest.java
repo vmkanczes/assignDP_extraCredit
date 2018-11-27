@@ -9,13 +9,11 @@ Description: Test the bee attributes created using decorator design pattern
 package test.java;
 
 import main.java.apiary.builder.BeeType;
-import main.java.apiary.decorator.AverageBeeImpl;
-import main.java.apiary.decorator.GermanQueenBee;
 import main.java.apiary.decorator.IBee;
-import main.java.apiary.decorator.ItalianWorkerBee;
 import main.java.apiary.mediator.EggMediatorImpl;
 import main.java.apiary.mediator.Queen;
 import main.java.apiary.mediator.Worker;
+import main.java.apiary.singleton.Apiary;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
@@ -35,6 +33,8 @@ public class EggMediatorTest {
     private Queen queenBee;
     private Worker workerBee;
     private IBee italianWorkerBee;
+    private IBee italianQueenBee;
+    private IBee germanWorkerBee;
     private IBee germanQueenBee;
 
     /**
@@ -49,8 +49,12 @@ public class EggMediatorTest {
         nature = new EggMediatorImpl();
         queenBee = new Queen(nature);
         workerBee = new Worker(nature);
-        italianWorkerBee = new ItalianWorkerBee(new AverageBeeImpl());
-        germanQueenBee = new GermanQueenBee(new AverageBeeImpl());     
+        germanWorkerBee = Apiary.getInstance().addWorkerBee(BeeType.GERMAN);
+        germanQueenBee = Apiary.getInstance().addWorkerBee(BeeType.GERMAN);
+
+        italianQueenBee = Apiary.getInstance().addQueenBee(BeeType.ITALIAN);
+        italianWorkerBee = Apiary.getInstance().addQueenBee(BeeType.ITALIAN);
+
     }
 
     /**
@@ -71,7 +75,7 @@ public class EggMediatorTest {
     @Test public void laidEggsTest() {
 
         // lay eggs
-        queenBee.laidEggs(BeeType.GERMAN, germanQueenBee.getReproduction());
+        queenBee.feedEggs(germanQueenBee, germanQueenBee.getGentleness());
               
         Assert.assertThat(nature.getEggStatus().toString(), 
                 CoreMatchers.containsString("Hungry eggs 5 of type GERMAN"));         
@@ -84,9 +88,20 @@ public class EggMediatorTest {
      */
     @Test public void feedEggsTest() {
 
-        // feed eggs
-        workerBee.feedEggs(BeeType.ITALIAN, italianWorkerBee.getHoneyProduction());       
+        workerBee.feedEggs(italianWorkerBee, italianWorkerBee.getGentleness());
         Assert.assertThat(nature.getEggStatus().toString(), 
                 CoreMatchers.containsString("Pollinated bees 5 of type ITALIAN"));         
+    }
+    
+    /**
+     * Method: eatEggsTest Inputs: Returns:
+     * 
+     * <p>Description: Check each attribute, role and type.
+     */
+    @Test public void eatEggsTest() {
+
+        queenBee.eatEggs(germanQueenBee, germanQueenBee.getGentleness());
+        Assert.assertThat(nature.getEggStatus().toString(), 
+                CoreMatchers.containsString("Pollinated bees 5 of type GERMAN"));         
     }
 }

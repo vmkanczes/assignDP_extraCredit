@@ -8,7 +8,7 @@ Date: Nov 24, 2018
 Description: Stores the concrete class used in mediator.
  */
 
-import main.java.apiary.builder.BeeType;
+import main.java.apiary.decorator.IBee;
 
 /**
 Class:
@@ -18,7 +18,7 @@ Description: Creates the methods used for the egg laying and feeding and eating.
 public class EggCare {
 
     private int eggs = 0;
-    private BeeType type;
+    private IBee bee;
     
     /**
      * Method: Constructor
@@ -27,9 +27,9 @@ public class EggCare {
      * 
      *  <p>Description: keeps track of the eggs.
      */
-    public EggCare(BeeType beeType, int numberOfEggs) {
+    public EggCare(IBee ibee, int numberOfEggs) {
         eggs = numberOfEggs;
-        type = beeType;
+        bee = ibee;
     }
     
     /**
@@ -43,8 +43,8 @@ public class EggCare {
         return eggs;
     }
     
-    public BeeType getType() {
-        return type;
+    public IBee getBee() {
+        return bee;
     }
     
 }

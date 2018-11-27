@@ -18,6 +18,8 @@ import main.java.apiary.builder.BeeType;
  */
 public class CarniolanQueenBee extends AttributeDecoratorImpl {
 
+    private BeeType type;
+    
     /**
      * Constructor Input: newBee
      * 
@@ -47,7 +49,7 @@ public class CarniolanQueenBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's friendliness.
      */
     @Override public int getGentleness() {
-        return tempBee.getGentleness();
+        return tempBee.getGentleness() - 1;
     }
 
     /**
@@ -82,7 +84,7 @@ public class CarniolanQueenBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction() + 2;
+        return tempBee.getReproduction() - 1;
     }
 
     /**
@@ -126,6 +128,31 @@ public class CarniolanQueenBee extends AttributeDecoratorImpl {
                 );
         
         return beeAttributes;
+    }
+    
+    /**
+    Method:
+    Inputs: 
+    Returns: 
+    
+    Description: 
+    */
+   @Override
+   public void setType(BeeType beeType) {
+           this.type = beeType;
+   }
+
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    @Override
+    public void laidEggs(IBee bee, int reproduction) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

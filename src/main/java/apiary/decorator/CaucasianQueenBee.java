@@ -17,6 +17,8 @@ Description: This class is to create an Caucasian bee with specific attributes.
  */
 public class CaucasianQueenBee extends AttributeDecoratorImpl {
     
+    private BeeType type;
+    
     public CaucasianQueenBee(IBee newBee) {
         super(newBee);
         
@@ -75,7 +77,7 @@ public class CaucasianQueenBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction() - 1;
+        return tempBee.getReproduction() + 2;
     }
     
     /**
@@ -119,6 +121,31 @@ public class CaucasianQueenBee extends AttributeDecoratorImpl {
                 );
         
         return beeAttributes;
+    }
+    
+    /**
+    Method:
+    Inputs: 
+    Returns: 
+    
+    Description: 
+    */
+   @Override
+   public void setType(BeeType beeType) {
+           this.type = beeType;
+   }
+
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    @Override
+    public void laidEggs(IBee bee, int reproduction) {
+        // TODO Auto-generated method stub
+        
     }
     
 }
