@@ -17,6 +17,8 @@ Description: This class is to create an German ordinary bee with specific attrib
  */
 public class ItalianQueenBee extends AttributeDecoratorImpl {
     
+    private BeeType type;
+    
     public ItalianQueenBee(IBee newBee) {
         super(newBee);
         
@@ -41,7 +43,7 @@ public class ItalianQueenBee extends AttributeDecoratorImpl {
      Description: Get the bee's friendliness.
      */
     @Override public int getGentleness() {
-        return tempBee.getGentleness() - 1;
+        return tempBee.getGentleness() + 2;
     }
     
     /**
@@ -52,7 +54,7 @@ public class ItalianQueenBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to produce honey.
      */
     @Override public int getHoneyProduction() {
-        return tempBee.getHoneyProduction() - 3;
+        return tempBee.getHoneyProduction() + 2;
     }
     
     /**
@@ -119,6 +121,31 @@ public class ItalianQueenBee extends AttributeDecoratorImpl {
                 );
         
         return beeAttributes;
+    }
+    
+    /**
+    Method:
+    Inputs: 
+    Returns: 
+    
+    Description: 
+    */
+   @Override
+   public void setType(BeeType beeType) {
+           this.type = beeType;
+   }
+
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    @Override
+    public void laidEggs(IBee bee, int reproduction) {
+        // TODO Auto-generated method stub
+        
     }
     
 }

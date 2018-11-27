@@ -43,7 +43,7 @@ import org.junit.Test;
  */
 public class BeeAttributeTest {
 
-    private IBee averageBee;
+    private IBee regularBee;
     private IBee germanWorkerBee;
     private IBee italianWorkerBee;
     private IBee buckfastWorkerBee;
@@ -69,19 +69,19 @@ public class BeeAttributeTest {
      */
     @Before public void setUp() throws Exception {
         // create bees to verify their role, type and attributes are correct
-        averageBee = new AverageBeeImpl();
-        germanWorkerBee = new GermanWorkerBee(new AverageBeeImpl());
-        italianWorkerBee = new ItalianWorkerBee(new AverageBeeImpl());
-        buckfastWorkerBee = new BuckfastWorkerBee(new AverageBeeImpl());
-        carniolanWorkerBee = new CarniolanWorkerBee(new AverageBeeImpl());
-        russianWorkerBee = new RussianWorkerBee(new AverageBeeImpl());
-        caucasianWorkerBee = new CaucasianWorkerBee(new AverageBeeImpl());
-        germanQueenBee = new GermanQueenBee(new AverageBeeImpl());
-        italianQueenBee = new ItalianQueenBee(new AverageBeeImpl());
-        buckfastQueenBee = new BuckfastQueenBee(new AverageBeeImpl());
-        carniolanQueenBee = new CarniolanQueenBee(new AverageBeeImpl());
-        russianQueenBee = new RussianQueenBee(new AverageBeeImpl());
-        caucasianQueenBee = new CaucasianQueenBee(new AverageBeeImpl());
+        regularBee = new AverageBeeImpl(BeeType.REGULAR);
+        germanWorkerBee = new GermanWorkerBee(new AverageBeeImpl(BeeType.GERMAN));
+        italianWorkerBee = new ItalianWorkerBee(new AverageBeeImpl(BeeType.ITALIAN));
+        buckfastWorkerBee = new BuckfastWorkerBee(new AverageBeeImpl(BeeType.BUCKFAST));
+        carniolanWorkerBee = new CarniolanWorkerBee(new AverageBeeImpl(BeeType.CARNIOLAN));
+        russianWorkerBee = new RussianWorkerBee(new AverageBeeImpl(BeeType.RUSSIAN));
+        caucasianWorkerBee = new CaucasianWorkerBee(new AverageBeeImpl(BeeType.CAUCASIAN));
+        germanQueenBee = new GermanQueenBee(new AverageBeeImpl(BeeType.GERMAN));
+        italianQueenBee = new ItalianQueenBee(new AverageBeeImpl(BeeType.ITALIAN));
+        buckfastQueenBee = new BuckfastQueenBee(new AverageBeeImpl(BeeType.BUCKFAST));
+        carniolanQueenBee = new CarniolanQueenBee(new AverageBeeImpl(BeeType.CARNIOLAN));
+        russianQueenBee = new RussianQueenBee(new AverageBeeImpl(BeeType.RUSSIAN));
+        caucasianQueenBee = new CaucasianQueenBee(new AverageBeeImpl(BeeType.CAUCASIAN));
         
         
     }
@@ -92,7 +92,7 @@ public class BeeAttributeTest {
      * <p>Description: Removes all of the bee objects
      */
     @After public void tearDown() throws Exception {
-        averageBee = null;
+        regularBee = null;
         germanWorkerBee = null;
         italianWorkerBee = null;
         buckfastWorkerBee = null;
@@ -211,13 +211,13 @@ public class BeeAttributeTest {
      */
     @Test public void averageBeeTest() {
 
-        assertTrue("Gentleness is incorrect", 3 == averageBee.getGentleness());
-        assertTrue("Honey production is incorrect", 3 == averageBee.getHoneyProduction());
-        assertTrue("Pollination is incorrect", 3 == averageBee.getPollination());
-        assertTrue("Reproduction is incorrect", 3 == averageBee.getReproduction());
-        assertTrue("Wax production is incorrect", 3 == averageBee.getWaxProduction());
-        assertTrue(Objects.equals(BeeType.REGULAR, averageBee.getType()));
-        assertTrue(Objects.equals(BeeRole.REGULAR, averageBee.getRole()));
+        assertTrue("Gentleness is incorrect", 3 == regularBee.getGentleness());
+        assertTrue("Honey production is incorrect", 3 == regularBee.getHoneyProduction());
+        assertTrue("Pollination is incorrect", 3 == regularBee.getPollination());
+        assertTrue("Reproduction is incorrect", 3 == regularBee.getReproduction());
+        assertTrue("Wax production is incorrect", 3 == regularBee.getWaxProduction());
+        assertTrue(Objects.equals(BeeType.REGULAR, regularBee.getType()));
+        assertTrue(Objects.equals(BeeRole.REGULAR, regularBee.getRole()));
 
     }
     
@@ -334,7 +334,7 @@ public class BeeAttributeTest {
         String testString = "REGULAR REGULAR Gentleness: 3 Honey Production: 3 "
                 + "Pollination: 3 Reproduction: 3 Wax Production: 3 ";
 
-        assertEquals(testString, averageBee.toString());
+        assertEquals(testString, regularBee.toString());
 
         testString = "GERMAN WORKER Gentleness: 2 Honey Production: 5 "
                 + "Pollination: 2 Reproduction: 1 Wax Production: 3 ";

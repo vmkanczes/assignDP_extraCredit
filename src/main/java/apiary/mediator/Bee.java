@@ -8,7 +8,7 @@ Date: Nov 24, 2018
 Description: Abstract class to be able to build different types of bees.
  */
 
-import main.java.apiary.builder.BeeType;
+import main.java.apiary.decorator.IBee;
 
 /**
  * Class: Bee
@@ -30,9 +30,9 @@ public abstract class Bee {
     
     Description: Notifies how many eggs have been laid.
     */
-    public void laidEggs(BeeType type, int eggsLaid) {
+    public void laidEggs(IBee bee, int eggs) {
 
-        mediator.laidEggs(type, eggsLaid);
+        mediator.laidEggs(bee, eggs);
     }
     
     /**
@@ -42,9 +42,9 @@ public abstract class Bee {
      
      Description: Notifies how many eggs can be fed.
      */
-    public void feedEggs(BeeType type, int eggsThatCanBeFed) {
+    public void feedEggs(IBee bee, int eggs) {
 
-        mediator.feedEggs(type, eggsThatCanBeFed);
+        mediator.feedEggs(bee, eggs);
     }
     
     /**
@@ -54,9 +54,9 @@ public abstract class Bee {
     
     Description: Notifies how many eggs have been eaten.
     */
-    public void eatEggs(BeeType type, int eggsEaten) {
+    public void eatEggs(IBee bee, int eggs) {
 
-        mediator.eatEggs(type, eggsEaten);
+        mediator.eatEggs(bee, eggs);
     }
 
 }

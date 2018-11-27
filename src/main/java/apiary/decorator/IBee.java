@@ -79,9 +79,16 @@ public interface IBee  {
      Description: Get the bee's role such as queen, worker, drone or spawner.
      */
     public BeeRole getRole();
-    
-    
-    
-    
+
+    /**
+     Method: setType
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    public void setType(BeeType beeType);
+
+    public void laidEggs(IBee bee, int reproduction); 
     
 }

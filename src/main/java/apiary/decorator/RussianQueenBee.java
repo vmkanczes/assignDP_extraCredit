@@ -17,6 +17,8 @@ Description: This class is to create an Russian bee with specific attributes.
  */
 public class RussianQueenBee extends AttributeDecoratorImpl {
     
+    private BeeType type;
+    
     public RussianQueenBee(IBee newBee) {
         super(newBee);
         
@@ -41,7 +43,7 @@ public class RussianQueenBee extends AttributeDecoratorImpl {
      Description: Get the bee's friendliness.
      */
     @Override public int getGentleness() {
-        return tempBee.getGentleness() - 2;
+        return tempBee.getGentleness();
     }
     
     /**
@@ -75,7 +77,7 @@ public class RussianQueenBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to help make baby bees.
      */
     @Override public int getReproduction() {
-        return tempBee.getReproduction() - 2;
+        return tempBee.getReproduction();
     }
     
     /**
@@ -119,6 +121,31 @@ public class RussianQueenBee extends AttributeDecoratorImpl {
                 );
         
         return beeAttributes;
+    }
+    
+    /**
+    Method:
+    Inputs: 
+    Returns: 
+    
+    Description: 
+    */
+   @Override
+   public void setType(BeeType beeType) {
+           this.type = beeType;
+   }
+
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    @Override
+    public void laidEggs(IBee bee, int reproduction) {
+        // TODO Auto-generated method stub
+        
     }
     
 }

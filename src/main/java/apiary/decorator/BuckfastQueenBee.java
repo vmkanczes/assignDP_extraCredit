@@ -18,6 +18,8 @@ import main.java.apiary.builder.BeeType;
  */
 public class BuckfastQueenBee extends AttributeDecoratorImpl {
 
+    private BeeType type;
+    
     public BuckfastQueenBee(IBee newBee) {
         super(newBee);
 
@@ -42,7 +44,7 @@ public class BuckfastQueenBee extends AttributeDecoratorImpl {
      * <p>Description: Get the bee's friendliness.
      */
     @Override public int getGentleness() {
-        return tempBee.getGentleness() - 2;
+        return tempBee.getGentleness();
     }
 
     /**
@@ -120,6 +122,31 @@ public class BuckfastQueenBee extends AttributeDecoratorImpl {
                 + "Wax Production: " + getWaxProduction() + " ");
 
         return beeAttributes;
+    }
+    
+    /**
+    Method:
+    Inputs: 
+    Returns: 
+    
+    Description: 
+    */
+   @Override
+   public void setType(BeeType beeType) {
+           this.type = beeType;
+   }
+
+    /**
+     Method:
+     Inputs: 
+     Returns: 
+     
+     Description: 
+     */
+    @Override
+    public void laidEggs(IBee bee, int reproduction) {
+        // TODO Auto-generated method stub
+        
     }
 
 }

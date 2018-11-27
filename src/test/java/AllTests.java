@@ -18,8 +18,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * 
  * <p>Description: This will run each test of the bee application.
  */
-@RunWith(Suite.class) 
-@SuiteClasses({
+@RunWith(Suite.class) @SuiteClasses({
     HiveBuilderTest.class, BeeAttributeTest.class, 
     RoomBuilderTest.class, ApiarySingletonTest.class,
     EggMediatorTest.class}) public class AllTests {
