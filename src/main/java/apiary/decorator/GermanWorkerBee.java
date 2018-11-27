@@ -33,7 +33,7 @@ public class GermanWorkerBee extends AttributeDecoratorImpl {
      * <p>Description: Gets the type of bee.
      */
     @Override public BeeType getType() {
-        return this.type;
+        return BeeType.GERMAN;
     }
 
     /**

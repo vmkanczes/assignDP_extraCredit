@@ -54,7 +54,7 @@ public class ItalianQueenBee extends AttributeDecoratorImpl {
      Description:  Get the bee's ability to produce honey.
      */
     @Override public int getHoneyProduction() {
-        return tempBee.getHoneyProduction() + 2;
+        return tempBee.getHoneyProduction() - 3;
     }
     
     /**
